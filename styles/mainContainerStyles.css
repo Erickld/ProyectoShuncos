@@ -1,0 +1,13 @@
+/* lg applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    #main-container{
+        padding-top: 40px!important;
+    }
+}
+
+#main-container{
+    padding-top: 50.6px;
+    height: calc(100vh - 56px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
