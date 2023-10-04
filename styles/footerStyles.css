@@ -1,0 +1,30 @@
+#footer-container {
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.text-footer {
+    color: #F2F2F2;
+    text-decoration: none;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+/*Medium devices (tablets, less than 767.98px)*/
+@media (max-width: 767.98px) { 
+    .items-footer {
+        display: none!important;
+    }
+    #footer-container {
+        justify-content: center;
+    }
+}
