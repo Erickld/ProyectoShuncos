@@ -1,0 +1,86 @@
+#my-navbar {
+    background-color: rgb(0, 0, 0, 1)!important;
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    width: 100vw;
+    padding: 0px;
+}
+
+.white-color {
+    color: #F2F2F2;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.white-color:hover {
+    color: #F2A71B!important;
+}
+
+.white-color:visited {
+    color: #F2F2F2;
+}
+
+.nav-flex {
+    display: flex;
+    letter-spacing: 2px;
+}
+
+.nav-flex > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#navbarSupportedContent {
+    flex-direction: row-reverse;
+    letter-spacing: 1px;
+}
+
+.btn-nav {
+    border-radius: 2px;
+    background-color: transparent;
+    color: white;
+    border: white 1px solid;
+}
+
+.btn-nav:hover {
+    background-color: transparent;
+    color: #F2A71B;
+    border: #F2A71B 1px solid;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("../assets/svg/burger-menu.svg");
+}
+
+.custom-toggler {
+    border: 0px!important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none!important;
+}
+
+.nav-icons {
+    color: #F2F2F2;
+    cursor: pointer;
+    display: none;
+}
+
+/* lg applies to medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    #navbarSupportedContent > ul {
+        align-items: center;
+    }
+    .button-nav {
+        display: none;
+    }
+    .nav-flex {
+        margin: 15px;
+    }
+    .nav-icons {
+        display: initial;
+    }
+}
