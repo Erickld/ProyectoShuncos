@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <!-- Estilos Nav Bar -->
+        <link rel="stylesheet" href="./styles/navBarStyles.css">
+        <!-- Estilos Main Container -->
+        <link rel="stylesheet" href="./styles/mainContainerStyles.css">
+        <!-- Estilos Footer -->
+        <link rel="stylesheet" href="./styles/footerStyles.css">
+        <style>
+            .row {
+                height: 50%;
+            }
+            .color-1 {
+                background: #e1eec3;
+                background: -webkit-linear-gradient(to left, #f05053, #e1eec3);
+                background: linear-gradient(to left, #f05053, #e1eec3);
+            }
+            .color-2 {
+                background: #22c1c3;
+                background: -webkit-linear-gradient(to left, #fdbb2d, #22c1c3);
+                background: linear-gradient(to left, #fdbb2d, #22c1c3);
+            }
+            .color-3 {
+                background: #36D1DC;
+                background: -webkit-linear-gradient(to left, #5B86E5, #36D1DC);
+                background: linear-gradient(to left, #5B86E5, #36D1DC);
+            }
+            .color-4 {
+                background: #ee0979;
+                background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
+                background: linear-gradient(to left, #ff6a00, #ee0979);
+            }
+            .color-5 {
+                background: #f4c4f3;
+                background: -webkit-linear-gradient(to left, #fc67fa, #f4c4f3);
+                background: linear-gradient(to left, #fc67fa, #f4c4f3);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <nav id="nav-bar-container"></nav>
+        </header>
+
+        <main id="main-container">
+            <!-- Modificar Contenido -->
+            <div class="row gx-3">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="./assets/img/tekit.jpeg" class="d-block w-100" alt="Tekit">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Tekit</h5>
+                          <p>Tekit la cuna de las Guayaberas.</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/img/ProcesoGuayaberas.PNG" class="d-block w-100" alt="ProcesoGuayabera">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Proceso de la Guayabera</h5>
+                          <p>Nuestras Guayaberas llevan todo el proceso.</p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./assets/img/carrusel3.jpg" class="d-block w-100" alt="Carrusel">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Conjunto guayabera vestido</h5>
+                          <p>Presentación de uno de nuestras combinaciones.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Siguiente</span>
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Fin Modificar Contenido -->
+        </main>
+
+        <footer id="footer-container" class="p-3"></footer>
+
+        <!-- Load Nav Bar -->
+        <script src="./javascripts/loadNavBar.js"></script>
+        <!-- Load Footer -->
+        <script src="./javascripts/loadFooter.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>
