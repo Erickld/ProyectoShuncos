@@ -1,0 +1,19 @@
+.main-container{
+    width: 700px;
+    height: 500px;
+}
+.d-block{
+    background-size: cover;
+}
+
+.carousel-caption{
+
+}
+.carousel-item{
+
+}
+.carousel-inner{
+    height: auto;
+    max-width: 100%;
+    background-size: contain;
+}
