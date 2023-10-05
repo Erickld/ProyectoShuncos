@@ -8,6 +8,7 @@ header {
     position: fixed;
     width: 100vw;
     padding: 0px;
+    z-index: 999;
 }
 
 .white-color {

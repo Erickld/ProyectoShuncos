@@ -6,7 +6,11 @@
     --azul-dark-shuncos:#040C21;
     --monse-font:'Montserrat', sans-serif;
 }
-    
+
+* {
+    box-sizing: border-box;
+}
+
 .ajuste-rem {
     font-size: 62.5%;
 }
