@@ -1,13 +1,21 @@
 /* lg applies to medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-    #main-container{
-        padding-top: 40px!important;
+html {
+    font-size: 62.5%;
+}
+
+@media (max-width: 100rem) {
+    .navbar-brand {
+        height: 5rem;
     }
 }
 
 #main-container{
-    padding-top: 50.6px;
     height: calc(100vh - 56px);
     overflow-y: scroll;
     overflow-x: hidden;
+    margin-top: 2rem;
+}
+
+.nav-bar-header {
+    height: 5rem;
 }
