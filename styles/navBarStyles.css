@@ -1,4 +1,6 @@
-
+header {
+    height: 50.6px;
+}
 
 #my-navbar {
     background-color: rgb(0, 0, 0, 1)!important;
@@ -85,5 +87,8 @@
     }
     .nav-icons {
         display: initial;
+    }
+    header {
+        height: 40px;
     }
 }
