@@ -14,12 +14,12 @@ gap: 80px;
 }
 
 .card-img-top{
-    background-color: #F2A718;
+    background-color: white;
     border-radius: 150px;
     width: 200px;
     height: 200px;
     margin: 30px;
-    border: 5px solid #a62447;
+    border: 2px solid #a62447;
     
 }
 
@@ -29,14 +29,21 @@ gap: 80px;
 } 
 
 .card{
-    background-image: linear-gradient(rgba(0, 0, 94, 0.286), rgba(255, 255, 255, 0.754)),
+    background-image: linear-gradient(rgba(10, 4, 5, 0.345), rgba(255, 255, 255, 0.784)),
     url("../assets/img/devs_2.jpg");
     background-size:contain;
+    border-radius: 0px 0px 40px 40px;
+    margin-bottom: 20px;
+    box-shadow: 5px 10px 5px 0px gray;
+  
 }
 
 .card-body{
-    background-color: white;
+    background-color: #f2f2f2;
+    border-radius: 0px 0px 40px 40px;
     text-align: center;
+  
+   
 }
 
 .social{
@@ -51,3 +58,5 @@ gap: 80px;
     text-align:start;
     padding: 10px;
 }
+
+
