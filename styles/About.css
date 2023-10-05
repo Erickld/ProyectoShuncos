@@ -12,3 +12,42 @@ padding: 112px 64px;
 align-items: center;
 gap: 80px;
 }
+
+.card-img-top{
+    background-color: #F2A718;
+    border-radius: 150px;
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+    border: 5px solid #a62447;
+    
+}
+
+.social-icon{
+    align-content: center;
+    text-align: center;    
+} 
+
+.card{
+    background-image: linear-gradient(rgba(0, 0, 94, 0.286), rgba(255, 255, 255, 0.754)),
+    url("../assets/img/devs_2.jpg");
+    background-size:contain;
+}
+
+.card-body{
+    background-color: white;
+    text-align: center;
+}
+
+.social{
+    margin:20px;
+}
+.card-img{
+    display: flex;
+    justify-content:center;    
+}
+
+.card-text{
+    text-align:start;
+    padding: 10px;
+}
