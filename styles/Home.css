@@ -1,19 +1,11 @@
-.main-container{
-    width: 700px;
-    height: 500px;
+body{
+    background-color: var(--blanco-shuncos);
+    
 }
-.d-block{
-    background-size: cover;
-}
-
 .carousel-caption{
-
+    font-size: 1.5rem;
 }
+
 .carousel-item{
-
-}
-.carousel-inner{
-    height: auto;
-    max-width: 100%;
-    background-size: contain;
+    image-rendering: auto;
 }
