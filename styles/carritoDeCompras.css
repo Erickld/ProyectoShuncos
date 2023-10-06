@@ -10,6 +10,7 @@
 .icon--title i {
     font-size: 1.5rem; /* Size of the icon */
     margin-right: 1rem; /* Space between the icon and the title */
+    color: black;
 }
 
 /* Style fot the title with the class "shop-title" */
@@ -23,9 +24,10 @@
 .card-product {
     display: flex; 
     align-items:flex-start; 
+    margin-top: 1rem;
     background-color: #f2f2f2;
-    max-width: 800px;
-    border-radius: 10px;
+    max-width: 40rem;
+    border-radius: 1rem;
     /* border: 2px solid #a62447; */
 }
 
@@ -36,6 +38,9 @@
     width: 10rem; 
     height: 10rem; 
     margin-right: 3rem; /* Space between the icon and the title */
+    margin-top: 1rem;
+    padding-left: 1rem;
+    
 }
 
 /* Style fot the title for product 1" */
@@ -47,76 +52,55 @@
 }
 
 .product-options {
-    display: row; /* We use flexbox to align elements horizontally */
+    display: row;
     align-items: left; 
-    margin-left: 20px;
-    margin-top: 0px;
 }
 
-
-
 .bi-trash {
-    display:flex; /* We use flexbox to align elements horizontally */
-    margin-left: 500px;
-    margin-top: 20px;
+    display:flex; 
+    margin-left: 25rem;
+    margin-top: 1rem;
 }
 
 .cart-product-size {
     text-align: left;
     font-family: 'Nunito', sans-serif; 
-    font-size: 15px;
-    color: #333; 
+    font-size: 1rem;
+    color: rgba(0, 128, 0, 0.725); 
 }
 
 .cart-price {
     text-align: left;
     font-family: 'Nunito', sans-serif; 
-    font-size: 15px;
+    font-size: 1rem;
     color: #333; 
 }
 
-.number-control {
-    display: flex;
-    align-items: center;
-  }
-  
-.number-left::before,
-.number-right::after {
-    content: attr(data-content);
-    background-color: #333333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    width: 20px;
-    color: white;
-    transition: background-color 0.3s;
-    cursor: pointer;
-  }
-  
-  .number-left::before {
-    content: "-";
-  }
-  
-  .number-right::after {
-    content: "+";
-  }
-  
-  .number-quantity {
-    padding: 0.25rem;
-    border: 0;
-    width: 50px;
-    -moz-appearance: textfield;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-  }
-  
-  .number-left:hover::before,
-  .number-right:hover::after {
-    background-color: #666666;
-  }
-  
+.cart-quantity {
+  border: 1rem solid var(--text-color);
+  outline-color: var(--main-color);
+  width: 2.4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: 'Nunito', sans-serif; 
+}
+
+.total {
+  margin-top: 1rem;
+  border-top: 0.1rem solid black;
+}
+
+.total-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: right;
+  font-family: 'Nunito', sans-serif; 
+}
+
+.total-price {
+  font-size: 0.9rem;
+  text-align: right
+}
 
 
-
-
+  
