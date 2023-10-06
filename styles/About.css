@@ -16,25 +16,25 @@ gap: 80px;
 .card-img-top{
     background-color: white;
     border-radius: 150px;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin: 30px;
-    border: 2px solid #a62447;
+    border: 4px solid #a62447;
     
 }
 
 .social-icon{
     align-content: center;
-    text-align: center;    
+    text-align: center; 
 } 
 
 .card{
-    background-image: linear-gradient(rgba(10, 4, 5, 0.345), rgba(255, 255, 255, 0.784)),
+    background-image: linear-gradient(rgba(10, 4, 5, 0.154), rgba(255, 255, 255, 0.297)),
     url("../assets/img/devs_2.jpg");
-    background-size:contain;
     border-radius: 0px 0px 40px 40px;
     margin-bottom: 20px;
     box-shadow: 5px 10px 5px 0px gray;
+
   
 }
 
@@ -42,21 +42,38 @@ gap: 80px;
     background-color: #f2f2f2;
     border-radius: 0px 0px 40px 40px;
     text-align: center;
-  
-   
+    padding: 30px;   
+    border-top: 4px outset #F2A71B;
+    
+
 }
 
-.social{
-    margin:20px;
-}
 .card-img{
     display: flex;
     justify-content:center;    
 }
 
 .card-text{
+    font-family:"Montserrat";
     text-align:start;
     padding: 10px;
+    width: 100%;
+    height: 200px;
+    overflow-y:scroll;
+    Overflow: overlay;
+    margin-bottom: 20px;
+    font-size: 0.9rem; 
 }
 
+.card-title { 
+    font-size: 1.2rem;
+}
+.social{
+    margin:20px;
+}
+ h6{
+    font-family: "Montserrat";
+    margin-top: 20px;
+    margin-bottom: 20px;
+ }
 
