@@ -7,7 +7,7 @@
         </a>
         <div>
             <i class="navbar-toggler bi bi-person-fill nav-icons"></i>
-            <i class="navbar-toggler bi bi-cart nav-icons"></i>
+            <i class="navbar-toggler bi bi-cart nav-icons" onclick="mostrarCarrito()"></i>
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -15,16 +15,16 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item me-2 nav-flex">
+                <li class="nav-item me-2 nav-flex subrayar">
                     <a class="nav-link white-color font-14" aria-current="page" href="#">Inicio</a>
                 </li>
-                <li class="nav-item me-2 nav-flex">
+                <li class="nav-item me-2 nav-flex subrayar">
                     <a class="nav-link white-color font-14" href="#">Tienda</a>
                 </li>
-                <li class="nav-item me-2 nav-flex">
+                <li class="nav-item me-2 nav-flex subrayar">
                     <a class="nav-link white-color font-14" href="#">Sobre Nosotros</a>
                 </li>
-                <li class="nav-item me-2 nav-flex">
+                <li class="nav-item me-2 nav-flex subrayar">
                     <a class="nav-link white-color font-14" href="#">Contactanos</a>
                 </li>
                 <li class="nav-item me-2 button-nav">
@@ -37,7 +37,7 @@
                 </li>
                 <li class="nav-item me-2 button-nav">
                     <a class="nav-link" href="#">
-                        <button type="button" class="btn btn-warning btn-nav font-14">
+                        <button type="button" class="btn btn-warning btn-nav font-14" onclick="mostrarCarrito()">
                             <i class="bi bi-cart"></i>
                             Carrito
                         </button>
@@ -47,3 +47,12 @@
         </div>
     </div>
 </nav>
+<div class="ventana-carrito">
+    <h2 class="carrito-titulo">Your Cart</h2>
+    <div class="carrito-contenido">
+        <div class="carrito-box">
+
+        </div>
+    </div>
+    <i class="bi bi-x-lg" id="carrito-cerrar" onclick="ocultarCarrito()"></i>
+</div>
