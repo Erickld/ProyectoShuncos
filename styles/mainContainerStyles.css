@@ -1,13 +1,36 @@
-/* lg applies to medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-    #main-container{
-        padding-top: 40px!important;
-    }
+:root {
+    --rojo-shuncos:#A62447;
+    --verde-shuncos:#0A7360;
+    --amarillo-shuncos:#F2A71B;
+    --blanco-shuncos:#F2F2F2;
+    --azul-dark-shuncos:#040C21;
+    --monse-font:'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.ajuste-rem {
+    font-size: 62.5%;
 }
 
 #main-container{
-    padding-top: 50.6px;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 50.6px - 49.6px);
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: var(--blanco-shuncos);
+}
+
+
+@media (max-width: 991.98px) { 
+    #main-container{
+        height: calc(100vh - 40px - 49.6px);
+    }
+}
+
+@media (max-width: 767.98px) { 
+    #main-container{
+        height: calc(100vh - 40px - 40px);
+    }
 }
