@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Generic Page in HTML Folder</title>
+        <title>Contáctanos</title>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -25,19 +25,49 @@
     </head>
 
     <body>
-        <header class="nav-bar-header">
+        <header class="header-navbar">
             <nav id="nav-bar-container"></nav>
         </header>
 
-        <main id="main-container contact">
-            <h1>CONTACTA CON NOSOTROS</h1>
-            <h3 id="queremos-escucharte">Queremos escucharte</h3>
-            <div class="redes">
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-whatsapp"></i>
-                <i class="bi bi-facebook"></i>
+        <main id="main-container ">
+            <div class="container-fluid contact">
+                <div class="formulario">
+                    <h1>CONTACTA CON NOSOTROS</h1>
+                    <h3 id="queremos-escucharte">Queremos escucharte</h3>
+                    <div class="redes">
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-whatsapp"></i>
+                        <i class="bi bi-facebook"></i>
+                    </div>
+                    <p>Si quieres información sobre cualquiera de nuestros productos,
+                        rellena nuestro formulario y nos pondremos en contacto contigo lo antes posible.</p>
+
+                    <form class="contact-form" action="">
+                        <fieldset>
+                            <legend>Información de contacto</legend>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Dirección de correo electrónico</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="phone"">
+                            </div>
+                            <div class="mb-3">
+                                <label for="comment" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="comment" rows="3"></textarea>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    
+                </div>
+                <div class="imagen-contacto">
+                    <img class="img-sup" src="../assets/img/soporte.webp" alt="img-contacto">
+                </div>
             </div>
-        </div>
+
+            
         </main>
 
         <footer id="footer-container" class="p-3"></footer>

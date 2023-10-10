@@ -1,5 +1,30 @@
 .contact {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     margin: 1rem 0 0 0;
+    gap: 5rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    max-width: 50%;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+}
+
+.bi {
+    margin: 1rem
+}
+
+.img-sup {
+    max-height: 80%;
+    max-width: 80%;
 }
