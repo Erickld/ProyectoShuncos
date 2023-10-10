@@ -7,6 +7,10 @@
     --monse-font:'Montserrat', sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .ajuste-rem {
     font-size: 62.5%;
 }
@@ -15,6 +19,7 @@
     height: calc(100vh - 50.6px - 49.6px);
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: var(--blanco-shuncos);
 }
 
 

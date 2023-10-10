@@ -24,60 +24,80 @@
     <link rel="stylesheet" href="../styles/About.css">
 
 
-</head>
+        <main id="main-container">
+            <!-- Contenedor con imagen-->
+            <div class="container-fluid" id="img-container">
+                <div class="col-12">
+                    <h1> ACERCA DE NOSOTROS</h1>
+                </div>
+            </div>
+    
+           <!-- Acerca de la compañia--> 
+        <div class="container-fluid" id="about-company">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Acerca de Shuncos</h4>
+                <p>Shuncos” es una palabra de origen zapoteco, que significa “pequeño”, haciendo  alusión al más pequeño de una familia.
+                    Buscamos transformar el negocio de guayaberas mediante la expansión
+                    geográfica a través de la venta en línea, la optimización de la gestión de inventario
+                    y la promoción del trabajo artesanal, introduciendo en el mercado diferentes
+                    modelos de guayaberas y ofreciendo a nuestros clientes la posibilidad de personalizar su
+                    prenda. <br>Actualmente, los artesanos yucatecos fabricantes de guayaberas enfrentan desafíos significativos en cuanto a la promoción y comercialización de sus productos.
+                    La falta de acceso a la web ha limitado sus oportunidades, obligándolos a vender sus creaciones de manera local 
+                    o depender de intermediarios extranjeros que no siempre valoran adecuadamente su trabajo.
+                    Esto no solo afecta a los artesanos individualmente, sino que también tiene un impacto en la economía local y en la rica tradición cultural de Yucatán.
+                </p>
+                    <h4>Misión</h4>
+                    <p>Ofrecer una experiencia de compra en línea excepcional con guayaberas
+                    auténticas y de alta calidad a precios accesibles, destacando la importancia
+                    cultural y artesanal de esta prenda icónica. Buscamos empoderar a los artesanos
+                    locales y conectar el pasado con el presente a través de la moda.
+                    </p>
 
-<body>
-    <header>
-        <nav id="nav-bar-container"></nav>
-    </header>
+                    <h4>Visión</h4>
+                    <p>Consolidar nuestra plataforma y ser el e-commerce líder en venta de guayaberas
+                        artesanales en México, contribuyendo a la promoción y conservación del trabajo
+                        artesanal.
+                        En un plazo de 10 años queremos convertirnos en un referente en producción y
+                        venta de ropa tradicional de México dentro y fuera del país y expandir nuestro
+                        catálogo más allá del estado de Yucatán, poniendo a disposición de locales y
+                        extranjeros la belleza de la cultura de los diferentes estados del país.
+                    </p>
 
-    <main id="main-container">
-        <!-- Contenedor con imagen-->
-        <div class="container-fluid" id="img-container">
-            <div class="col-12">
-                <h1> Acerca de nosotros</h1>
+            </div>
+
+            <div class="container-fluid col-md-6 ">
+              <img id="imagen-aboutus" src="../assets/img/WhatsApp Image 2023-10-04 at 2.11.26 PM.jpeg" alt="imagen_referencia">
             </div>
         </div>
 
-        <!-- Acerca de la compañia-->
-        <div class="container-sm" id="about-company">
-            <div class="row">
-                <div class="col">
-                    <h2>Acerca de "Shuncos"</h2>
-                    <p>Buscamos transformar el negocio de guayaberas mediante la expansión
-                        geográfica a través de la venta en línea, la optimización de la gestión de inventario
-                        y la promoción del trabajo artesanal, introduciendo en el mercado diferentes
-                        modelos de guayaberas y ofreciendo al cliente la posibilidad de personalizar su
-                        prenda. </p>
-                </div>
-                <div class="col">
-                    <img src="" alt="imagen_referencia">
-                </div>
-            </div>
+
         </div>
 
         <!--Introduccion team-->
         <div class="container-sm" id="team">
-            <h2 id="titulo-team"> Nuestro equipo de Desarrollo </h2>
+            <h3 id="titulo-team"> Nuestro equipo de Desarrollo </h3><br>
             <!--Inicio de las cards-->
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1   row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card">
                         <div class="card-img">
-                            <img src="/assets/img/profile.jpg" class="card-img-top" alt="Profile image">
+                            <img src="/assets/img/Aaron.png" class="card-img-top" alt="Profile image">
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Aarón González Mendiola</h4>
-                            <h6> Job title</h6>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quae
-                                exercitationem tempore, dolorum facere reprehenderit illum aspernatur vel minus a magnam
-                                quibusdam consequuntur fuga, necessitatibus laudantium assumenda vero neque asperiores.
-                                Accusantium velit quas tempore quis quos officia vero blanditiis perspiciatis nostrum in
-                                amet quo reprehenderit, rem expedita voluptas nesciunt nobis..</p>
+                            <h6> Java Developer</h6>
+                            <p class="card-text">Mi interés en el mundo de la
+                                programación y el desarrollo web me ha llevado a iniciar mi camino en el ámbito de las
+                                tecnologías, con el objetivo de adquirir experiencia en el diseño
+                                UX/UI. Estoy emocionado por explorar este campo y contribuir a la innovación digital.
+                                <br>
+                            </p>
                             <div class="social-icon">
-                                <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin social"></i></a>
-                                <a href="https://github.com" target="_blank"> <i
-                                    class="bi bi-github social"></i></a>
+                                <a href="https://www.linkedin.com/in/aar%C3%B3n-gonz%C3%A1lez-mendiola-09bb8ba7/"
+                                    target="_blank"><i class="bi bi-linkedin social"></i></a>
+                                <a href="https://github.com/aaronmendiola93" target="_blank"> <i
+                                        class="bi bi-github social"></i></a>
                             </div>
                         </div>
                     </div>
@@ -89,16 +109,21 @@
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Berenice Toriz Vázquez</h4>
-                            <h6> Job title</h6>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore
-                                accusantium dignissimos est possimus ullam, voluptate aspernatur quisquam sunt quaerat
-                                minus quod tempora impedit molestiae molestias cupiditate sed fuga omnis consequuntur
-                                incidunt itaque atque? Commodi voluptatibus obcaecati architecto quo, quaerat magnam
-                                neque asperiores doloribus quam, sed perferendis inventore tenetur provident esse.</p>
+                            <h6> Java Developer</h6>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quae
+                                exercitationem tempore, dolorum facere reprehenderit illum aspernatur vel minus a magnam
+                                quibusdam consequuntur fuga, necessitatibus laudantium assumenda vero neque asperiores.
+                                Accusantium velit quas tempore quis quos officia vero blanditiis perspiciatis nostrum in
+                                amet quo reprehenderit, rem expedita voluptas nesciunt nobis tempore quis quos officia
+                                vero blanditiis perspiciatis nostrum in
+                                amet quo reprehenderit, rem expedita voluptas nesciunt nobistempore quis quos officia
+                                vero blanditiis perspiciatis nostrum in
+                                amet quo reprehenderit, rem expedita voluptas nesciunt nobistempore quis quos officia
+                                vero blanditiis perspiciatis nostrum in
+                                amet quo reprehenderit, rem expedita voluptas nesciunt nobis . </p>
                             <div class="social-icon">
                                 <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin social"></i></a>
-                                <a href="https://github.com" target="_blank"> <i
-                                    class="bi bi-github social"></i></a>
+                                <a href="https://github.com" target="_blank"> <i class="bi bi-github social"></i></a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +135,7 @@
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Erick de Jesús Luciano Duarte</h4>
-                            <h6> Job title</h6>
+                            <h6> Java Developer</h6>
                             <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore
                                 accusantium dignissimos est possimus ullam, voluptate aspernatur quisquam sunt quaerat
                                 minus quod tempora impedit molestiae molestias cupiditate sed fuga omnis consequuntur
@@ -118,8 +143,7 @@
                                 neque asperiores doloribus quam, sed perferendis inventore tenetur provident esse.</p>
                             <div class="social-icon">
                                 <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin social"></i></a>
-                                <a href="https://github.com" target="_blank"> <i
-                                    class="bi bi-github social"></i></a>
+                                <a href="https://github.com" target="_blank"> <i class="bi bi-github social"></i></a>
                             </div>
                         </div>
                     </div>
@@ -127,11 +151,11 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-img">
-                            <img src="/assets/img/ingrid.png" class="card-img-top" alt="Profile image">
+                            <img src="/assets/img/Ingrid.png" class="card-img-top" alt="Profile image">
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Ingrid Jeraldin Martínez Sánchez</h4>
-                            <h6> Job title</h6>
+                            <h6> Java Developer</h6>
                             <p class="card-text">Soy una entusiasta de la tecnología y la programación, enfocada en el
                                 desarrollo web. Tengo conocimientos sólidos en HTML, CSS y JavaScript, y disfruto
                                 creando páginas web atractivas y funcionales. Me apasiona la combinación de creatividad
@@ -140,8 +164,7 @@
                             </p>
                             <div class="social-icon">
                                 <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin social"></i></a>
-                                <a href="https://github.com" target="_blank"><i
-                                    class="bi bi-github social"></i></a>
+                                <a href="https://github.com" target="_blank"><i class="bi bi-github social"></i></a>
                             </div>
                         </div>
                     </div>
@@ -149,11 +172,11 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-img">
-                            <img src="/assets/img/kevin.png" class="card-img-top" alt="Profile image">
+                            <img src="/assets/img/Jessica.png" class="card-img-top" alt="Profile image">
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Jessica Geraldine Solis Guzmán</h4>
-                            <h6> Job title</h6>
+                            <h6> Java Developer</h6>
                             <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore
                                 accusantium dignissimos est possimus ullam, voluptate aspernatur quisquam sunt quaerat
                                 minus quod tempora impedit molestiae molestias cupiditate sed fuga omnis consequuntur
@@ -173,7 +196,7 @@
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Jesús Emmanuel Méndez Villegas</h4>
-                            <h6> Job title</h6>
+                            <h6> Java Developer</h6>
                             <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore
                                 accusantium dignissimos est possimus ullam, voluptate aspernatur quisquam sunt quaerat
                                 minus quod tempora impedit molestiae molestias cupiditate sed fuga omnis consequuntur
@@ -181,8 +204,7 @@
                                 neque asperiores doloribus quam, sed perferendis inventore tenetur provident esse.</p>
                             <div class="social-icon">
                                 <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin social"></i></a>
-                                <a href="https://github.com" target="_blank"> <i
-                                    class="bi bi-github social"></i></a>
+                                <a href="https://github.com" target="_blank"> <i class="bi bi-github social"></i></a>
                             </div>
                         </div>
                     </div>
@@ -190,11 +212,11 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-img">
-                            <img src="/assets/img/profile.jpg" class="card-img-top" alt="Profile image">
+                            <img src="/assets/img/Kevin.png" class="card-img-top" alt="Profile image">
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Kevin Mauricio Perez Pérez</h4>
-                            <h6> Job title</h6>
+                            <h6> Java Developer</h6>
                             <p class="card-text">Soy un ingeniero industrial apasionado por la tecnología y la
                                 informática. Mi interés creció desde la universidad, donde aprendí Java, hasta completar
                                 un diplomado en inteligencia artificial y un bootcamp de desarrollo web. Disfruto
@@ -202,8 +224,7 @@
                                 historias y los deportes, que me brindan libertad física y mental.</p>
                             <div class="social-icon">
                                 <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin social"></i></a>
-                                <a href="https://github.com" target="_blank"> <i
-                                    class="bi bi-github social"></i></a>
+                                <a href="https://github.com" target="_blank"> <i class="bi bi-github social"></i></a>
                             </div>
                         </div>
                     </div>
