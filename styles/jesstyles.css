@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(#);
+    background-color: #f2f2f2;
+    background-size: cover;
+}
+
+.container-form {
+    display: flex;
+    border: solid thin #040c21;
+    border-radius: 20px;
+    box-shadow: 0 5px 7px #0a7360;
+    transition: 1s;
+    box-shadow: 5 5px;
+    height: 500px;
+    max-width: 900px;
+
+}
+
+.information {
+align-items: center;
+width: 40%;
+display: flex;
+text-align: center;
+background-color: white;
+border-bottom-left-radius: 20px;
+border-top-left-radius: 20px ;
+}
+
+.infochilds {
+    width: 100%;
+    padding: 0 30px;
+
+}
+
+.infochilds p{
+    font-size: 1.5rem;
+}
+
+#shuncos span {
+    color: #0a7360;
+
+}
+
+.infochilds input{
+    margin: 30px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    border: solid 2px #F2A718;
+    box-shadow: 0 5px 7px #040c21;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.infochilds input:hover{
+    background-color: #A62447;
+    border: none;
+
+}
+
+.infochilds img{
+    height: 100px;
+    width: 100px;
+    
+    
+}
+
+.form-information {
+    border:  #040c21;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 60%;
+
+}
+
+.form-information-child{
+    padding: 0 30px;
+
+}
+
+.form-information-child h2{
+    font-size: 1rem;
+    padding: 10px;
+    align-content: center;
+    text-align: center;
+}
+
+.form-information-child p {
+    font-size: 1rem;
+    align-content: center;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.form {
+    margin: 30px 0 0 0;
+
+}
+.form label{
+    border: solid thin #040c21;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 0px 10px;
+    box-shadow: 0 2px 5px #0a7360 (0, 0, 0, .1);
+    
+}
+
+.form label input{
+    width: 100%;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    align-items: center;
+    align-content: center;
+
+}
+
+.form label i {
+    color: #a7a7a7;
+}
+
+.form input[value="Registrarme"] {
+    margin: 30px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    border: solid 2px #A62447;
+    box-shadow: 0 5px 7px #040c21;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    align-content: center;
+
+}
+
+.form input[value="Registrarme"]:hover {
+    background-color: #F2A718;
+    border: none;
+}

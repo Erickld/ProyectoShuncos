@@ -20,36 +20,12 @@
         <link rel="stylesheet" href="./styles/mainContainerStyles.css">
         <!-- Estilos Footer -->
         <link rel="stylesheet" href="./styles/footerStyles.css">
-        <style>
-            .row {
-                height: 50%;
-            }
-            .color-1 {
-                background: #e1eec3;
-                background: -webkit-linear-gradient(to left, #f05053, #e1eec3);
-                background: linear-gradient(to left, #f05053, #e1eec3);
-            }
-            .color-2 {
-                background: #22c1c3;
-                background: -webkit-linear-gradient(to left, #fdbb2d, #22c1c3);
-                background: linear-gradient(to left, #fdbb2d, #22c1c3);
-            }
-            .color-3 {
-                background: #36D1DC;
-                background: -webkit-linear-gradient(to left, #5B86E5, #36D1DC);
-                background: linear-gradient(to left, #5B86E5, #36D1DC);
-            }
-            .color-4 {
-                background: #ee0979;
-                background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
-                background: linear-gradient(to left, #ff6a00, #ee0979);
-            }
-            .color-5 {
-                background: #f4c4f3;
-                background: -webkit-linear-gradient(to left, #fc67fa, #f4c4f3);
-                background: linear-gradient(to left, #fc67fa, #f4c4f3);
-            }
-        </style>
+        <link rel="stylesheet" href="./styles/jesstyles.css">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@100&family=Skranji&display=swap" rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     </head>
 
     <body>
@@ -75,7 +51,12 @@
                 <div class="color-4 col-3"></div>
             </div>
             <!-- Fin Modificar Contenido -->
-        </main>
+
+          
+</div>
+
+    
+        </main> 
 
         <footer id="footer-container" class="p-3"></footer>
 
@@ -87,6 +68,54 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
-    </body>
 
+           
+
+
+    
+            <div class="container-form register">
+                <div class="information"> 
+                    <div class="infochilds"> 
+                        <p> Bienvenido a </p> <br>
+                        <img src="./img/logo.jpeg" alt="Logo de Shuncos">
+                        <input type="button" value="Iniciar Sesión" id="sign-in">
+                    </div>
+            
+                </div>
+                  <div class="form-information">
+                    
+                    <div class="form-information-child">
+                        <h2> Crear Cuenta</h2>
+                        <p> Ingresa tus datos para crear una cuenta </p>
+                        <form class="form">
+                            <label>
+                              <i class="bx bx-user"></i>
+                              <input type="text" placeholder="Nombre Completo" >
+                            
+                              </label>
+                 
+                              <label>
+                                 <i class="bx bx-user-circle"></i>
+                               <input type="text" placeholder="Nombre de Usuario" >
+                              
+                              </label> 
+                              <label>
+                                 <i class="bx bx-envelope"></i>
+                                <input type="email" placeholder="Correo Electrónico">
+                              </label> 
+                              <label>
+                                 <i class="bx bx-lock-alt"></i>
+                                <input type="password" placeholder="Contraseña" >
+                              </label>
+                              <input type="button" value="Registrarme">
+            
+                         </form>
+        
+                    </div>
+                    
+                  </div>
+        
+                
+            
+</body>
 </html>
