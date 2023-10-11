@@ -1,30 +1,41 @@
-.contact {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1rem 0 0 0;
-    gap: 5rem;
-}
-
-.formulario {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    max-width: 50%;
-}
+@import url(mainContainerStyles.css);
 
 .redes {
     display: flex;
     justify-content: center;
+    gap: 2rem;
 }
+
+#submit-contact {
+    width: 100%;
+}
+
+@media (min-width: 768px){
+    #submit-contact {
+        width: max-content;
+    }
+}
+
+.contacto {
+    -webkit-box-shadow: 3px 4px 25px 0px rgba(107,107,107,0.75);
+    -moz-box-shadow: 3px 4px 25px 0px rgba(107,107,107,0.75);
+    box-shadow: 3px 4px 25px 0px rgba(107,107,107,0.75);
+
+    border-radius: 10px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
 
 .bi {
     margin: 1rem
 }
 
-.img-sup {
-    max-height: 80%;
-    max-width: 80%;
+#i-insta, #i-whatsapp, #i-facebook {
+    height: 50px;
+    width: 50px;
 }
+
