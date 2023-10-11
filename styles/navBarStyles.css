@@ -1,9 +1,14 @@
+header {
+    height: 50.6px;
+}
+
 #my-navbar {
     background-color: rgb(0, 0, 0, 1)!important;
     font-family: 'Montserrat', sans-serif;
     position: fixed;
     width: 100vw;
     padding: 0px;
+    z-index: 100;
 }
 
 .white-color {
