@@ -1,5 +1,5 @@
 #img-container{
-    background-image:linear-gradient(rgba(255, 255, 255, 0.428), rgba(8, 8, 8, 0.497)), 
+    background-image:linear-gradient(rgba(255, 255, 255, 0.341), rgba(8, 8, 8, 0.758)), 
     url("../assets/img/portada1.jpeg");
     width: 100%;
     height: 50%;
@@ -31,8 +31,8 @@
 }
 h1{
     font-family: 'Nunito', sans-serif;
-    color:black;
-    font-size: 3.5rem;    
+    color:rgb(255, 255, 255) ;
+    font-size: 3.5rem;
 }
 .text-about{
     font-family: 'Montserrat', sans-serif;  
