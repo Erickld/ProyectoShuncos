@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+
 header {
     height: 50.6px;
 }
@@ -11,6 +13,12 @@ header {
     z-index: 100;
 }
 
+.nav-bar-title {
+    font-family: 'Skranji';
+    letter-spacing: 3px;
+    
+}
+
 .white-color {
     color: #F2F2F2;
 }
@@ -21,6 +29,7 @@ header {
 
 .white-color:hover {
     color: #F2A71B!important;
+    transition: 0.5s;
 }
 
 .white-color:visited {
@@ -46,14 +55,15 @@ header {
 .btn-nav {
     border-radius: 2px;
     background-color: transparent;
-    color: white;
-    border: white 1px solid;
+    color: #F2F2F2;
+    border: #F2F2F2 1px solid;
 }
 
 .btn-nav:hover {
     background-color: transparent;
     color: #F2A71B;
     border: #F2A71B 1px solid;
+    transition: 0.5s;
 }
 
 .custom-toggler .navbar-toggler-icon {
