@@ -120,15 +120,15 @@
 
                             <div class="col-md-12">
                                 <label for="name-modelo" class="form-label">Nombre de modelo</label>
-                                <input type="text" class="form-control" id="name-modelo" required>
+                                <input type="text" class="form-control" id="name-modelo">
                                 <!-- class = is-valid -->
                                 <!-- class = is-invalid -->
-                                <!--div class="valid-feedback">
-                                    Looks good!
+                                <div class="valid-feedback">
+                                    Nombre correcto
                                 </div>
                                 <div class="invalid-feedback">
-                                    Looks bad!
-                                </div-->
+                                    Ingresa el nombre del modelo
+                                </div>
                             </div>
 
                             <div class="col-md-12">
@@ -168,11 +168,17 @@
                                     </label>
                                 </div>
                             </div>
+
+
+                            <!--div class="col-md-12 adulto">
+                                <p style="color: red; margin-top: .25rem; font-size: .875em; color: var(--bs-form-invalid-color);">Ingresa por lo menos una talla</p>
+                            </div-->
+                            
                             
                             <div class="col-md-2 adulto">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="adulto-t34" onclick="addTalla('adulto', '34')">
-                                    <label class="form-check-label" for="adulto-t34">Talla 34</label>
+                                    <label class="form-check-label is-invalid" for="adulto-t34">Talla 34</label>
                                 </div>
                             </div>
                             <div class="col-md-2 adulto">
@@ -285,7 +291,7 @@
                                 <label for="precio" class="form-label">Precio</label>
                                 <div class="input-group">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control" id="precio" min="0" placeholder="$00.00" required>
+                                    <input type="number" class="form-control" id="precio" min="0" placeholder="$00.00">
                                     <span class="input-group-text">MXN</span>
                                 </div>
                             </div>
@@ -358,6 +364,14 @@
             document.getElementById('add-new-product').addEventListener('click', () => {
                 let modelo = document.getElementById('name-modelo');
                 console.log(modelo.value);
+                if (modelo.value == "") {
+                    modelo.classList.remove('is-valid')
+                    modelo.classList.add('is-invalid')
+                } else {
+                    modelo.classList.remove('is-invalid')
+                    modelo.classList.add('is-valid')
+                }
+
 
                 let imagen = document.getElementById('img-prod');
                 console.log(imagen.files[0]);

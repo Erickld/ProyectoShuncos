@@ -29,6 +29,7 @@ header {
 
 .white-color:hover {
     color: #F2A71B!important;
+    transition: 0.5s;
 }
 
 .white-color:visited {
@@ -62,6 +63,7 @@ header {
     background-color: transparent;
     color: #F2A71B;
     border: #F2A71B 1px solid;
+    transition: 0.5s;
 }
 
 .custom-toggler .navbar-toggler-icon {
