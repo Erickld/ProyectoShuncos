@@ -38,6 +38,23 @@
     --bs-tooltip-opacity: 1;
 }
 
-.icon-table {
+.icon-table-1 {
     cursor: pointer;
+    color: green;
+}
+
+.icon-table-2 {
+    cursor: pointer;
+    color: blue;
+}
+
+.icon-table-3 {
+    cursor: pointer;
+    color: red;
+}
+
+@media (max-width: 991.98px) { 
+    table {
+        width: 180vw!important;
+    }
 }
