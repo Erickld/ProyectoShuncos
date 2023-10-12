@@ -1,0 +1,57 @@
+.shop {
+    margin-top: 2rem;
+    font-style: var(--monse-font);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.product-box {
+    padding: 20px;
+}
+
+.product-info {
+    position: relative;
+}
+
+.product-info:hover {
+    padding: 10px!important;
+    border: 1px solid black;
+    transition: 0.4s;    
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-weight: 500;
+}
+
+.add-carrito {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+.add-carrito:hover {
+    background-color: var(--amarillo-shuncos);
+    color: black;
+    transition: 0.5s;
+}
