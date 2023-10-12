@@ -2,7 +2,6 @@
 function mostrarCarrito() {
     cart = document.querySelector('.ventana-carrito');
     cart.classList.add('mostrar');
-<<<<<<< HEAD
     var removerDelCarritoBoton = document.getElementsByClassName('cart-remove');
     console.log(removerDelCarritoBoton);
     for (var i = 0; i < removerDelCarritoBoton.length; i++) {
@@ -15,9 +14,6 @@ function mostrarCarrito() {
         var input = cantidadInputs[i]
         input.addEventListener("change", cantidadCambiada)
     }
-=======
-
->>>>>>> 4eafbf172fc857385fae2ecb9488b0293c53e7ee
 }
 
 //Cerrar carrito
