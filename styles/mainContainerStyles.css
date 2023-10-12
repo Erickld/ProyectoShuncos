@@ -16,8 +16,8 @@
 }
 
 #main-container{
-    height: calc(100vh - 50.6px - 49.6px);
-    overflow-y: scroll;
+    min-height: calc(100vh - 50.6px - 49.6px);
+    /* overflow-y: scroll; */
     overflow-x: hidden;
     background-color: var(--blanco-shuncos);
 }
