@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de Productos</title>
+        <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.png">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+            
+        <!-- Estilos Nav Bar -->
+        <link rel="stylesheet" href="../styles/navBarStyles.css">
+        <!-- Estilos Main Container -->
+        <link rel="stylesheet" href="../styles/mainContainerStyles.css">
+        <!-- Estilos Footer -->
+        <link rel="stylesheet" href="../styles/footerStyles.css">
+
+        <link rel="stylesheet" href="../styles/crudProducts.css">
+
+    </head>
+
+    <body>
+        <header>
+            <nav id="nav-bar-container"></nav>
+        </header>
+
+        <main id="main-container" class="monse-font">
+            <!-- Modificar Contenido -->
+            <section class="admin-products container">
+                <h2 class="table-title">Gestión de Productos</h2>
+
+                <div class="row mb-3">
+                    <div class="col-md-12 text-center">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="bi bi-plus-circle"></i>
+                            Nuevo Producto
+                        </button>
+                    </div>
+                    
+                </div>
+
+                <div class="row mb-3">
+
+                    <div class="col-md-12">
+                        <div class="input-group">
+
+                            <input type="text" class="form-control" placeholder="Buscar producto por modelo..." aria-label="Buscar producto por modelo...">
+                            <button type="button" class="btn btn-primary">
+                                <i class="bi bi-search"></i>
+                                Buscar
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="table-responsive-md">
+                        <table class="table table-striped table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">#ID</th>
+                                    <th class="text-center" scope="col">Imagen</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Tallas</th>
+                                    <th class="text-center" scope="col">Sexo</th>
+                                    <th class="text-center" scope="col">Precio</th>
+                                    <th class="text-center" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td class="text-center">
+                                        <i style="color: green" class="bi bi-image icon-table" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar imagen"></i>
+                                    </td>
+                                    <td>Guayabera Negra</td>
+                                    <td>40</td>
+                                    <td class="text-center">Mujer</td>
+                                    <td class="text-center">$40.00</td>
+                                    <td class="text-center">
+                                        <i style="color: blue;" class="bi bi-pencil-square icon-table" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar producto"></i>
+                                        <i style="color: red;" class="bi bi-trash3-fill icon-table" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
+                                    </td>
+                                    <!-- para_nino: boolean,
+                                    manga_larga_corta: boolean,
+                                    color: string,
+                                    isBordadoPersonalizado: boolean, -->
+                                </tr>
+                            </tbody>
+                        </table>
+                     </div>
+
+                </div>
+            </section>
+            <!-- Fin Modificar Contenido -->
+
+            <img id="img-from-local-storage">
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Producto</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="row g-3" id="form1">
+
+                            <div class="col-md-12">
+                                <label for="name-modelo" class="form-label">Nombre de modelo</label>
+                                <input type="text" class="form-control" id="name-modelo" required>
+                                <!-- class = is-valid -->
+                                <!-- class = is-invalid -->
+                                <!--div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Looks bad!
+                                </div-->
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="img-prod" class="form-label">Imagen del producto</label>
+                                <input type="file" class="form-control" id="img-prod" accept="image/*">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="tipo-manga" class="form-label">Tipo de Manga</label>
+                                <select class="form-select" id="tipo-manga">
+                                <option selected value="corta">Manga corta</option>
+                                <option value="larga">Manga larga</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="sexo" class="form-label">Sexo</label>
+                                <select class="form-select" id="sexo">
+                                <option selected value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="adulto" type="radio" name="talla" id="talla-adulto" onclick="mostrarTallas('adulto')" checked>
+                                    <label class="form-check-label" for="talla-adulto">
+                                        Tallas para adulto
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="nino" type="radio" name="talla" id="talla-nino" onclick="mostrarTallas('nino')">
+                                    <label class="form-check-label" for="talla-nino">
+                                        Tallas para niño
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t34" onclick="addTalla('adulto', '34')">
+                                    <label class="form-check-label" for="adulto-t34">Talla 34</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t36" onclick="addTalla('adulto', '36')">
+                                    <label class="form-check-label" for="adulto-t36">Talla 36</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t38" onclick="addTalla('adulto', '38')">
+                                    <label class="form-check-label" for="adulto-t38">Talla 38</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t40" onclick="addTalla('adulto', '40')">
+                                    <label class="form-check-label" for="adulto-t40">Talla 40</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t42" onclick="addTalla('adulto', '42')">
+                                    <label class="form-check-label" for="adulto-t42">Talla 42</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t44" onclick="addTalla('adulto', '44')">
+                                    <label class="form-check-label" for="adulto-t44">Talla 44</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t2" onclick="addTalla('nino', '2')">
+                                    <label class="form-check-label" for="nino-t2">Talla 2</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t4" onclick="addTalla('nino', '4')">
+                                    <label class="form-check-label" for="nino-t4">Talla 4</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t6" onclick="addTalla('nino', '6')">
+                                    <label class="form-check-label" for="nino-t6">Talla 6</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t8" onclick="addTalla('nino', '8')">
+                                    <label class="form-check-label" for="nino-t8">Talla 8</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t10" onclick="addTalla('nino', '10')">
+                                    <label class="form-check-label" for="nino-t10">Talla 10</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t12" onclick="addTalla('nino', '12')">
+                                    <label class="form-check-label" for="nino-t12">Talla 12</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t14" onclick="addTalla('nino', '14')">
+                                    <label class="form-check-label" for="nino-t14">Talla 14</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t16" onclick="addTalla('nino', '16')">
+                                    <label class="form-check-label" for="nino-t16">Talla 16</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t18" onclick="addTalla('nino', '18')">
+                                    <label class="form-check-label" for="nino-t18">Talla 18</label>
+                                </div>
+                            </div> 
+                            <div class="col-md-6 nino">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="color" class="form-label">Color de producto</label>
+                                <select class="form-select" id="color">
+                                <option selected value="negro">Negro</option>
+                                <option value="blanco">Blanco</option>
+                                <option value="hueso">Hueso</option>
+                                <option value="azul-cielo">Azul Cielo</option>
+                                <option value="azul-marino">Azul Marino</option>
+                                <option value="rojo">Rojo</option>
+                                <option value="turquesa">Turquesa</option>
+                                <option value="coral">Coral</option>
+                                <option value="rosa">Rosa</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="precio" class="form-label">Precio</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="precio" min="0" placeholder="$00.00" required>
+                                    <span class="input-group-text">MXN</span>
+                                </div>
+                            </div>
+                        </form>                          
+
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button id="add-new-product" type="submit" class="btn btn-success" form="form1">Aceptar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </main>
+
+
+
+        <footer id="footer-container" class="p-3"></footer>
+
+        <!-- Load Nav Bar -->
+        <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
+        <!-- Load Footer -->
+        <script src="../javascripts/loadFooter.js" fuente="htmlFolder"></script>
+        <!-- Load ventana de carrito -->
+        <script src="../javascripts/carritoVentana.js" fuente="htmlFolder"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous">
+        </script>
+
+        <script>
+            //Inicio de tooltips de bootstrap
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+            
+            let arrTallasNino = [];
+            let arrTallasAdulto = [];
+
+            function mostrarTallas(tipo) {
+                let tallasNinos = document.getElementsByClassName('nino');
+                let tallasAdulto = document.getElementsByClassName('adulto');
+                for (let talla of tallasNinos) {
+                    talla.style.display = (tipo == 'adulto') ? 'none' : 'block';
+                }
+                for (let talla of tallasAdulto) {
+                    talla.style.display = (tipo == 'adulto') ? 'block' : 'none';
+                }
+            }
+
+            function addTalla(tipo, talla) {
+
+                let array = (tipo == 'adulto') ? arrTallasAdulto : arrTallasNino;
+
+                if (array.includes(talla)) {
+                    array = array.filter(x => x != talla);
+                } else {
+                    array.push(talla);
+                }
+
+                if (tipo == 'adulto') {
+                    arrTallasAdulto = array;
+                } else {
+                    arrTallasNino = array;
+                }
+            }
+
+
+            document.getElementById('add-new-product').addEventListener('click', () => {
+                let modelo = document.getElementById('name-modelo');
+                console.log(modelo.value);
+
+                let imagen = document.getElementById('img-prod');
+                console.log(imagen.files[0]);
+
+                //imax = imagen.files[0];
+                // if (imax) {
+                //     const reader = new FileReader();
+                //     reader.addEventListener('load', () => {
+                //         localStorage.setItem('imax', reader.result);
+                //         const newImage = document.getElementById('img-from-local-storage',);
+                //         newImage.src = localStorage.getItem('imax');
+
+                //     });
+                //     reader.readAsDataURL(imax);
+                // }
+
+                let manga = document.getElementById("tipo-manga");
+                console.log(manga.value);
+                let sexo = document.getElementById("sexo");
+                console.log(sexo.value);
+
+                let tipoTalla = document.getElementById("talla-adulto");
+                console.log('Talla de adulto:', tipoTalla.checked)
+
+                //obtener valores faltantes...
+
+                //validar valores (alertas), input file -> (solo imagenes)
+
+                //crear objeto
+                //guardar en storage
+                //añadir a tabla
+            });
+
+        </script>
+    </body>
+
+</html>

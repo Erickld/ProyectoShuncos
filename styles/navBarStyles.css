@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+
 header {
     height: 50.6px;
 }
@@ -9,6 +11,12 @@ header {
     width: 100vw;
     padding: 0px;
     z-index: 100;
+}
+
+.nav-bar-title {
+    font-family: 'Skranji';
+    letter-spacing: 3px;
+    
 }
 
 .white-color {
@@ -46,8 +54,8 @@ header {
 .btn-nav {
     border-radius: 2px;
     background-color: transparent;
-    color: white;
-    border: white 1px solid;
+    color: #F2F2F2;
+    border: #F2F2F2 1px solid;
 }
 
 .btn-nav:hover {
