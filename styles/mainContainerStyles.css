@@ -22,15 +22,18 @@
     background-color: var(--blanco-shuncos);
 }
 
+.monse-font {
+    font-family: var(--monse-font)!important;
+}
 
 @media (max-width: 991.98px) { 
     #main-container{
-        height: calc(100vh - 40px - 49.6px);
+        min-height: calc(100vh - 40px - 49.6px);
     }
 }
 
 @media (max-width: 767.98px) { 
     #main-container{
-        height: calc(100vh - 40px - 40px);
+        min-height: calc(100vh - 40px - 40px);
     }
 }

@@ -3,8 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bienvenido</title>
-        <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.png">
+        <title>Generic Page in HTML Folder</title>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -16,12 +15,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
             rel="stylesheet">
         <!-- Estilos Nav Bar -->
-        <link rel="stylesheet" href="./styles/navBarStyles.css">
+        <link rel="stylesheet" href="../styles/navBarStyles.css">
         <!-- Estilos Main Container -->
-        <link rel="stylesheet" href="./styles/mainContainerStyles.css">
+        <link rel="stylesheet" href="../styles/mainContainerStyles.css">
         <!-- Estilos Footer -->
-        <link rel="stylesheet" href="./styles/footerStyles.css">
-        <link rel="stylesheet" href="./styles/Home.css">
+        <link rel="stylesheet" href="../styles/footerStyles.css">
+        <link rel="stylesheet" href="..//styles/Home.css">
     </head>
 
     <body>
@@ -32,24 +31,22 @@
         <main id="main-container">
             <!-- Modificar Contenido -->
             <div class="title">
-              <a href="./Home.html"><img id= "logo" src="./assets/img/shuncos_logo_nav_bar.png" alt="logo"></a>
-              <h1>Shuncos</h1>
-              <br>
-              <h2>Donde la tradición y la innovación se entrelazan en un tejido único.</h2>
-              <br>
-              <h2>Te damos la bienvenida.</h2>
+              <a href="./Home.html"><img id= "logo" src="../assets/img/shuncos_logo_nav_bar.png" alt="logo"></a>
+              <h1>SHUNCOS</h1>
+              <h2>Donde la tradición y la innovación se entrelazan en un tejido único</h2>
+              <h2>Te damos la bienvenida</h2>
             </div>
             
-            <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item bg-img-1 carrousel-img active">
-                  <!-- <img src="./assets/img/2.png" class="d-block img-fluid w-100" alt="..."> -->
+                <div class="carousel-item active">
+                  <img src="../assets/img/2.png" class="d-block w-100 mx-auto" alt="...">
                 </div>
-                <div class="carousel-item bg-img-2 carrousel-img">
-                  <!-- <img src="./assets/img/3.png" class="d-block img-fluid w-100" alt="..."> -->
+                <div class="carousel-item">
+                  <img src="..//assets/img/3.png" class="d-block w-100 mx-auto" alt="...">
                 </div>
-                <div class="carousel-item bg-img-3 carrousel-img">
-                  <!-- <img src="./assets/img/4.png" class="d-block img-fluid w-100" alt="..."> -->
+                <div class="carousel-item">
+                  <img src="..//assets/img/4.png" class="d-block w-100 mx-auto" alt="...">
                 </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -62,12 +59,12 @@
               </button>
             </div>
             
-            <!--div class="product-cards">
+            <div class="product-cards">
               <h3>Conoce nuestros productos</h3>
               <div class="card-group col-lg-12 col-md-12">
                 <div class="col-lg-4 col-md-12">
                   <div class="card" id="guayabera">
-                    <img src="./assets/img/guayaberas.jpeg" class="card-img-top img-fluid rounded mx-auto d-block" alt="guayabera">
+                    <img src="../assets/img/guayaberas.jpeg" class="card-img-top img-fluid rounded mx-auto d-block" alt="guayabera">
                     <div class="card-body">
                       <h5 class="card-title">Guayaberas</h5>
                       <p class="card-text">La guayabera, icónica prenda de vestir de origen latinoamericano, es una fusión perfecta de elegancia y comodidad. Con su diseño distintivo de botones y pliegues, esta camisa ligera es ideal para climas cálidos. La guayabera se destaca por su frescura y versatilidad, perfecta para eventos informales y ocasiones al aire libre. Su estilo atemporal y su aire sofisticado hacen de esta prenda un elemento esencial en cualquier guardarropa, agregando un toque de distinción y tradición a tu vestuario. La guayabera es la elección perfecta para quienes valoran la comodidad sin comprometer la elegancia</p>
@@ -79,7 +76,7 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                   <div class="card" id="conjunto">
-                    <img src="./assets/img/conjuntoMayab (2).jpg" class="card-img-top img-fluid rounded mx-auto d-block" alt="conjuntos">
+                    <img src="../assets/img/conjuntoMayab (2).jpg" class="card-img-top img-fluid rounded mx-auto d-block" alt="conjuntos">
                     <div class="card-body">
                       <h5 class="card-title">Conjuntos</h5>
                       <p class="card-text">Este conjunto combina lo mejor de dos mundos: una guayabera clásica y un vestido elegante. La guayabera aporta un toque de autenticidad y frescura con sus detalles distintivos, como los pliegues y los botones. El vestido, por su parte, agrega sofisticación y feminidad con su corte y diseño. Juntos, crean una combinación única que equilibra lo casual y lo elegante, perfecta para ocasiones especiales en climas cálidos. Este conjunto te permite lucir con estilo y comodidad, destacando tu personalidad y versatilidad en la moda.</p>
@@ -91,7 +88,7 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                   <div class="card" id="vestido">
-                    <img src=".//assets/img/vestidoFlores.jpg" class="card-img-top img-fluid rounded mx-auto d-block" alt="vestidos">
+                    <img src="..//assets/img/vestidoFlores.jpg" class="card-img-top img-fluid rounded mx-auto d-block" alt="vestidos">
                     <div class="card-body">
                       <h5 class="card-title">Vestidos</h5>
                       <p class="card-text">Este vestido tradicional es una expresión de la herencia cultural y la artesanía atemporal. Confeccionado con tejidos y técnicas autóctonas, este vestido rinde homenaje a las tradiciones y valores de una región específica. Su diseño refleja la historia y la identidad de la comunidad a la que pertenece, incorporando patrones, colores y detalles únicos que han sido transmitidos a lo largo de generaciones. Al usar este vestido, te sumerges en la rica historia y la belleza de la cultura que representa, honrando las raíces y el legado de una manera elegante y respetuosa.</p>
@@ -101,18 +98,16 @@
                     </div>
                   </div>
                 </div>
-              </div-->
+              </div>
             <!-- Fin Modificar Contenido -->
         </main>
 
         <footer id="footer-container" class="p-3"></footer>
 
         <!-- Load Nav Bar -->
-        <script src="./javascripts/loadNavBar.js" fuente="root"></script>
+        <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
         <!-- Load Footer -->
-        <script src="./javascripts/loadFooter.js" fuente="root"></script>
-        <!-- Load ventana de carrito -->
-        <script src="./javascripts/carritoVentana.js" fuente="htmlFolder"></script>
+        <script src="../javascripts/loadFooter.js" fuente="htmlFolder"></script>
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

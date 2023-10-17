@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+
 header {
     height: 50.6px;
+}
+
+#nav-bar-container {
+    height: 100%;
 }
 
 #my-navbar {
@@ -9,6 +15,12 @@ header {
     width: 100vw;
     padding: 0px;
     z-index: 100;
+}
+
+.nav-bar-title {
+    font-family: 'Skranji';
+    letter-spacing: 3px;
+    
 }
 
 .white-color {
@@ -21,6 +33,7 @@ header {
 
 .white-color:hover {
     color: #F2A71B!important;
+    transition: 0.5s;
 }
 
 .white-color:visited {
@@ -46,14 +59,15 @@ header {
 .btn-nav {
     border-radius: 2px;
     background-color: transparent;
-    color: white;
-    border: white 1px solid;
+    color: #F2F2F2;
+    border: #F2F2F2 1px solid;
 }
 
 .btn-nav:hover {
     background-color: transparent;
     color: #F2A71B;
     border: #F2A71B 1px solid;
+    transition: 0.5s;
 }
 
 .custom-toggler .navbar-toggler-icon {
@@ -119,17 +133,16 @@ header {
     transition-timing-function: cubic-bezier(0.2, 1, 0.82, 0.94);
 }
 
-/* CART BAR -----------------------> */
+/* ESTILOS VENTANA CARRITO -----------------------> */
 .ventana-carrito {
     position: fixed;
     top: 0;
     right: -100%;
     width: 360px;
-    min-height: calc(100vh - 49.6px);
+    height: 100vh;
     padding: 20px;
     background: var(--blanco-shuncos);
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
-    overflow-y: scroll;
     overflow-x: hidden;
     z-index: 110;
     transition: 1s;
@@ -142,6 +155,7 @@ header {
 .carrito-titulo {
     text-align: center;
     font-size: 1.5rem;
+    font-family: 'Nunito', sans-serif; 
     font-weight: 600;
     margin-top: 1.5rem;
 }
@@ -156,13 +170,104 @@ header {
 
 
 @media (max-width: 991.98px) { 
-    .carrito {
-        height: calc(100vh - 49.6px);
+    .ventana-carrito {
+        /* height: calc(100vh - 49.6px); */
+        height: 100vh;
     }
 }
 
 @media (max-width: 767.98px) { 
-    .carrito {
-        height: calc(100vh - 40px);
+    .ventana-carrito {
+        /* height: calc(100vh - 40px); */
+        height: 100vh;
+    }
+}
+
+
+
+.carrito-box {
+    display: grid;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.carrito-img {
+    width: 100px;
+    height: 100px;
+    background-color: white; 
+    object-fit: contain;
+    padding: 10px;    
+}
+
+.detalles-box {
+    display: grid;
+    row-gap: 0.5rem;
+}
+
+.titulo-producto-carrito {
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif; 
+    text-transform: uppercase;
+}
+
+.precio-producto-carrito {
+    font-size: 0.9rem;
+    font-family: 'Nunito', sans-serif; 
+}
+
+.cantidad-carrito {
+    border: 1px solid var(--text-color);
+    outline-color: var(--main-color);
+    width: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.bi-trash-fill {
+    font-size: 0.9rem;
+    color: black;
+    cursor: pointer;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline; /* alinea total-titulo y total-precio */
+    margin-top: 1rem;
+    border-top: 0.1rem solid black;
+}
+
+.subtotal-titulo {
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif; 
+}
+
+.subtotal-precio {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.d-grid {
+    display: flex;
+    margin-top: 16rem;
+    cursor: pointer;
+}
+
+.link-success  {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+
+@media (max-width: 576px) { 
+    .ventana-carrito {
+        width: 100vw;
     }
 }
