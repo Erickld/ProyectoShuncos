@@ -50,7 +50,6 @@ function updateSubTotal(){
         var precio = parseFloat(precioElemento.innerText.replace("$", ""));
         var cantidad = cantidadElemento.value;
         subtotal = subtotal + (precio * cantidad);
-
-        document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
     }
+    document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
 }
