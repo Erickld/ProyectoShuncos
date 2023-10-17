@@ -1,0 +1,11 @@
+body{
+    background-color: var(--blanco-shuncos);
+    
+}
+.carousel-caption{
+    font-size: 1.5rem;
+}
+
+.carousel-item{
+    image-rendering: auto;
+}
