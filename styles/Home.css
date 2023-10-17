@@ -17,6 +17,7 @@ body{
     height: 100%;
     min-height: 100vh;
     max-height: 100vh;
+    margin-bottom: 0%;
 }
 .carousel-item{
     overflow: hidden;
@@ -52,3 +53,20 @@ body{
 #vestido{
     background-color: var(--amarillo-shuncos);
 }
+@media (max-width: 768px) {
+    #carouselExampleControls{
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        max-height: 100vh;
+        margin-bottom: 0%;
+    }
+    .product-cards {
+        margin-top: 0%;
+        font-family: var(--monse-font);
+        padding: 5rem;
+        align-items: baseline;
+        text-align: center;
+        align-items: baseline;
+    }
+  }
