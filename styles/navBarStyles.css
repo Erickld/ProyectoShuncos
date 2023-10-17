@@ -262,7 +262,7 @@ header {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    margin-top: 0.7rem;
+    margin-top: 1.5rem;
     cursor: pointer;
 }
 
