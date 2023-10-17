@@ -14,6 +14,7 @@ function mostrarCarrito() {
         var input = cantidadInputs[i]
         input.addEventListener("change", cantidadCambiada)
     }
+    updateSubTotal();
 }
 
 //Cerrar carrito
@@ -40,7 +41,6 @@ function cantidadCambiada(event){
 
 //Actualizar el total 
 function updateSubTotal(){
-    var contenidoCarrito = document.getElementsByClassName('contenido-carrito')[0];
     var carritoBoxes = document.getElementsByClassName('carrito-box');
     var subtotal = 0;
     for (var i = 0; i < carritoBoxes.length; i++) {
