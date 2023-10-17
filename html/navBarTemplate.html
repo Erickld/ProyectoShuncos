@@ -48,12 +48,39 @@
         </div>
     </div>
 </nav>
+<!--Carrito-->
 <div class="ventana-carrito">
-    <h2 class="carrito-titulo">Your Cart</h2>
-    <div class="carrito-contenido">
-        <div class="carrito-box">
+    <h2 class="carrito-titulo">Prendas agregadas recientemente</h2>
+    <!--Carrito contenido-->
+    <div class="contenido-carrito">
 
+        <div class="carrito-box">
+            <img src="../assets/img/modeloGuayabera.png" alt="" class="carrito-img">
+            <div class="detalles-box">
+                <div class="titulo-producto-carrito">Picueta Coral</div>
+                <div class="precio-producto-carrito">$450</div>
+                <input type="number" value="1" class="cantidad-carrito" min="1" max="20">
+            </div>
+
+            <!--Remover del carrito-->
+            <i class="bi bi-trash-fill cart-remove"></i>
         </div>
     </div>
+    <!--Total-->
+    <div class="total">
+        <div class="total-titulo">Total</div>
+        <div class="total-precio">$0</div>
+    </div>
+    
+    <!--Boton de Ver Carrito y Comprar-->
+    <div class="d-grid gap-2 mx-auto">
+        <button class="btn btn-dark" type="button">
+            <i class="bi bi-cart-check"></i> Ver Carrito
+        </button>
+        <button class="btn btn-light" type="button">
+            <i class="bi bi-bag-fill"></i> Comprar
+        </button>
+    </div>
     <i class="bi bi-x-lg" id="carrito-cerrar" onclick="ocultarCarrito()"></i>
+    </div> 
 </div>

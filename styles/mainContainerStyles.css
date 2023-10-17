@@ -17,7 +17,7 @@
 
 #main-container{
     min-height: calc(100vh - 50.6px - 49.6px);
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     overflow-x: hidden;
     background-color: var(--blanco-shuncos);
 }
