@@ -22,6 +22,9 @@
     background-color: var(--blanco-shuncos);
 }
 
+.monse-font {
+    font-family: var(--monse-font)!important;
+}
 
 @media (max-width: 991.98px) { 
     #main-container{
