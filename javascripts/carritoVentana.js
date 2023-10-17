@@ -43,6 +43,7 @@ function cantidadCambiada(event){
 function updateSubTotal(){
     var carritoBoxes = document.getElementsByClassName('carrito-box');
     var subtotal = 0;
+    
     for (var i = 0; i < carritoBoxes.length; i++) {
         var carritoBox = carritoBoxes[i];
         var precioElemento = carritoBox.getElementsByClassName('precio-producto-carrito')[0];
@@ -50,7 +51,7 @@ function updateSubTotal(){
         var precio = parseFloat(precioElemento.innerText.replace("$", ""));
         var cantidad = cantidadElemento.value;
         subtotal = subtotal + (precio * cantidad);
-
-        document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
     }
+
+    document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
 }
