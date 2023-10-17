@@ -25,17 +25,17 @@
 
 .custom-tooltip-1 {
     --bs-tooltip-bg: green;
-    --bs-tooltip-opacity: 1;
+    --bs-tooltip-opacity: 0.8;
 }
 
 .custom-tooltip-2 {
     --bs-tooltip-bg: blue;
-    --bs-tooltip-opacity: 1;
+    --bs-tooltip-opacity: 0.8;
 }
 
 .custom-tooltip-3 {
     --bs-tooltip-bg: red;
-    --bs-tooltip-opacity: 1;
+    --bs-tooltip-opacity: 0.8;
 }
 
 .icon-table-1 {
