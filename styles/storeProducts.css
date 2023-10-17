@@ -1,3 +1,18 @@
+.hero {
+    background-color: black;
+    background-image: url(../assets/img/imgStore.jpg);
+    height: 15rem;
+    background-size: 70%;
+    background-position: center center; 
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 768px){
+    .hero {
+        height: 30rem;
+    }
+}
+
 .shop {
     margin-top: 2rem;
     font-style: var(--monse-font);
