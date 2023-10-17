@@ -32,7 +32,7 @@
 }
 
 /* Style for the image product */
-.producto-img {
+.product-cart {
     max-width: 100%; /* Ensures that the image does not overflow from the card */
     height: auto; /* Maintains original aspect ratio */
     width: 10rem; 
