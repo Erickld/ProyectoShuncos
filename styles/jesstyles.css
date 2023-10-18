@@ -29,7 +29,7 @@ body {
     transition: 1s;
     max-width: 900px;
     margin-top: 20px; 
-    background-color: #f2f2f2;
+     background-color: #f2f2f2;
 }
 
 #bienvenido {
@@ -49,9 +49,11 @@ border-top-left-radius: 20px ;
 }
 
 .infochilds h2{
-    font-size: 1.5rem;
     padding: 60px;
+    font-size: 1.5rem;
 }
+
+
 
 .infochilds input{
     margin: 30px;
@@ -96,7 +98,7 @@ border-top-left-radius: 20px ;
 
 .form-information-child h2{
     font-size: 1.5rem;
-    padding: 30px;
+    padding: 70px;
     align-content: center;
     text-align: center;
 }
@@ -167,9 +169,9 @@ border-top-left-radius: 20px ;
 
         body {
             background-image: url(../assets/img/portada1.jpeg);
-           /* background-color: #f2f2f2;*/
-            background-size: cover;
-            margin: 0;
+            /* background-color: #f2f2f2;*/
+             background-size: cover;
+             margin: 0;
         }
 
         #content-container {
@@ -209,7 +211,6 @@ border-top-left-radius: 20px ;
             font-size: 1.5rem;
         }
 
-       
 
         .infochilds input {
             margin: 10px auto; 
@@ -249,8 +250,8 @@ border-top-left-radius: 20px ;
         }
 
         .form-information-child h2 {
-            font-size: 1.5rem;
-            padding: 30px;
+            font-size: 1rem;
+            padding: 10px;
             align-content: center;
             text-align: center;
         }
@@ -391,3 +392,43 @@ border-top-left-radius: 20px ;
             align-content: center;
         }
         
+        #login-success-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 1;
+            max-width: 900px;
+            padding: 30px;
+            border: solid thin #040c21;
+            border-radius: 20px;
+            box-shadow: 0 5px 7px #0a7360;
+        }
+    
+        #login-success-popup p {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #registration-success-popup{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            z-index: 1;
+            max-width: 900px;
+            padding: 30px;
+            border: solid thin #040c21;
+            border-radius: 20px;
+            box-shadow: 0 5px 7px #0a7360;
+        }
+        #registration-success-popup p{
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
