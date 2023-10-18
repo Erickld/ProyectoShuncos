@@ -14,6 +14,7 @@ function mostrarCarrito() {
         var input = cantidadInputs[i]
         input.addEventListener("change", cantidadCambiada)
     }
+    updateSubTotal();
 }
 
 //Cerrar carrito
@@ -26,7 +27,7 @@ function ocultarCarrito() {
 function removerArticuloCarrito(event){
     var buttonClicked = event.target;
     buttonClicked.parentElement.remove();
-    updateTotal();
+    updateSubTotal();
 }
 
 //Cambios en la cantidad del carrito
@@ -35,23 +36,25 @@ function cantidadCambiada(event){
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1
     }
-    updateTotal();
+    if (isNaN(input.value) || input.value >20) {
+        input.value = 20
+    }
+    updateSubTotal();
+    
 }
 
 //Actualizar el total 
-function updateTotal(){
-    var contenidoCarrito = document.getElementsByClassName('contenido-carrito')[0];
+function updateSubTotal(){
     var carritoBoxes = document.getElementsByClassName('carrito-box');
-    var total = 0;
+    var subtotal = 0;
+    
     for (var i = 0; i < carritoBoxes.length; i++) {
         var carritoBox = carritoBoxes[i];
         var precioElemento = carritoBox.getElementsByClassName('precio-producto-carrito')[0];
         var cantidadElemento = carritoBox.getElementsByClassName('cantidad-carrito')[0];
         var precio = parseFloat(precioElemento.innerText.replace("$", ""));
         var cantidad = cantidadElemento.value;
-        total = total + (precio * cantidad);
-
-        document.getElementsByClassName('total-precio')[0].innerText = "$" + total;
+        subtotal = subtotal + (precio * cantidad);
     }
+    document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
 }
-

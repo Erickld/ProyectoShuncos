@@ -32,11 +32,10 @@
 }
 
 /* Style for the image product */
-.product-img {
+.product-cart {
     max-width: 100%; /* Ensures that the image does not overflow from the card */
     height: auto; /* Maintains original aspect ratio */
     width: 10rem; 
-    height: 10rem; 
     margin-right: 3rem; /* Space between the icon and the title */
     margin-top: 1rem;
     padding-left: 1rem;

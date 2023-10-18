@@ -38,17 +38,17 @@
     --bs-tooltip-opacity: 1;
 }
 
-.icon-table-1 {
+.icon-img {
     cursor: pointer;
     color: green;
 }
 
-.icon-table-2 {
+.icon-edit {
     cursor: pointer;
     color: blue;
 }
 
-.icon-table-3 {
+.icon-delete {
     cursor: pointer;
     color: red;
 }
@@ -57,4 +57,18 @@
     table {
         width: 180vw!important;
     }
+}
+
+.text-alert {
+    margin-top: .25rem;
+    font-size: .875em;
+    color: var(--bs-form-invalid-color);
+}
+
+.error-talla-e {
+    display: none;
+}
+
+.edit-imagen {
+    display: none;
 }

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" id="my-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand white-color nav-bar-title" href="#">
+        <a class="navbar-brand white-color nav-bar-title link-home" href="#">
             <img id="logo-shuncos-navbar" src="./assets/img/shuncos_logo_nav_bar.png" alt="Logo" width="30" height="24"
                 class="d-inline-block align-text-top">
             Shuncos
@@ -14,30 +14,29 @@
             </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
+            <ul class="navbar-nav mb-2 mb-lg-0 font-14">
                 <li class="nav-item me-2 nav-flex subrayar">
-                    <a class="nav-link white-color font-14" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link white-color  link-home" aria-current="page" href="#">Inicio</a>
                 </li>
                 <li class="nav-item me-2 nav-flex subrayar">
-                    <a class="nav-link white-color font-14" href="#">Tienda</a>
+                    <a class="nav-link white-color link-store" href="#">Tienda</a>
                 </li>
                 <li class="nav-item me-2 nav-flex subrayar">
-                    <a class="nav-link white-color font-14" href="#">Sobre Nosotros</a>
+                    <a class="nav-link white-color link-about-us" href="#">Sobre Nosotros</a>
                 </li>
                 <li class="nav-item me-2 nav-flex subrayar">
-                    <a class="nav-link white-color font-14" href="#">Contactanos</a>
+                    <a class="nav-link white-color link-contact-us" href="#">Contactanos</a>
                 </li>
                 <li class="nav-item me-2 button-nav">
                     <a class="nav-link" href="../login.html">
                         <button type="button" class="btn btn-warning btn-nav font-14" >
                             <i class="bi bi-person-fill"></i>
-                            Login / Register
+                            Inicio / Registro
                         </button>
                     </a>
                 </li>
                 <li class="nav-item me-2 button-nav">
-
-                    <a class="nav-link" href="#">
+                    <a class="nav-link">
                         <button type="button" class="btn btn-warning btn-nav font-14" onclick="mostrarCarrito()">
                             <i class="bi bi-cart"></i>
                             Carrito
@@ -48,12 +47,12 @@
         </div>
     </div>
 </nav>
+
 <!--Carrito-->
 <div class="ventana-carrito">
     <h2 class="carrito-titulo">Prendas agregadas recientemente</h2>
     <!--Carrito contenido-->
     <div class="contenido-carrito">
-
         <div class="carrito-box">
             <img src="../assets/img/modeloGuayabera.png" alt="" class="carrito-img">
             <div class="detalles-box">
@@ -61,26 +60,30 @@
                 <div class="precio-producto-carrito">$450</div>
                 <input type="number" value="1" class="cantidad-carrito" min="1" max="20">
             </div>
-
             <!--Remover del carrito-->
             <i class="bi bi-trash-fill cart-remove"></i>
         </div>
     </div>
-    <!--Total-->
-    <div class="total">
-        <div class="total-titulo">Total</div>
-        <div class="total-precio">$0</div>
+
+    <!--Subotal-->
+    <div class="subtotal">
+        <div class="subtotal-titulo">Subtotal</div>
+        <div class="subtotal-precio">$0</div>
     </div>
     
-    <!--Boton de Ver Carrito y Comprar-->
+    <!--Boton de Pagar-->
     <div class="d-grid gap-2 mx-auto">
         <button class="btn btn-dark" type="button">
-            <i class="bi bi-cart-check"></i> Ver Carrito
-        </button>
-        <button class="btn btn-light" type="button">
-            <i class="bi bi-bag-fill"></i> Comprar
+            <i class="bi bi-cart-check"></i> Pagar
         </button>
     </div>
+    <!--Terminos y Condiciones-->
+    <p>
+        <a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+            Términos y condiciones
+        </a>
+    </p>
     <i class="bi bi-x-lg" id="carrito-cerrar" onclick="ocultarCarrito()"></i>
-    </div> 
 </div>
+    
+        
