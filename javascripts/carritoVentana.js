@@ -36,7 +36,11 @@ function cantidadCambiada(event){
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1
     }
+    if (isNaN(input.value) || input.value >20) {
+        input.value = 20
+    }
     updateSubTotal();
+    
 }
 
 //Actualizar el total 
@@ -52,6 +56,5 @@ function updateSubTotal(){
         var cantidad = cantidadElemento.value;
         subtotal = subtotal + (precio * cantidad);
     }
-
     document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
 }
