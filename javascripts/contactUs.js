@@ -9,28 +9,48 @@ formularioContacto.onsubmit = (event) => {
 }
 
 function validarFormulario() {
-    let email = emailInput.value
-    const regEx = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
- 
-    if(regEx.test(email)){
-        alert("Correo correcto")
-    } else {
-        alert("correo incorrecto")
-    }
+    let correoValido = validarCorreo()
+    let telefonoValido = validarTelefono()
 
+    if(correoValido && telefonoValido){
+        console.log("son validos")
+        formularioContacto.submit()
+    }
+}
+
+function validarCorreo () {
+    const email = emailInput.value
+    const regEx = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+    
+
+    if(regEx.test(email)){
+        emailInput.classList.remove("is-invalid")
+        emailInput.classList.add("is-valid")
+        return true
+    } else {
+        emailInput.classList.remove("is-valid")
+        emailInput.classList.add("is-invalid")
+        return false
+    }
+}
+
+function validarTelefono() {
     let phone = phoneInput.value;
 
     if(isNaN(parseInt(phone))){
-        alert("Solo se permiten numeros en el telefóno");
+        phoneInput.classList.remove("is-valid")
+        phoneInput.classList.add("is-invalid")
+        return false
     } else {
         if(phone.length < 10 || phone.length > 10) {
-            alert("Tamaño incorrecto")
+            phoneInput.classList.remove("is-valid")
+            phoneInput.classList.add("is-invalid")
+            return false
         } else {
-            alert("El numero es correcto");
+            phoneInput.classList.remove("is-invalid")
+            phoneInput.classList.add("is-valid")
+            return true
         }
-    }
-
-    
-
+    }  
 }
 

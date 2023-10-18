@@ -1,16 +1,28 @@
+@import url(../styles/mainContainerStyles.css);
+
 .hero {
-    background-color: black;
-    background-image: url(../assets/img/imgStore.jpg);
+    background-image: url(../assets/img/portada4.jpeg);
     height: 15rem;
-    background-size: 70%;
-    background-position: center center; 
-    background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: repeat-x;
+    position: relative;
+} 
+
+@media(min-width: 768px){
+    .hero {
+        height: 25rem ;
+    }
 }
 
-@media (min-width: 768px){
-    .hero {
-        height: 30rem;
-    }
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+}
+
+.hero-title {
+    font-weight: bolder;
 }
 
 .shop {
@@ -29,20 +41,31 @@
     padding: 20px;
 }
 
-.product-info {
-    position: relative;
+
+.product-card {
+    background-color: var(--blanco-shuncos);
 }
 
-.product-info:hover {
-    padding: 10px!important;
-    border: 1px solid black;
-    transition: 0.4s;    
+.product-hover:hover {
+    padding: 1rem!important;
+    transition: 0.4s;
+    background-color: var(--blanco-shuncos);  
+      
+}
+
+.img-producto img {
+    width: 100%;
+    margin-bottom: .5rem;
 }
 
 .product-img {
     width: 100%;
     height: auto;
     margin-bottom: 0.5rem;
+}
+
+.info-producto {
+
 }
 
 .product-title {
@@ -69,4 +92,14 @@
     background-color: var(--amarillo-shuncos);
     color: black;
     transition: 0.5s;
+}
+
+#agregar-carrito {
+    width: 100%;
+}
+
+@media (min-width: 768px){
+    #agregar-carrito {
+        width: fit-content;
+    }
 }
