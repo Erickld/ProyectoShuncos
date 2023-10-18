@@ -106,7 +106,7 @@ function crearFila(prod) {
     newRow.id = prod.id;
 
     newRow.innerHTML = `
-    <th scope="row">${prod.id}</th>
+        <th scope="row">${prod.id}</th>
         <td>
             <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-image icon-img" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar imagen"></i>
         </td>
