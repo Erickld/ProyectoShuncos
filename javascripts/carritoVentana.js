@@ -2,13 +2,14 @@
 function mostrarCarrito() {
     cart = document.querySelector('.ventana-carrito');
     cart.classList.add('mostrar');
+//Remover articulo del carrituo
     var removerDelCarritoBoton = document.getElementsByClassName('cart-remove');
     console.log(removerDelCarritoBoton);
     for (var i = 0; i < removerDelCarritoBoton.length; i++) {
         var button = removerDelCarritoBoton[i]
         button.addEventListener('click', removerArticuloCarrito);
     }
-    //Cambios en la cantidad del carito
+//Cambios en la cantidad del carito
     var cantidadInputs = document.getElementsByClassName('cantidad-carrito')
     for (var i = 0; i < cantidadInputs.length; i++) {
         var input = cantidadInputs[i]
