@@ -65,3 +65,10 @@
     color: var(--bs-form-invalid-color);
 }
 
+.error-talla-e {
+    display: none;
+}
+
+.edit-imagen {
+    display: none;
+}
