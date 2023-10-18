@@ -14,6 +14,7 @@ if (arrProductos) {
 let arrTallasNino = [];
 let arrTallasAdulto = [];
 let formularioCreacion = document.getElementById("form-create");
+let currentProductId = ""; 
 
 
 //Funcion que inicia tooltips de bootstrap
@@ -99,6 +100,11 @@ function setImagen (idProd) {
     newImage.src = product.imagen_url;
 }
 
+function confirmDelete (idProd) {
+    currentProductId = idProd;
+    const texto = document.getElementById('txt-confirm-delete');
+    texto.textContent = `¿ Deseas elimiar el producto ${idProd} ?`;
+}
 
 function crearFila(prod) {
     let tabla = document.getElementById('body-tabla');
@@ -108,15 +114,21 @@ function crearFila(prod) {
     newRow.innerHTML = `
         <th scope="row">${prod.id}</th>
         <td>
-            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-image icon-img" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar imagen"></i>
+            <span data-bs-toggle="modal" data-bs-target="#modalImg">
+                <i onclick="setImagen('${prod.id}')" class="bi bi-image icon-img" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar imagen"></i>
+            </span>
         </td>
         <td>${prod.modelo}</td>
         <td><b>${prod.talla_adulto ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${prod.tallas.join(", ")}</td>
         <td><b>Sexo:</b> ${prod.sexo}<br><b>Tipo de manga:</b> ${prod.tipo_manga}<br><b>Color:</b> ${prod.color}</td>
         <td>$ ${prod.precio} MXN</td>
         <td>
-            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar producto"></i>
-            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
+            <span data-bs-toggle="modal" data-bs-target="modal">
+                <i onclick="setImagen('${prod.id}')" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar producto"></i>
+            </span>
+            <span data-bs-toggle="modal" data-bs-target="#modalDelete">
+                <i onclick="confirmDelete('${prod.id}')" class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
+            </span>
         </td>
     `
     tabla.appendChild(newRow);
@@ -131,10 +143,11 @@ function resetFormularioCreacion () {
     document.querySelector('.error-talla').style.display = 'block';
     document.getElementById('name-modelo').classList.remove('is-valid', 'is-invalid');
     document.getElementById('img-prod').classList.remove('is-valid', 'is-invalid');
-    document.querySelector('.error-talla').classList.remove('is-valid', 'is-invalid');
+    document.getElementById("precio").classList.remove('is-valid', 'is-invalid');
 }
 
 
+//Creacion de producto
 formularioCreacion.onsubmit = async function(e) {
     e.preventDefault();
     let formularioValido = true;
@@ -236,5 +249,43 @@ formularioCreacion.onsubmit = async function(e) {
 
 
 }
+
+//Eliminación de producto
+document.getElementById('delete-product').addEventListener('click', () => {
+    arrProductos = arrProductos.filter(prod => prod.id != currentProductId);
+    localStorage.setItem('productsList', JSON.stringify(arrProductos));
+    let productRow = document.getElementById(currentProductId);
+    productRow.remove();
+    cerrarModal('modalDelete');
+})
+
 //editar
-//eliminar
+
+
+//Buscar producto por nombre del modelo
+document.getElementById('buscar-btn').addEventListener('click', () => {
+    let tabla = document.getElementById('body-tabla');
+    let search = document.getElementById('buscar-input');
+    tabla.innerHTML = "";
+    if (search.value == "") {
+        arrProductos.forEach(prod => {
+            crearFila(prod);
+        });
+    } else {
+        arrProductos.forEach(prod => {
+            const modeloTxt = prod.modelo.toLowerCase();
+            const busquedaTxt = search.value.toLowerCase();
+            if (modeloTxt.includes(busquedaTxt)) {
+                crearFila(prod);
+            }
+        });
+    }
+})
+
+//Realizar busqueda al presionar enter
+document.getElementById("buscar-input").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.key === 'Enter') {
+        document.getElementById("buscar-btn").click();
+    }
+});

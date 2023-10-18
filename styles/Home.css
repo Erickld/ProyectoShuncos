@@ -6,21 +6,63 @@ body{
     margin-left: 0%;
 }
 
+.bg-img-1{
+    background-image: url("../assets/img/2.png");
+}
+.bg-img-2{
+    background-image: url("../assets/img/3.png");
+}
+.bg-img-3{
+    background-image: url("../assets/img/4.png");
+}
+.carrousel-img {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 768px) { 
+    .bg-img-1{
+        background-image: url("../assets/img/5.png");
+    }
+    .bg-img-2{
+        background-image: url("../assets/img/6.png");
+    }
+    .bg-img-3{
+        background-image: url("../assets/img/7.png");
+    }
+}
+
+@media (max-width: 576px) { 
+    .bg-img-1{
+        background-image: url("../assets/img/mobil1.png");
+    }
+    .bg-img-2{
+        background-image: url("../assets/img/mobil2.png");
+    }
+    .bg-img-3{
+        background-image: url("../assets/img/mobil3.png");
+    }
+}
+
+
+
     /*estilos para celular de forma horizontal*/
-@media (min-width: 320px) and (max-width: 480px) and (orientation:landscape){
+/* @media (min-width: 320px) and (max-width: 480px) and (orientation:landscape){
     @media (min-width: 769px){
         .bg-img-1 {
-            background-image: url("..//assets/img/2.png");
+            background-image: url("../assets/img/2.png");
             max-height:100%;
         }
         
         .bg-img-2 {
-            background-image: url("..//assets/img/3.png");
+            background-image: url("../assets/img/3.png");
             max-height:100%;
         }
         
         .bg-img-3 {
-            background-image: url("..//assets/img/4.png");
+            background-image: url("../assets/img/4.png");
             max-height:100%;
         }
         
@@ -31,23 +73,23 @@ body{
             background-position: center;
             }
     }
-}
+} */
 
 /*estilos para tabletas*/
-@media (min-width: 481px) and (max-width: 768px){
+/* @media (min-width: 481px) and (max-width: 768px){
     @media (min-width: 769px){
         .bg-img-1 {
-            background-image: url("..//assets/img/2.png");
+            background-image: url("../assets/img/2.png");
             max-height:100%;
         }
         
         .bg-img-2 {
-            background-image: url("..//assets/img/3.png");
+            background-image: url("../assets/img/3.png");
             max-height:100%;
         }
         
         .bg-img-3 {
-            background-image: url("..//assets/img/4.png");
+            background-image: url("../assets/img/4.png");
             max-height:100%;
         }
         
@@ -58,22 +100,22 @@ body{
             background-position: center;
             }
     }
-}
+} */
 
 /*estilos para computadoras o pantallas mas grandes*/
-@media (min-width: 769px){
+/* @media (min-width: 769px){
     .bg-img-1 {
-        background-image: url("..//assets/img/2.png");
+        background-image: url("../assets/img/2.png");
         max-height:100%;
     }
     
     .bg-img-2 {
-        background-image: url("..//assets/img/3.png");
+        background-image: url("../assets/img/3.png");
         max-height:100%;
     }
     
     .bg-img-3 {
-        background-image: url("..//assets/img/4.png");
+        background-image: url("../assets/img/4.png");
         max-height:100%;
     }
     
@@ -83,21 +125,21 @@ body{
         background-size: cover;
         background-position: center;
         }
-}
+} */
 
 /*estilos para celular de forma vertical*/
 
-@media (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
+/* @media (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
     .bg-img-1{
-        background-image: url(..//assets/img/5.png);
+        background-image: url("../assets/img/5.png");
         max-height:90%;
     }
     .bg-img-2{
-        background-image: url(..//assets/img/6.png);
+        background-image: url("../assets/img/6.png");
         max-height:90%;
     }
     .bg-img-3{
-        background-image: url(..//assets/img/7.png);
+        background-image: url("../assets/img/7.png");
         max-height:90%;
     }
     .carrousel-img {
@@ -106,4 +148,4 @@ body{
         background-size: cover;
         background-position: center;
         }
-}
+} */
