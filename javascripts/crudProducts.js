@@ -1,6 +1,20 @@
-let arrProductos = []
+let arrProductos = localStorage.getItem('productsList');
+
+if (arrProductos) {
+    arrProductos = JSON.parse(arrProductos);
+    arrProductos.forEach(prod => {
+        crearFila(prod);
+    });
+} else {
+    arrProductos = [];
+    localStorage.setItem('productsList', JSON.stringify(arrProductos));
+}
+
+//Variables globales
 let arrTallasNino = [];
 let arrTallasAdulto = [];
+let formularioCreacion = document.getElementById("form-create");
+
 
 //Funcion que inicia tooltips de bootstrap
 function updateTooltips() {
@@ -29,6 +43,8 @@ function addTalla(tipo, talla) {
         array.push(talla);
     }
 
+    array.sort((a, b) => a-b);
+
     if (tipo == 'adulto') {
         arrTallasAdulto = array;
     } else {
@@ -36,9 +52,94 @@ function addTalla(tipo, talla) {
     }
 }
 
+function negativePrice (event) {
+    let input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1;
+    }
+}
 
-document.getElementById('add-new-product').addEventListener('click', () => {
+//Evitar precios negativos
+document.getElementById("precio").addEventListener("change", negativePrice);
 
+
+function resetInputs(formulario) {
+    formulario.reset();
+}
+
+function inputInvalid(input) {
+    input.classList.remove('is-valid');
+    input.classList.add('is-invalid');
+}
+
+function inputValid(input) {
+    input.classList.remove('is-invalid');
+    input.classList.add('is-valid');
+}
+
+function cerrarModal(modalId) {
+    const myModal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+    myModal.hide();
+}
+
+
+function getBase64(file) {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    return new Promise((resolve) => {
+        reader.addEventListener('load', () => {
+            resolve(reader.result);
+        });
+    });
+}
+
+function setImagen (idProd) {
+    let product = arrProductos.find(prod => prod.id == idProd);
+    const newImage = document.getElementById('imagen-de-proucto');
+    newImage.src = product.imagen_url;
+}
+
+
+function crearFila(prod) {
+    let tabla = document.getElementById('body-tabla');
+    let newRow = document.createElement('tr');
+    newRow.id = prod.id;
+
+    newRow.innerHTML = `
+    <th scope="row">${prod.id}</th>
+        <td>
+            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-image icon-img" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar imagen"></i>
+        </td>
+        <td>${prod.modelo}</td>
+        <td><b>${prod.talla_adulto ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${prod.tallas.join(", ")}</td>
+        <td><b>Sexo:</b> ${prod.sexo}<br><b>Tipo de manga:</b> ${prod.tipo_manga}<br><b>Color:</b> ${prod.color}</td>
+        <td>$ ${prod.precio} MXN</td>
+        <td>
+            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar producto"></i>
+            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-trash3-fill " data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
+        </td>
+    `
+    tabla.appendChild(newRow);
+
+    //se actualizan estilos tooltips
+    updateTooltips();
+}
+
+
+function resetFormularioCreacion () {
+    formularioCreacion.reset();
+    document.querySelector('.error-talla').style.display = 'block';
+    document.getElementById('name-modelo').classList.remove('is-valid', 'is-invalid');
+    document.getElementById('img-prod').classList.remove('is-valid', 'is-invalid');
+    document.querySelector('.error-talla').classList.remove('is-valid', 'is-invalid');
+}
+
+
+formularioCreacion.onsubmit = async function(e) {
+    e.preventDefault();
+    let formularioValido = true;
+    
+    //obteniendo inputs del formulario
     let modelo = document.getElementById('name-modelo');
     let imagen = document.getElementById('img-prod');
     let manga = document.getElementById("tipo-manga");
@@ -46,19 +147,63 @@ document.getElementById('add-new-product').addEventListener('click', () => {
     let tallaAdulto = document.getElementById("talla-adulto");
     let color = document.getElementById("color");
     let precio = document.getElementById("precio");
-
     
-    //validar valores (alertas), input file -> (solo imagenes)
+    //obteniendo informacion del archivo cargado en el input para subir imagenes
+    let img = imagen.files[0];
 
+    let errorTalla = document.querySelector('.error-talla');
+
+    //Validando input de modelo
     if (modelo.value == "") {
-        modelo.classList.remove('is-valid');
-        return modelo.classList.add('is-invalid');
+        inputInvalid(modelo);
+        formularioValido = false;
     } else {
-        modelo.classList.remove('is-invalid');
-        modelo.classList.add('is-valid');
+        inputValid(modelo);
     }
     
+    //Validando si existe un archivo de imagen
+    if (img) {
+        
+        //obtenemos la extensión de la imagen
+        let extensionImg = img.name.split('.').pop();
+        extensionImg = extensionImg.toLowerCase();
+        //validamos que la imagen tenga una extension png, jpg o jpeg
+        if(["png", "jpg", "jpeg"].includes(extensionImg)) {
+            inputValid(imagen);
+        } else {
+            inputInvalid(imagen);
+            formularioValido = false;
+        }
+
+    } else {
+        inputInvalid(imagen);
+        formularioValido = false;
+    }
+
+    //Validando la seleccion de tallas de adulto / niño
+    if ((tallaAdulto.checked && arrTallasAdulto.length == 0) || (!tallaAdulto.checked && arrTallasNino.length == 0)) {
+        errorTalla.style.display = 'block';
+        formularioValido = false;
+    } else {
+        errorTalla.style.display = 'none';
+    }
+
+    //Validando input de precio
+    if ( isNaN(precio.value) || precio.value <= 0) {
+        inputInvalid(precio);
+        formularioValido = false;
+    } else {
+        inputValid(precio);
+    }
+
+    //Si el formulario en inválido se detiene la función
+    if (!formularioValido){
+        return
+    }
+
+    //Creamos un objeto para guardarlo en local storage
     let producto = {
+        id: "",
         modelo: modelo.value,
         imagen_url: "",
         tipo_manga: manga.value,
@@ -69,52 +214,27 @@ document.getElementById('add-new-product').addEventListener('click', () => {
         precio: parseFloat(precio.value)
     }
 
-    imax = imagen.files[0];
+    //Se asigna un id random al producto
+    const ID = (Math.random() + 1).toString(36).substring(5);
+    producto.id = ID;
 
-    if (imax) {
-            const reader = new FileReader();
-            reader.addEventListener('load', () => {
-                    producto.imagen_url = reader.result;
-                    arrProductos.push(producto)
-                    //localStorage.setItem('arrProductos', arrProductos);
-                    //const newImage = document.getElementById('img-from-local-storage',);
-                    //newImage.src = localStorage.getItem('imax');
-            
-            });
-            reader.readAsDataURL(imax);
-    } else {
-        arrProductos.push(producto)
+    try {
+        //Se convierte el archivo de la imagen a una cadena de texto
+        const imgData = await getBase64(img);
+        //Se almacena la informacion de la imagen en producto
+        producto.imagen_url = imgData;
+        //Se almacena producto en localStorage
+        arrProductos.push(producto);
+        localStorage.setItem('productsList', JSON.stringify(arrProductos));
+    } catch (error) {
+        return console.log(error)
     }
-
-    //indice del ultimo elemento agregado
-    let index = arrProductos.length - 1;
-
+    
     //crear nuevo row en tabla
-    let tabla = document.getElementById('body-tabla');
-    let newRow = document.createElement('tr');
-    newRow.id = "tr-"+index;
-
-    newRow.innerHTML =    `
-        <th scope="row">${index + 1}</th>
-        <td>
-            <i index="${index}" class="bi bi-image icon-table-1" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar imagen"></i>
-        </td>
-        <td>${producto.modelo}</td>
-        <td><b>${producto.talla_adulto ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${producto.tallas.join(", ")}</td>
-        <td><b>Sexo:</b> ${producto.sexo}<br><b>Tipo de manga:</b> ${producto.tipo_manga}<br><b>Color:</b> ${producto.color}</td>
-        <td>$ ${producto.precio} MXN</td>
-        <td>
-            <i index="${index}" class="bi bi-pencil-square icon-table-2" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar producto"></i>
-            <i index="${index}" class="bi bi-trash3-fill icon-table-3" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
-        </td>
-    `
-    tabla.appendChild(newRow);
-    updateTooltips();
-
-    const myModal = bootstrap.Modal.getInstance(document.getElementById('myModal'));
-    myModal.hide();
-
-    //resetear inputs del modal
+    crearFila(producto)
+    cerrarModal('modalCreate');
 
 
-});
+}
+//editar
+//eliminar
