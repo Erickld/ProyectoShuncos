@@ -116,7 +116,7 @@ function crearFila(prod) {
         <td>$ ${prod.precio} MXN</td>
         <td>
             <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar producto"></i>
-            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-trash3-fill " data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
+            <i onclick="setImagen('${prod.id}')" data-bs-toggle="modal" data-bs-target="#modalImg" class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
         </td>
     `
     tabla.appendChild(newRow);
