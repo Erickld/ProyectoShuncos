@@ -6,8 +6,7 @@
 }
 
 body {
-    background-image: url(../assets/img/portada1.jpeg)
-    background-color: white;
+    background-image: url(../assets/img/portada1.jpeg);
     background-size: cover;
     margin: 0;
 }
