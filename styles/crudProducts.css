@@ -25,30 +25,30 @@
 
 .custom-tooltip-1 {
     --bs-tooltip-bg: green;
-    --bs-tooltip-opacity: 0.8;
+    --bs-tooltip-opacity: 1;
 }
 
 .custom-tooltip-2 {
     --bs-tooltip-bg: blue;
-    --bs-tooltip-opacity: 0.8;
+    --bs-tooltip-opacity: 1;
 }
 
 .custom-tooltip-3 {
     --bs-tooltip-bg: red;
-    --bs-tooltip-opacity: 0.8;
+    --bs-tooltip-opacity: 1;
 }
 
-.icon-table-1 {
+.icon-img {
     cursor: pointer;
     color: green;
 }
 
-.icon-table-2 {
+.icon-edit {
     cursor: pointer;
     color: blue;
 }
 
-.icon-table-3 {
+.icon-delete {
     cursor: pointer;
     color: red;
 }
@@ -58,3 +58,10 @@
         width: 180vw!important;
     }
 }
+
+.text-alert {
+    margin-top: .25rem;
+    font-size: .875em;
+    color: var(--bs-form-invalid-color);
+}
+
