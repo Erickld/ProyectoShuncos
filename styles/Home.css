@@ -6,27 +6,28 @@ body{
     margin-left: 0%;
 }
 
-        .bg-img-1 {
-            background-image: url("..//assets/img/2.png");
-            max-height:100%;
-        }
-        
-        .bg-img-2 {
-            background-image: url("..//assets/img/3.png");
-            max-height:100%;
-        }
-        
-        .bg-img-3 {
-            background-image: url("..//assets/img/4.png");
-            max-height:100%;
-        }
-        
-        .carrousel-img {
-            height: 100vh;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            }
+.bg-img-1 {
+    background-image: url("..//assets/img/2.png");
+    max-height:100%;
+}
+
+.bg-img-2 {
+    background-image: url("..//assets/img/3.png");
+    max-height:100%;
+}
+
+.bg-img-3 {
+    background-image: url("..//assets/img/4.png");
+    max-height:100%;
+}
+
+.carrousel-img {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 /*estilos para computadoras o pantallas mas grandes*/
 @media (min-width: 769px){
     .bg-img-1 {
@@ -49,8 +50,9 @@ body{
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        }
+    }
 }
+
 /*estilos para tabletas*/
 @media (min-width: 481px) and (max-width: 768px){
     @media (min-width: 769px){
@@ -74,20 +76,21 @@ body{
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            }
+        }
     }
 }
+
 @media (min-width: 481px) and (max-width: 768px) and (orientation:portrait){
     .bg-img-1{
-        background-image: url(..//assets/img/movil_1.png);
+        background-image: url("..//assets/img/movil_1.png");
         max-height:90%;
     }
     .bg-img-2{
-        background-image: url(..//assets/img/movil_2.png);
+        background-image: url("..//assets/img/movil_2.png");
         max-height:90%;
     }
     .bg-img-3{
-        background-image: url(..//assets/img/movil_3.png);
+        background-image: url("..//assets/img/movil_3.png");
         max-height:90%;
     }
     .carrousel-img {
@@ -95,23 +98,21 @@ body{
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        }
+    }
 }
 
-
 /*estilos para celular de forma vertical*/
-
 @media (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
     .bg-img-1{
-        background-image: url(..//assets/img/movil_1.png);
+        background-image: url("..//assets/img/movil_1.png");
         max-height:90%;
     }
     .bg-img-2{
-        background-image: url(..//assets/img/movil_2.png);
+        background-image: url("..//assets/img/movil_2.png");
         max-height:90%;
     }
     .bg-img-3{
-        background-image: url(..//assets/img/movil_3.png);
+        background-image: url("..//assets/img/movil_3.png");
         max-height:90%;
     }
     .carrousel-img {
@@ -119,5 +120,5 @@ body{
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        }
+    }
 }
