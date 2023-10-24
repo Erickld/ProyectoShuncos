@@ -244,8 +244,7 @@ formularioCreacion.onsubmit = async function(e) {
     //crear nuevo row en tabla
     crearFila(producto)
     cerrarModal('modalCreate');
-
-
+    alerta("verde", "Producto agregado correctamente");
 }
 
 //Eliminación de producto
@@ -255,6 +254,7 @@ document.getElementById('delete-product').addEventListener('click', () => {
     let productRow = document.getElementById(currentProductId);
     productRow.remove();
     cerrarModal('modalDelete');
+    alerta("rosa", "Producto eliminado correctamente");
 })
 
 
@@ -466,4 +466,32 @@ formularioEdicion.onsubmit = async function(e) {
     }
 
     cerrarModal('modalEdit');
+    alerta("azul", "Producto editado correctamente");
 }
+
+
+function alerta(color, texto) {
+    const toastLiveExample = document.getElementById('alerta-toast');
+    const alertaTxt = document.getElementById('alerta-txt');
+
+    if (color == "verde") {
+        toastLiveExample.style.backgroundColor = "#56A35B"
+        //toastLiveExample.style.boxShadow = "0 0 0 4px #56A35B"
+    }
+
+    if (color == "rosa") {
+        toastLiveExample.style.backgroundColor = "#E4007C"
+        //toastLiveExample.style.boxShadow = "0 0 0 4px #E4007C"
+    }
+
+    if (color == "azul") {
+        toastLiveExample.style.backgroundColor = "#2173b4"
+        //toastLiveExample.style.boxShadow = "0 0 0 4px #2173b4"
+    }
+
+    alertaTxt.textContent = texto;
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+    toastBootstrap.show();
+    
+}
+
