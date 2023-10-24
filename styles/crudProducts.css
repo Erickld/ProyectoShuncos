@@ -2,13 +2,6 @@
     margin-top: 2rem;
 }
 
-.table-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
 .nino {
     display: none;
 }
@@ -71,4 +64,26 @@
 
 .edit-imagen {
     display: none;
+}
+
+
+#img-container{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.341), rgba(8, 8, 8, 0.758)), 
+    url("../assets/img/pattern-table.png");
+    width: 100%;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-size:cover;
+    background-position: center;
+    
+}
+
+.table-title {
+    font-family: 'Nunito', sans-serif;
+    color:rgb(255, 255, 255) ;
+    font-size: 3.5rem;
 }

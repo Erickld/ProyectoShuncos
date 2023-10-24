@@ -1,9 +1,10 @@
 :root {
-    --rojo-shuncos:#A62447;
-    --verde-shuncos:#0A7360;
-    --amarillo-shuncos:#F2A71B;
+    --rosa-shuncos: #E4007C;
+    --verde-shuncos:#56A35B;
+    --amarillo-shuncos: #F7CC25;
+    --beige-shuncos: #FBEBDA;
+    --azul-shuncos: #2173b4;
     --blanco-shuncos:#F2F2F2;
-    --azul-dark-shuncos:#040C21;
     --monse-font:'Montserrat', sans-serif;
 }
 
