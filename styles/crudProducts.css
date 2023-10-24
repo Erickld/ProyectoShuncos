@@ -13,7 +13,7 @@
 } */
 
 .custom-tooltip-2 {
-    --bs-tooltip-bg: var(--verde-shuncos);
+    --bs-tooltip-bg: var(--azul-shuncos);
     --bs-tooltip-opacity: 1;
 }
 
@@ -29,7 +29,7 @@
 
 .icon-edit {
     cursor: pointer;
-    color: var(--verde-shuncos);
+    color: var(--azul-shuncos);
 }
 
 .icon-delete {
@@ -46,7 +46,7 @@
 .text-alert {
     margin-top: .25rem;
     font-size: .875em;
-    color: var(--bs-form-invalid-color);
+    color: var(--rosa-shuncos);
 }
 
 .error-talla-e {
@@ -140,3 +140,42 @@
     border-radius: 15px;
     background-color: transparent!important;
 } */
+
+#alerta-toast {
+    border: 2px solid var(--blanco-shuncos);
+    color: var(--blanco-shuncos);
+    font-size: medium;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+    border-color: var(--verde-shuncos)!important;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: var(--rosa-shuncos)!important;
+}
+
+.valid-feedback {
+    color: var(--verde-shuncos)!important;
+}
+
+.invalid-feedback {
+    color: var(--rosa-shuncos)!important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(33, 115, 180, 0.25);
+}
+
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(33, 115, 180, 0.25);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(33, 115, 180, 0.25);
+}
+
+.form-check-input:checked {
+    border-color: var(--verde-shuncos);
+    background-color: var(--verde-shuncos);
+}
