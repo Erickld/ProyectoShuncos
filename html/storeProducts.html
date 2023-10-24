@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Generic Page in HTML Folder</title>
+        <title>Tienda</title>
+        <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.png">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -29,77 +30,187 @@
             <nav id="nav-bar-container"></nav>
         </header>
 
-        <main id="main-container">
-            <!-- Modificar Contenido -->
-            <section class="shop container">
-                <h2 class="section-title">Lista de Productos</h2>
-                <div class="shop-content row">
+        <div class="hero">
+            <div class="contenido-hero d-flex flex-column justify-content-center text-white text-center ">
+                <h2 class="hero-title display-3 text-center">Nuestros Productos</h2>
+            </div>
+        </div>
 
-                    <div class="product-box col-md-3">
-                        <div class="product-info ps-0 pe-0">
-                            <img src="../assets/img/profile.jpg" alt="" class="product-img">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <span class="price">$25.00</span>
-                            <i class="bi bi-cart-plus-fill add-carrito"></i>
-                        </div>
-                    </div>
-                    <div class="product-box col-md-3">
-                        <div class="product-info ps-0 pe-0">
-                            <img src="../assets/img/profile.jpg" alt="" class="product-img">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <span class="price">$25.00</span>
-                            <i class="bi bi-cart-plus-fill add-carrito"></i>
-                        </div>
-                    </div>
-                    <div class="product-box col-md-3">
-                        <div class="product-info ps-0 pe-0">
-                            <img src="../assets/img/profile.jpg" alt="" class="product-img">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <span class="price">$25.00</span>
-                            <i class="bi bi-cart-plus-fill add-carrito"></i>
-                        </div>
-                    </div>
-                    <div class="product-box col-md-3">
-                        <div class="product-info ps-0 pe-0">
-                            <img src="../assets/img/profile.jpg" alt="" class="product-img">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <span class="price">$25.00</span>
-                            <i class="bi bi-cart-plus-fill add-carrito"></i>
-                        </div>
-                    </div>
-                    <div class="product-box col-md-3">
-                        <div class="product-info ps-0 pe-0">
-                            <img src="../assets/img/profile.jpg" alt="" class="product-img">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <span class="price">$25.00</span>
-                            <i class="bi bi-cart-plus-fill add-carrito"></i>
-                        </div>
-                    </div>
+        <div class="d-flex justify-content-end my-4 mx-2">
+            <a class="btn btn-dark" href="crudProducts.html">Añadir producto</a>
+        </div>
 
-                    <div class="product-box col-md-3">
-                        <div class="product-info  ps-0 pe-0">
-                            <img src="../assets/img/profile.jpg" alt="" class="product-img">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <span class="price">$25.00</span>
-                            <i class="bi bi-cart-plus-fill add-carrito"></i>
-                        </div>
-                    </div>
-                    <div class="product-box col-md-3">
-                        <div class="product-info  ps-0 pe-0">
-                            <img src="../assets/img/profile.jpg" alt="" class="product-img">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <span class="price">$25.00</span>
-                            <i class="bi bi-cart-plus-fill add-carrito"></i>
-                        </div>
-                    </div>
+        <main class="container-xl py-5 shop">
 
+            <div class="row">
+
+                <div class="hide col-md-3 p-4">
+
+                    <div class="btn product-card product-hover" data-bs-toggle="modal" data-bs-target="#modal-producto">
+                        <div class="img-producto">
+                            <img src="../assets/img/guayaberas/azul pavo.png" alt="imagen-produto" ">
+                        </div> <!--Imagen del producto-->
+                        <div class="info-producto text-center">
+                            <h2 class="product-title">Guayabera Negra</h2>
+                            <p class="price">$250</p>
+                        </div> <!--Información del producto-->
+                    </div><!--Card con la información del producto-->
+
+                </div> <!--Contenedor del Card-->
+
+                <div class="col-md-3 p-4">
+
+                    <div class="btn product-card product-hover ">
+                        <div class="img-producto">
+                            <img src="../assets/img/guayaberas/modelo-06.png" alt="imagen-produto" ">
+                        </div> <!--Imagen del producto-->
+                        <div class="info-producto text-center">
+                            <h2 class="product-title">Guayabera Negra</h2>
+                            <p class="price">$250</p>
+                        </div> <!--Información del producto-->
+                    </div><!--Card con la información del producto-->
+
+                </div> <!--Contenedor del Card-->
+
+                <div class="col-md-3 p-4">
+
+                    <div class="btn product-card product-hover ">
+                        <div class="img-producto">
+                            <img src="../assets/img/guayaberas/Modelo-08.png" alt="imagen-produto" ">
+                        </div> <!--Imagen del producto-->
+                        <div class="info-producto text-center">
+                            <h2 class="product-title">Guayabera Negra</h2>
+                            <p class="price">$250</p>
+                        </div> <!--Información del producto-->
+                    </div><!--Card con la información del producto-->
+
+                </div> <!--Contenedor del Card-->
+
+                <div class="col-md-3 p-4">
+
+                    <div class="btn product-card product-hover ">
+                        <div class="img-producto">
+                            <img src="../assets/img/guayaberas/Modelo-26.png" alt="imagen-produto" ">
+                        </div> <!--Imagen del producto-->
+                        <div class="info-producto text-center">
+                            <h2 class="product-title">Guayabera Negra</h2>
+                            <p class="price">$250</p>
+                        </div> <!--Información del producto-->
+                    </div><!--Card con la información del producto-->
+
+                </div> <!--Contenedor del Card-->
+
+                <div class="col-md-3 p-4">
+
+                    <div class="btn product-card product-hover ">
+                        <div class="img-producto">
+                            <img src="../assets/img/guayaberas/picueta-coral.png" alt="imagen-produto" ">
+                        </div> <!--Imagen del producto-->
+                        <div class="info-producto text-center">
+                            <h2 class="product-title">Guayabera Negra</h2>
+                            <p class="price">$250</p>
+                        </div> <!--Información del producto-->
+                    </div><!--Card con la información del producto-->
+
+                </div> <!--Contenedor del Card-->
+
+                <div class="col-md-3 p-4">
+
+                    <div class="btn product-card product-hover ">
+                        <div class="img-producto">
+                            <img src="../assets/img/guayaberas/Presicampeche.png" alt="imagen-produto" ">
+                        </div> <!--Imagen del producto-->
+                        <div class="info-producto text-center">
+                            <h2 class="product-title">Guayabera Negra</h2>
+                            <p class="price">$250</p>
+                        </div> <!--Información del producto-->
+                    </div><!--Card con la información del producto-->
+
+                </div> <!--Contenedor del Card-->
+
+
+            </div> <!--Contenedor Productos de la tienda-->
+
+        </main> <!--Contenedor principal-->
+
+        <section>
+            <div id="modal-producto" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Detalles del pedido</h2>
+                            <button data-bs-dismiss="modal" type="button" class="btn btn-close"></button>
+                        </div> <!--Modal Header-->
+
+                        <div class="modal-body">
+                            <div class="img-producto">
+                                <img src="../assets/img/guayaberas/Presicampeche.png" alt="imagen-produto" ">
+                            </div>
+                            <h3 class="nombre-producto">Guayabera</h3>
+                            <p class="descripcion">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur impedit amet nobis vel iusto similique esse commodi eaque omnis ex.</p>
+                            <form class="formularioProductoModal" action="">
+                                <legend>Talla</legend>
+                                <fieldset>
+                                    <label for="talla">Escoja una talla</label>
+                                    <div class="talla-radio d-flex justify-content-around">
+                                        <div>
+                                            <input type="radio" name="edad" value="adulto" id="pedido-talla-adulto">
+                                            <label for="pedido-talla-adulto">Adulto</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="edad" value="nino" id="pedido-talla-nino">
+                                            <label for="pedido-talla-nino">Niño</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="tallas">
+
+                                    </div>
+                                </fieldset>
+
+                                <legend>¿Cuántas compra?</legend>
+                                <fieldset class="mb-3">
+                                    <label for="cantidad-producto">Cantidad</label>
+                                    <input type="number" name="" id="cantidad-producto">
+                                </fieldset>
+
+                                <div class="d-block d-md-flex justify-content-md-end my-3">
+                                    <button id="agregar-carrito" class="btn btn-dark" data-bs-dismiss="modal" type="button">Agregar al carrito</button>
+                                </div>
+                                
+                            </form> <!--Formulario para el modal-->
+                        </div> <!--Modal-body-->
+                    </div> <!--Div contenido del modal-->
+                </div> <!--Modal Dialog-->
+            </div> <!--Modal para el producto-->
+        </section> <!--Seccion Ventana Modal-->
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 10;">
+            <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Exito</strong>
+                    <small>Producto agregado</small>
+                    <button type="button" data-bs-dismiss="toast" aria-label="cerrar notificacion" class="btn-close"></button>
                 </div>
-            </section>
-            <!-- Fin Modificar Contenido -->
-        </main>
+                <div class="toast-body">
+                    <p>Se ha agregado correctamente su elemento al carrito</p>
+                </div>
+            </div> <!--Creando elemento Toast-->
+        </div> <!--Div para posicionar el Toast-->
+        
 
         <footer id="footer-container" class="p-3"></footer>
 
+        <script>
+            document.querySelector('#agregar-carrito').onclick = e => {
+                e.preventDefault();
+    
+                // mostrar el toast
+                const toastEl = document.querySelector('#toast');
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        </script>
         <!-- Load Nav Bar -->
         <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
         <!-- Load Footer -->

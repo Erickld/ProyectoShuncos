@@ -15,7 +15,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
             rel="stylesheet">
-            
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@700&display=swap"
+            rel="stylesheet">
         <!-- Estilos Nav Bar -->
         <link rel="stylesheet" href="../styles/navBarStyles.css">
         <!-- Estilos Main Container -->
@@ -33,18 +34,24 @@
         </header>
 
         <main id="main-container" class="monse-font">
+            <!-- Contenedor con imagen-->
+            <div class="container-fluid" id="img-container">
+                <div class="col-12">
+                    <h1 class="table-title"> GESTIÓN DE PRODUCTOS </h1>
+                </div>
+            </div>
+
             <!-- Modificar Contenido -->
             <section class="admin-products container">
-                <h2 class="table-title">Gestión de Productos</h2>
+                <!-- <h2 class="table-title">Gestión de Productos</h2> -->
 
-                <div class="row mb-3">
+                <div class="row my-4">
                     <div class="col-md-12 text-center">
-                        <button id="new-product" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCreate" onclick="resetFormularioCreacion()">
+                        <button id="new-product" type="button" class="shunco-button shunco-verde-btn" data-bs-toggle="modal" data-bs-target="#modalCreate" onclick="resetFormularioCreacion()">
                             <i class="bi bi-plus-circle"></i>
                             Nuevo Producto
                         </button>
                     </div>
-                    
                 </div>
 
                 <div class="row mb-3">
@@ -52,8 +59,8 @@
                     <div class="col-md-12">
                         <div class="input-group">
 
-                            <input type="text" class="form-control" placeholder="Buscar producto por modelo..." aria-label="Buscar producto por modelo..." id="buscar-input">
-                            <button type="button" class="btn btn-primary" id="buscar-btn">
+                            <input  type="text" class="form-control" placeholder="Buscar por modelo..." aria-label="Buscar producto por modelo..." id="buscar-input">
+                            <button type="button" class="shunco-button shunco-azul-btn" id="buscar-btn">
                                 <i class="bi bi-search"></i>
                                 Buscar
                             </button>
@@ -78,20 +85,6 @@
                                 </tr>
                             </thead>
                             <tbody id="body-tabla">
-                                <!--tr>
-                                    <th scope="row">1</th>
-                                    <td class="text-center">
-                                        <i class="bi bi-image icon-img" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar imagen"></i>
-                                    </td>
-                                    <td>Guayabera Negra</td>
-                                    <td>40</td>
-                                    <td class="text-center">Mujer</td>
-                                    <td class="text-center">$40.00</td>
-                                    <td class="text-center">
-                                        <i class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar producto"></i>
-                                        <i class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar producto"></i>
-                                    </td>
-                                </tr-->
                             </tbody>
                         </table>
                      </div>
@@ -303,8 +296,8 @@
 
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button id="add-new-product" type="submit" class="btn btn-success" form="form-create">Aceptar</button>
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="add-new-product" type="submit" class="shunco-button shunco-verde-btn" form="form-create">Aceptar</button>
                     </div>
                 </div>
                 </div>
@@ -323,13 +316,13 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <img id="imagen-de-proucto" class="d-block img-fluid w-100" src="../assets/img/guayaberas.jpeg" alt="imagen del producto">
+                                    <img id="imagen-de-producto" class="d-block img-fluid w-100" src="../assets/img/guayaberas.jpeg" alt="imagen del producto">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
                 </div>
@@ -353,8 +346,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button id="delete-product" type="button" class="btn btn-success">Eliminar</button>
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="delete-product" type="button" class="shunco-button shunco-verde-btn">Eliminar</button>
                     </div>
                 </div>
                 </div>
@@ -569,10 +562,21 @@
 
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button id="edit-product" type="submit" class="btn btn-success" form="form-edit">Editar</button>
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="edit-product" type="submit" class="shunco-button shunco-verde-btn" form="form-edit">Editar</button>
                     </div>
                 </div>
+                </div>
+            </div>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="alerta-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+                    <div class="d-flex">
+                        <div class="toast-body" id="alerta-txt">
+                          Hello, world! This is a toast message.
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
                 </div>
             </div>
 

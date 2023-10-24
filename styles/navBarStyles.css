@@ -9,7 +9,7 @@ header {
 }
 
 #my-navbar {
-    background-color: rgb(0, 0, 0, 1)!important;
+    background-color: black!important;
     font-family: 'Montserrat', sans-serif;
     position: fixed;
     width: 100vw;
@@ -24,7 +24,7 @@ header {
 }
 
 .white-color {
-    color: #F2F2F2;
+    color: var(--blanco-shuncos);
 }
 
 .font-14 {
@@ -32,12 +32,12 @@ header {
 }
 
 .white-color:hover {
-    color: #F2A71B!important;
+    color: var(--amarillo-shuncos)!important;
     transition: 0.5s;
 }
 
 .white-color:visited {
-    color: #F2F2F2;
+    color: var(--blanco-shuncos);
 }
 
 .nav-flex {
@@ -59,14 +59,21 @@ header {
 .btn-nav {
     border-radius: 2px;
     background-color: transparent;
-    color: #F2F2F2;
-    border: #F2F2F2 1px solid;
+    color: var(--blanco-shuncos);
+    border: var(--blanco-shuncos) 1px solid;
 }
 
 .btn-nav:hover {
     background-color: transparent;
-    color: #F2A71B;
-    border: #F2A71B 1px solid;
+    color: var(--amarillo-shuncos);
+    border: var(--amarillo-shuncos) 1px solid;
+    transition: 0.5s;
+}
+
+.btn-nav:active {
+    background-color: var(--amarillo-shuncos)!important;
+    color: black;
+    border: black 1px solid;
     transition: 0.5s;
 }
 
@@ -83,12 +90,12 @@ header {
 }
 
 .nav-icons {
-    color: #F2F2F2;
+    color: var(--blanco-shuncos);
     cursor: pointer;
     display: none;
 }
 
-/* lg applies to medium devices (tablets, less than 992px) */
+/* (tablets, less than 992px) */
 @media (max-width: 991.98px) {
     #navbarSupportedContent > ul {
         align-items: center;
@@ -107,6 +114,24 @@ header {
     }
 }
 
+
+@media (max-width: 320px) { 
+    .nav-icons {
+        display: none;
+    }
+    .button-nav {
+        display: initial;
+    }
+    .btn-nav {
+        letter-spacing: 2px;
+        border: 0px;
+    }
+    .btn-nav:hover {
+        border: 0px;
+    }
+}
+
+
 .subrayar a {
     position: relative;
 }
@@ -118,7 +143,7 @@ header {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, #b47dcd, #e878a2, #eb85ab);
+    background: var(--rosa-shuncos);
     z-index: 1;
     transform: scaleX(0);
     transform-origin: left;
@@ -196,7 +221,7 @@ header {
 .carrito-img {
     width: 100px;
     height: 100px;
-    background-color: white; 
+    background-color: var(--blanco-shuncos); 
     object-fit: contain;
     padding: 10px;    
 }
