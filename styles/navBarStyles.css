@@ -159,7 +159,7 @@ header {
     width: 360px;
     height: 100vh;
     padding: 20px;
-    background: var(--blanco-shuncos);
+    background: white;
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
     overflow-x: hidden;
     z-index: 110;
@@ -271,7 +271,12 @@ header {
 .d-grid {
     display: flex;
     margin-top: 16rem;
-    cursor: pointer;
+}
+
+.btn-dark:hover {
+    background-color: #2173B4; /* Color de fondo en hover */
+    border-color: #2173B4; /* Color del borde en hover */
+    color: #fff; /* Color del texto en hover */
 }
 
 .link-success  {
