@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +21,10 @@
     <!-- Estilos Footer -->
     <link rel="stylesheet" href="./styles/footerStyles.css">
     <link rel="stylesheet" href="./styles/jesstyles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@100&family=Skranji&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 
 <body>
@@ -40,8 +38,8 @@
                 <div class="col-lg-6 col-md-12" id="Bienvenido">
                     <div class="bienvenido">
                         <div class="infochilds text-center">
-                            <h2> Bienvenido a </h2> <br>
-                            <img src="assets/img/shuncos_logo_nav_bar.png"
+                            <h2> Bienvenido </h2> <br>
+                            <img src="./assets/img/shuncos_logo_nav_bar.png"
                                 alt="Logo de Shuncos">
                             <input type="button" value="Iniciar Sesión" id="show-login">
                         </div>
@@ -49,28 +47,28 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="information">
-                        <div class="form-information">
+                        <div class="form-information" id="form-information">
                             <div class="form-information-child">
                                 <h2> Crear Cuenta</h2>
                                 <p> Ingresa tus datos para crear una cuenta </p>
                                 <form class="form">
                                     <label>
                                         <i class="bx bx-user"></i>
-                                        <input type="text" placeholder="Nombre Completo">
+                                        <input type="text" placeholder="Nombre Completo" id="fullName">
                                     </label>
                                     <label>
                                         <i class="bx bx-user-circle"></i>
-                                        <input type="text" placeholder="Nombre de Usuario">
+                                        <input type="text" placeholder="Nombre de Usuario" id="newUsername">
                                     </label>
                                     <label>
                                         <i class="bx bx-envelope"></i>
-                                        <input type="email" placeholder="Correo Electrónico">
+                                        <input type="email" placeholder="Correo Electrónico" id="email">
                                     </label>
                                     <label>
                                         <i class="bx bx-lock-alt"></i>
-                                        <input type="password" placeholder="Contraseña">
+                                        <input type="password" placeholder="Contraseña" id="newPassword">
                                     </label>
-                                    <input type="button" value="Registrarme">
+                                    <input type="button" value="Registrarme" id="registerButton">
                                 </form>
                             </div>
                         </div>
@@ -80,42 +78,81 @@
         </div>
     </div>
 
-     <!-- Agregamos un div para el inicio de sesión -->
-     <div id="login-container" style="display: none;">
+    <div id="login-container" style="display: none;">
         <h2>Iniciar Sesión</h2>
         <form id="login-form">
-            <label for="username">Nombre de Usuario</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" name "password" required>
+            <label for="username"></label>
+            <input type="text" placeholder="Usuario" id="username" name="username" required>
+            <label for="password"></label>
+            <input type="password" placeholder="Contraseña" id="password" name="password" required>
             <input type="submit" value="Iniciar Sesión">
         </form>
     </div>
 
+    <div id="login-success-popup" style="display: none;">
+        <p>Inicio de sesión exitoso. ¡Bienvenido!</p>
+    </div>
+
+    <div id="registration-success-popup" style="display: none;">
+        <p>Registro exitoso. ¡Inicia sesión para continuar!</p>
+    </div>
 
     <footer id="footer-container" class="p-3"></footer>
+        <!-- Load Nav Bar -->
+        <script src="./javascripts/loadNavBar.js" fuente="root"></script>
+        <!-- Load Footer -->
+        <script src="./javascripts/loadFooter.js" fuente="root"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
 
-    <!-- Load Nav Bar -->
-    <script src="./javascripts/loadNavBar.js" fuente="root"></script>
-    <!-- Load Footer -->
-    <script src="./javascripts/loadFooter.js" fuente="root"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <script>
+        
+        function hidePopups() {
+            document.getElementById('login-success-popup').style.display = 'none';
+            document.getElementById('registration-success-popup').style.display = 'none';
+        }
+
+        document.getElementById('show-login').addEventListener('click', function () {
+            document.getElementById('content-container').style.display = 'none';
+            document.getElementById('login-container').style.display = 'block';
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+            const user = registeredUsers.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                hidePopups();
+                alert("Inicio de sesión exitoso. ¡Bienvenido!");
+            } else {
+                alert("Credenciales incorrectas. Inténtalo de nuevo.");
+            }
+        });
+
+        const registerButton = document.getElementById('registerButton');
+        registerButton.addEventListener('click', function () {
+            const fullName = document.getElementById('fullName').value;
+            const newUsername = document.getElementById('newUsername').value;
+            const email = document.getElementById('email').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            const newUser = { username: newUsername, password: newPassword };
+            const existingUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+
+            existingUsers.push(newUser);
+            localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
+
+            hidePopups();
+            alert("registro exitoso. ¡Bienvenido!");
+        });
+
+        document.body.addEventListener('click', hidePopups);
+    </script>
 </body>
-<script>
-    document.getElementById('show-login').addEventListener('click', function () {
-        document.getElementById('content-container').style.display = 'none';
-        document.getElementById('login-container').style.display = 'block';
-    });
-
-    document.getElementById('login-form').addEventListener('submit', function (event) {
-        event.preventDefault(); // Evitar la recarga de la página
-
-        // Aquí puedes agregar tu lógica de inicio de sesión
-        // Por ejemplo, validar las credenciales y redirigir al usuario.
-    });
-</script>
-
 </html>
