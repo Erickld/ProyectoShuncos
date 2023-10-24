@@ -5,6 +5,7 @@ if (arrProductos) {
     arrProductos.forEach(prod => {
         crearFila(prod);
     });
+
 } else {
     arrProductos = [];
     localStorage.setItem('productsList', JSON.stringify(arrProductos));
@@ -92,7 +93,7 @@ function getBase64(file) {
 
 function setImagen (idProd) {
     let product = arrProductos.find(prod => prod.id == idProd);
-    const newImage = document.getElementById('imagen-de-proucto');
+    const newImage = document.getElementById('imagen-de-producto');
     newImage.src = product.imagen_url;
 }
 
@@ -108,11 +109,9 @@ function crearFila(prod) {
     newRow.id = prod.id;
 
     newRow.innerHTML = `
-        <th scope="row">${prod.id}</th>
-        <td>
-            <span data-bs-toggle="modal" data-bs-target="#modalImg">
-                <i onclick="setImagen('${prod.id}')" class="bi bi-image icon-img" data-bs-custom-class="custom-tooltip-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Mostrar Imagen"></i>
-            </span>
+        <td>${prod.id}</td>
+        <td class="text-center">
+            <img class="miniatura-img" data-bs-toggle="modal" data-bs-target="#modalImg" onclick="setImagen('${prod.id}')" src="${prod.imagen_url}" class="img-thumbnail" alt="modelo imagen">
         </td>
         <td>${prod.modelo}</td>
         <td><b>${prod.talla_adulto ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${prod.tallas.join(", ")}</td>
