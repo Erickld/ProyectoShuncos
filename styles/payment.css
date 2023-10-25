@@ -40,20 +40,27 @@ h1{
 }
 
 .ingrese-datos {
-
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-.form-select {
-    margin-top: 1rem;
-    width: 35rem;
-}
+
 
 .formulario {
     margin-top: 1rem;
 }
 
+.col-md-12 {
+    margin-top: 1rem;
+}
 
+.col-md-6 {
+    margin-top: 1rem;
+}
 
+#exampleFormControlTextarea1 {
+    margin-bottom: 1rem;
+}
 
 
 
