@@ -123,23 +123,18 @@
 #buscar-btn {
     box-shadow: none;
     border: 2px solid var(--azul-shuncos);
-}
-
-.modal-body {
-    /* background-color: var(--beige-shuncos)!important;
-    color: #DAA06D; */
-}
-
-.modal-content {
-    /* background-color: #EADDCA!important; */
-}
-/* form input {
+    border-radius: 0 20px 20px 0;
+    color: var(--blanco-shuncos);
+    border-color: var(--azul-shuncos);
+    background-color: var(--azul-shuncos);
     outline: none;
-    border: 1px solid #DAA06D!important;
-    color: #DAA06D!important;
-    border-radius: 15px;
-    background-color: transparent!important;
-} */
+    padding: 0.5em 1em;
+}
+
+#buscar-btn:active {
+    transform: translateX(-0.1em);
+}
+
 
 #alerta-toast {
     border: 2px solid var(--blanco-shuncos);
@@ -178,4 +173,20 @@
 .form-check-input:checked {
     border-color: var(--verde-shuncos);
     background-color: var(--verde-shuncos);
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.form-select {
+    border-radius: 20px;
+}
+
+.left-symbol {
+    border-radius: 20px 0 0 20px;
+}
+
+.right-symbol {
+    border-radius: 0 20px 20px 0!important;
 }
