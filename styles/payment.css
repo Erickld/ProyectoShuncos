@@ -1,2 +1,63 @@
+h1{
+    font-family: 'Nunito', sans-serif;
+    color:black ;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+.cupon-container {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    margin-left: 2rem;
+}
+
+.cupon-input {
+    padding: 8px;
+    font-size: 16px;
+    width: 20rem; 
+    margin-right: 20px;
+}
+
+.shunco-button {
+    padding: 4px 8px; /* Reduzco el relleno para hacer el botón más pequeño */
+    cursor: pointer;
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 24px; /* Establece la altura de línea para centrar el texto verticalmente */
+}
+
+.contenedor-informacion-envio {
+    margin-left: 20px
+}
+
+.detalles-envio {
+    font-family: 'Nunito', sans-serif;
+    color:black ;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.ingrese-datos {
+
+}
+
+.form-select {
+    margin-top: 1rem;
+    width: 35rem;
+}
+
+.formulario {
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
 
 
