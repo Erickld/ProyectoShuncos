@@ -39,7 +39,7 @@
                 <div class="color-1 col-6">
                     <div class="cupon-container">
                         <input type="text" id="cupon-input" class="cupon-input" placeholder="Código Promocional">
-                        <button id="pay-button" type="button" class="shunco-button shunco-verde-btn" form="form-create">Aplicar Cupón</button>
+                        <button type="button" class="shunco-button shunco-rosa-btn" onclick="aplicarCupon()" data-bs-dismiss="modal">Aplicar Cupón</button>
                     </div>
 
                     
@@ -114,24 +114,13 @@
                             <div class="col-md-6">
                                 <label for="cp-user" class="form-label">Código Postal</label>
                                 <input type="text" class="form-control" id="cp-user">
-                                <div class="valid-feedback">
-                                    Código Postal válido
-                                </div>
-                                <div class="invalid-feedback">
-                                    Código Postal inválido
-                                </div>
                             </div>
                         
                             <div class="col-md-6">
-                                <label for="phone" class="form-label">Teléfono</label>
-                                <input type="tel" class="form-control" id="phone">
-                                <div class="valid-feedback">
-                                    Teléfono válido
-                                </div>
-                                <div class="invalid-feedback">
-                                    Teléfono inválido
-                                </div>
+                                <label for="phone-user" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" id="phone-user">
                             </div>
+                        </div>
                         
 
                         <div class="col-md-12">
@@ -139,6 +128,9 @@
                             <label for="exampleFormControlTextarea1" class="form-label">Indicaciones del pedido (opcional)</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
+
+                        <button id="send-button" type="button" class="shunco-button shunco-verde-btn" onclick="validarFormulario()" form="form-create">Enviar Formulario</button>
+                        
                     </div>
                 </div>
             </div>
@@ -180,7 +172,8 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous">
         </script>
-        <script src="../javascripts/crudProducts.js"></script>
+        <!--JS-->
+        <script src="../javascripts/payment.js"></script>
     </body>
 
 </html>

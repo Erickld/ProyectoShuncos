@@ -21,11 +21,19 @@ h1{
     margin-right: 20px;
 }
 
+
+/* Estilos para los botones con clase "shunco-button" */
 .shunco-button {
     padding: 4px 8px; /* Reduzco el relleno para hacer el botón más pequeño */
     cursor: pointer;
     text-align: center; /* Centra el texto horizontalmente */
     line-height: 24px; /* Establece la altura de línea para centrar el texto verticalmente */
+}
+
+.shunco-verde-btn {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 30rem;
 }
 
 .contenedor-informacion-envio {
