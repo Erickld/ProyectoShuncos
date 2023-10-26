@@ -166,7 +166,7 @@ header {
     width: 360px;
     height: 100vh;
     padding: 20px;
-    background: var(--blanco-shuncos);
+    background: white;
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
     overflow-x: hidden;
     z-index: 110;
@@ -278,10 +278,11 @@ header {
 .d-grid {
     display: flex;
     margin-top: 16rem;
-    cursor: pointer;
 }
 
-.link-success  {
+
+
+.link-primary  {
     font-size: 0.9rem;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
