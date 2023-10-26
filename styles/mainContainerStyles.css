@@ -43,9 +43,7 @@
 /* Estilos de botones */
 .shunco-button {
     outline: none;
-    padding: 0.5em;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 0.5em 1em;
     border-radius: 15px;
     border-style: dashed;
     border-width: 2px;
