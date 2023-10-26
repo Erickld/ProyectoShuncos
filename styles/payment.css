@@ -1,39 +1,38 @@
+#main-container{
+    background-color: white;
+}
+
+.content-box {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: var(--blanco-shuncos);
+}
+
+
 h1{
-    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Nunito', sans-serif; */
     color:black ;
     font-size: 2rem;
     text-align: center;
     margin-top: 1rem;
 }
 
-.cupon-container {
-    display: flex;
-    align-items: center;
-    margin-top: 3rem;
-    margin-left: 2rem;
-}
-
-.cupon-input {
-    padding: 8px;
-    font-size: 16px;
-
-    margin-right: 20px;
-}
-
-
 /* Estilos para los botones con clase "shunco-button" */
-.shunco-button {
+/* .shunco-button {
     color: white;
-    padding: 4px 8px; /* Reduzco el relleno para hacer el botón más pequeño */
+    padding: 4px 8px;
     cursor: pointer;
-    text-align: center; /* Centra el texto horizontalmente */
-    line-height: 24px; /* Establece la altura de línea para centrar el texto verticalmente */
-}
+    text-align: center;
+    line-height: 24px;
+} */
 
-.shunco-verde-btn {
+/* .shunco-verde-btn {
     margin-bottom: 1rem;
     margin-top: 1rem;
-}
+} */
 
 .contenedor-informacion-envio {
     margin-left: 2rem;
@@ -41,7 +40,7 @@ h1{
 }
 
 .detalles-envio {
-    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Nunito', sans-serif; */
     color:black ;
     margin-top: 2rem;
     font-size: 1.5rem;
@@ -69,17 +68,31 @@ h1{
 }
 
 
-#main-container{
-    background-color: white;
+.code-input-div {
+    display: flex;
+    justify-content: start;
+    padding: 0px;
+
 }
 
-.content-box {
-    width: 75%;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    background-color: var(--blanco-shuncos);
+.code-btn-div {
+    display: flex;
+    justify-content: end;
+    padding: 0px;
+
+}
+
+
+.cupon-container {
+    display: flex;
+    margin: 1rem 0px;
+    align-items: center;
+}
+
+.cupon-input {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 20px;
 }
 
 .price-row{
@@ -90,3 +103,42 @@ h1{
 .total {
     font-weight: 500;
 }
+
+.send-btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+
+#cupon-input {
+    border: 1px solid var(--rosa-shuncos);
+    border-radius: 10px 0 0 10px;
+}
+
+.cupon-buttons {
+    box-shadow: none;
+    border: 1px solid var(--rosa-shuncos);
+    border-radius: 0 10px 10px 0!important;
+    color: white;
+    border-color: var(--rosa-shuncos);
+    background-color: var(--rosa-shuncos);
+    outline: none;
+    padding: 0.5em 1em;
+}
+
+.cupon-buttons:active {
+    transform: translateX(-0.1em);
+}
+
+#cupon-btn-2{
+    display: none;
+}
+
+@media (max-width: 768px) { 
+    #cupon-btn-1{
+        display: none;
+    }
+    #cupon-btn-2{
+        display: initial;
+    }
+ }
