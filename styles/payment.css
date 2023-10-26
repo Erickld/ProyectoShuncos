@@ -1,2 +1,21 @@
+#main-container{
+    background-color: white;
+}
 
+.content-box {
+    width: 75%;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: var(--blanco-shuncos);
+}
 
+.price-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    font-weight: 500;
+}
