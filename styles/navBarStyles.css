@@ -280,13 +280,9 @@ header {
     margin-top: 16rem;
 }
 
-.btn-dark:hover {
-    background-color: #2173B4; /* Color de fondo en hover */
-    border-color: #2173B4; /* Color del borde en hover */
-    color: #fff; /* Color del texto en hover */
-}
 
-.link-success  {
+
+.link-primary  {
     font-size: 0.9rem;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
