@@ -1,3 +1,74 @@
+h1{
+    font-family: 'Nunito', sans-serif;
+    color:black ;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.cupon-container {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    margin-left: 2rem;
+}
+
+.cupon-input {
+    padding: 8px;
+    font-size: 16px;
+
+    margin-right: 20px;
+}
+
+
+/* Estilos para los botones con clase "shunco-button" */
+.shunco-button {
+    color: white;
+    padding: 4px 8px; /* Reduzco el relleno para hacer el botón más pequeño */
+    cursor: pointer;
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 24px; /* Establece la altura de línea para centrar el texto verticalmente */
+}
+
+.shunco-verde-btn {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.contenedor-informacion-envio {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.detalles-envio {
+    font-family: 'Nunito', sans-serif;
+    color:black ;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.ingrese-datos {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.formulario {
+    margin-top: 1rem;
+}
+
+.col-md-12 {
+    margin-top: 1rem;
+}
+
+.col-md-6 {
+    margin-top: 1rem;
+}
+
+#exampleFormControlTextarea1 {
+    margin-bottom: 1rem;
+}
+
+
 #main-container{
     background-color: white;
 }

@@ -7,18 +7,21 @@ body{
 }
 
 .bg-img-1 {
-    background-image: url("..//assets/img/2.png");
-    max-height:100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.263), rgba(8, 8, 8, 0.758)),url(../assets/img/bannerazulmuertos2.jpeg);
+    max-height: 100%;
+    color: black;
 }
 
 .bg-img-2 {
-    background-image: url("..//assets/img/3.png");
+    background-image: linear-gradient(rgba(255, 255, 255, 0.263), rgba(8, 8, 8, 0.758)), url(..//assets/img/bannerrosa3.jpeg);
     max-height:100%;
+    color: black;
 }
 
 .bg-img-3 {
-    background-image: url("..//assets/img/4.png");
+    background-image: linear-gradient(rgba(255, 255, 255, 0.263), rgba(8, 8, 8, 0.758)), url(..//assets/img/bannerverde2.jpeg);
     max-height:100%;
+    color: black;
 }
 
 .carrousel-img {
@@ -28,77 +31,32 @@ body{
     background-position: center;
 }
 
+
+.titles{
+    display: grid;
+}
+.terminos{
+    display: grid;
+
+}
 /*estilos para computadoras o pantallas mas grandes*/
 @media (min-width: 769px){
-    .bg-img-1 {
-        background-image: url("..//assets/img/2.png");
-        max-height:100%;
-    }
-    
-    .bg-img-2 {
-        background-image: url("..//assets/img/3.png");
-        max-height:100%;
-    }
-    
-    .bg-img-3 {
-        background-image: url("..//assets/img/4.png");
-        max-height:100%;
-    }
-    
-    .carrousel-img {
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
+
 }
 
 /*estilos para tabletas*/
 @media (min-width: 481px) and (max-width: 768px){
-    @media (min-width: 769px){
-        .bg-img-1 {
-            background-image: url("..//assets/img/5.png");
-            max-height:100%;
-        }
-        
-        .bg-img-2 {
-            background-image: url("..//assets/img/6.png");
-            max-height:100%;
-        }
-        
-        .bg-img-3 {
-            background-image: url("..//assets/img/7.png");
-            max-height:100%;
-        }
-        
-        .carrousel-img {
-            height: 100vh;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-    }
+
 }
 
+@media (min-width: 769px){
+
+}
+
+
+
 @media (min-width: 481px) and (max-width: 768px) and (orientation:portrait){
-    .bg-img-1{
-        background-image: url("..//assets/img/movil_1.png");
-        max-height:90%;
-    }
-    .bg-img-2{
-        background-image: url("..//assets/img/movil_2.png");
-        max-height:90%;
-    }
-    .bg-img-3{
-        background-image: url("..//assets/img/movil_3.png");
-        max-height:90%;
-    }
-    .carrousel-img {
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
+
 }
 
 /*estilos para celular de forma vertical*/

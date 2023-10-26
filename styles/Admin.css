@@ -1,0 +1,66 @@
+.col-md-6 {
+    height:  100vh;
+    display: grid;
+    place-content: center;
+}
+.col-login{
+    border-right: #2173b4 1px dashed;    
+}
+.col-image{
+    background-image: url("../assets/img/admin-2.jpeg");
+    background-size:cover;
+    background-position: center;
+}
+
+#btn-login {
+    outline: none;
+    color: #ffffff;
+    padding: 0.5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border: 2px dashed white;
+    border-radius: 20px;
+    background-color: #2173b4;
+    box-shadow: 0 0 0 4px #2173b4, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+    transition: .1s ease-in-out, .4s color;
+    margin-top: 1em;
+  }
+  button:active {
+    transform: translateX(0.1em) translateY(0.1em);
+    box-shadow: 0 0 0 4px #2173b4, 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+  }
+  input{
+    border-radius: 15px;
+    padding-left: 10px;
+  }
+  ::placeholder{
+    padding: 0.5em;
+  }
+  .errorField{
+    border: 1px solid #E4007C;
+  }
+
+/* las columnas cambian de posición al hacerce responsive */
+  /* @media all and (max-width: 766px) {
+    .row {
+      flex-direction: column;
+    }
+    .row .col-login {
+      width: 100%;
+      order: 2;
+    }
+    .row .col-image {
+      width: 100%;
+      order: 1;
+    }
+  } */
+/* Estilos para la columna login al hacerse responsive */
+  @media only screen and (min-width: 280px) and (max-width: 767px){
+    .col-login {
+      background-image:linear-gradient(rgba(255, 255, 255, 0.263), rgba(8, 8, 8, 0.758)), url("../assets/img/admin-2.jpeg");
+      background-size: cover;
+      background-position: center;
+      color:#ffffff
+  }
+  
+}

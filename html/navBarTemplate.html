@@ -6,7 +6,7 @@
             Shuncos
         </a>
         <div>
-            <i class="navbar-toggler bi bi-person-fill nav-icons"></i>
+           <a href="../login.html"> <i class="navbar-toggler bi bi-person-fill nav-icons"></i></a>
             <i class="navbar-toggler bi bi-cart nav-icons" onclick="mostrarCarrito()"></i>
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,16 +73,18 @@
     
     <!--Boton de Pagar-->
     <div class="d-grid gap-2 mx-auto">
-        <button class="btn btn-dark" type="button">
+        <button id="pay-button" type="button" class="shunco-button shunco-verde-btn" form="form-create">
             <i class="bi bi-cart-check"></i> Pagar
         </button>
     </div>
+    
     <!--Terminos y Condiciones-->
     <p>
-        <a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+        <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
             Términos y condiciones
         </a>
     </p>
+    
     <i class="bi bi-x-lg" id="carrito-cerrar" onclick="ocultarCarrito()"></i>
 </div>
     
