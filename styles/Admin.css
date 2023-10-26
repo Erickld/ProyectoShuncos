@@ -36,6 +36,10 @@
   ::placeholder{
     padding: 0.5em;
   }
+  .errorField{
+    border: 1px solid #E4007C;
+  }
+
 /* las columnas cambian de posición al hacerce responsive */
   /* @media all and (max-width: 766px) {
     .row {
