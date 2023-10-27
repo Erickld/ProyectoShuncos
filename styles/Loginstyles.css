@@ -6,7 +6,8 @@
 }
 
 body {
-    background-image: url(../assets/img/portada1.jpeg);
+  
+   background-image: url(../assets/img/loginmage.jpeg);
     background-size: cover;
     margin: 0;
 }
@@ -17,12 +18,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #FFFF;
+    /*background-color: #FFFF;*/
 }
 
 .container {
     /*display: flex;*/
-    border: 2px dashed  #DD8833;
+    border: 2px dashed  #2173B4;
     border-radius: 15px;
     box-shadow: 0 0 0 4px #0a7360 4px 2px 4px 2px;
     transition: 1s;
@@ -173,7 +174,7 @@ font-size: 1rem;
         }
 
         body {
-            background-image: url(../assets/img/portada1.jpeg);
+           
             /* background-color: #f2f2f2;*/
              background-size: cover;
              margin: 0;
@@ -184,7 +185,8 @@ font-size: 1rem;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url(../assets/img/portada1.jpeg);
+           
+        
         }
 
         .container-formregister {
@@ -343,19 +345,27 @@ font-size: 1rem;
             display: none;
             z-index: 1;
             max-width: 900px;
-            padding: 30px;
-            background-color: #f2f2f2;
-            border: solid thin #040c21;
+            padding: 50px;
+            background-color: #FFFF;
+            border: dashed 2px #2173B4;
             border-radius: 20px;
-            box-shadow: 0 5px 7px #0a7360;
+            box-shadow: 0 5px 5px #2173B4;
         }
         
         
         
         #login-container h2 {
-            font-size: 1rem;
+            font-size: 1.3rem;
             text-align: center;
-            padding: 20px;
+            padding: 5px; 
+            font-family: 'Montserrat', sans-serif;
+            
+        }
+        #login-container p{
+            padding: 5px; 
+            font-family: 'Montserrat', sans-serif;
+            
+            
         }
         
         #login-form {
@@ -363,21 +373,20 @@ font-size: 1rem;
         }
         
         #login-form label {
-            border: solid thin #040c21;
+            
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
             border-radius: 20px;
-            padding: 0px 10px;
-            box-shadow: 0 2px 5px #0a7360 (0, 0, 0, .1);
+            padding: 5px 20px;
+            box-shadow: 0 2px 5px #2173B4 (0, 0, 0, .1);
         }
         
         #login-form input {
             width: 100%;
-            padding: 10px;
-            background-color: #f2f2f2;
-            border: none;
+            padding:10px;
+            border: solid thin #040c21;
             border-radius: 20px;
             outline: none;
             align-items: center;
@@ -385,16 +394,19 @@ font-size: 1rem;
         }
         
         #login-form input[type="submit"] {
-            margin: 10px auto;
+            margin: 30px auto;
             display: block;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 0.5em;
+            border-radius: 30px;
             outline: none;
-            border: solid 2px #A62447;
-            box-shadow: 0 5px 7px #040c21;
+            border: dashed 2px #FFFF;
+            background-color: #2173B4 ;
+            box-shadow: 0 5px 7px #2173B4;
             cursor: pointer;
             transition: background-color .3s ease;
-            align-content: center;
+            align-content: center; 
+
+    
         }
         
         #login-success-popup {
