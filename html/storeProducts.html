@@ -42,9 +42,9 @@
 
         <main class="container-xl py-5 shop">
 
-            <div class="row">
+            <div id="aparador" class="row">
 
-                <div class="hide col-md-3 p-4">
+                <div  class="hide col-md-3 p-4">
 
                     <div class="btn product-card product-hover" data-bs-toggle="modal" data-bs-target="#modal-producto">
                         <div class="img-producto">
@@ -201,16 +201,7 @@
 
         <footer id="footer-container" class="p-3"></footer>
 
-        <script>
-            document.querySelector('#agregar-carrito').onclick = e => {
-                e.preventDefault();
-    
-                // mostrar el toast
-                const toastEl = document.querySelector('#toast');
-                const toast = new bootstrap.Toast(toastEl);
-                toast.show();
-            }
-        </script>
+        <script src="../javascripts/storeProducts.js"></script>
         <!-- Load Nav Bar -->
         <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
         <!-- Load Footer -->

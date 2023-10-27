@@ -54,7 +54,8 @@
 }
 
 .img-producto img {
-    width: 100%;
+    width: 12rem;
+    height: 15rem;
     margin-bottom: .5rem;
 }
 
