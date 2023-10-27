@@ -112,57 +112,7 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
 
-            <!-- script-->
-            
-    <!--
-    <script>
-        
-        function hidePopups() {
-            document.getElementById('login-success-popup').style.display = 'none';
-            document.getElementById('registration-success-popup').style.display = 'none';
-        }
-
-        document.getElementById('show-login').addEventListener('click', function () {
-            document.getElementById('content-container').style.display = 'none';
-            document.getElementById('login-container').style.display = 'block';
-        });
-
-        document.getElementById('login-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-            const user = registeredUsers.find(u => u.username === username && u.password === password);
-
-            if (user) {
-                hidePopups();
-                alert("Inicio de sesión exitoso. ¡Bienvenido!");
-            } else {
-                alert("Credenciales incorrectas. Inténtalo de nuevo.");
-            }
-        });
-
-        const registerButton = document.getElementById('registerButton');
-        registerButton.addEventListener('click', function () {
-            const name = document.getElementById('Name').value;
-            const lastName = document.getElementById('lastName').value;
-            const newUsername = document.getElementById('newUsername').value;
-            const email = document.getElementById('email').value;
-            const newPassword = document.getElementById('newPassword').value;
-
-            const newUser = { username: newUsername, password: newPassword };
-            const existingUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-
-            existingUsers.push(newUser);
-            localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
-
-            hidePopups();
-            alert("registro exitoso. ¡Bienvenido!");
-        });
-
-        document.body.addEventListener('click', hidePopups);
-    </script> -->
+           
 
     <script>
         function hidePopups() {
