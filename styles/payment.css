@@ -8,17 +8,23 @@
     padding: 20px;
 }
 
+
 .left-side {
     background-color:var(--blanco-shuncos);
-    border: 1px solid var(--azul-shuncos);
+    border: 2px solid var(--azul-shuncos);
 }
+
+.obligatorio {
+    color: var(--rosa-shuncos);
+}
+
 
 .content-box-2 {
     width: 80%;
     margin: 40px auto;
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid var(--azul-shuncos);
+    border: 2px solid var(--azul-shuncos);
     background-color: var(--blanco-shuncos);
 }
 
@@ -32,6 +38,7 @@
     color:black ;
     margin-top: 2rem;
     font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .ingrese-datos {
@@ -40,7 +47,7 @@
 }
 
 
-#exampleFormControlTextarea1 {
+#indicaciones-extra {
     margin-bottom: 1rem;
 }
 
@@ -62,7 +69,7 @@
     justify-content: space-between;
 }
 
-.total {
+.total-div {
     font-weight: 500;
 }
 
@@ -72,17 +79,16 @@
 }
 
 #cupon-input {
-    border: 1px solid var(--rosa-shuncos);
+    border: 1px solid var(--azul-shuncos);
     border-radius: 10px 0 0 10px;
 }
 
 .cupon-buttons {
     box-shadow: none;
-    border: 1px solid var(--rosa-shuncos);
+    border: 1px solid var(--azul-shuncos);
     border-radius: 0 10px 10px 0!important;
     color: white;
-    border-color: var(--rosa-shuncos);
-    background-color: var(--rosa-shuncos);
+    background-color: var(--azul-shuncos);
     outline: none;
     padding: 0.5em 1em;
 }
@@ -102,7 +108,13 @@
     #cupon-btn-2{
         display: initial;
     }
- }
+}
+
+#terminos-modal-btn {
+    color: var(--verde-shuncos);
+    font-weight: 500;
+    cursor: pointer;
+}
 
 
 .form-control:focus {
@@ -130,14 +142,57 @@
     border-radius: 20px;
 }
 
-.left-symbol {
-    border-radius: 20px 0 0 20px;
+
+#alerta-toast {
+    border: 2px solid var(--blanco-shuncos);
+    color: var(--blanco-shuncos);
+    font-size: medium;
 }
 
-.right-symbol {
-    border-radius: 0 20px 20px 0!important;
+.form-control.is-valid, .was-validated .form-control:valid {
+    border-color: var(--verde-shuncos)!important;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: var(--rosa-shuncos)!important;
+}
+
+.valid-feedback {
+    color: var(--verde-shuncos)!important;
+}
+
+.invalid-feedback {
+    color: var(--rosa-shuncos)!important;
 }
 
 
 
+/* Estilos de ventanas modal */
 
+.modal-title {
+    text-transform: uppercase;
+    color: var(--blanco-shuncos);
+    font-weight: 700;
+}
+
+.modal-header {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-body {
+    text-align: justify;
+}
+
+.modal-footer {
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cupon-price-div {
+    display: none;
+}
