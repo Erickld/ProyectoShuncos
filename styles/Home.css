@@ -1,82 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
-
-body{
-    background-color: var(--blanco-shuncos);
-    margin-right: 0%;
-    margin-left: 0%;
-}
-
-.bg-img-1 {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.263), rgba(8, 8, 8, 0.758)),url(../assets/img/bannerazulmuertos2.jpeg);
-    max-height: 100%;
-    color: black;
-}
-
-.bg-img-2 {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.263), rgba(8, 8, 8, 0.758)), url(..//assets/img/bannerrosa3.jpeg);
-    max-height:100%;
-    color: black;
-}
-
-.bg-img-3 {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.263), rgba(8, 8, 8, 0.758)), url(..//assets/img/bannerverde2.jpeg);
-    max-height:100%;
-    color: black;
-}
-
-.carrousel-img {
-    height: 100vh;
-    background-repeat: no-repeat;
+#banner1 {
+    background-image: linear-gradient(rgba(104, 146, 223, 0.241), rgba(8, 8, 8, 0.864)), url("../assets/img/fondo-muertos-2.jpeg");
     background-size: cover;
+    height: 100vh;
+    background-position: center;
+    
+}
+
+#banner2 {
+    background-image: linear-gradient(rgba(222, 121, 228, 0.241), rgba(232, 143, 143, 0.579)), url("../assets/img/bannerrosa1.jpeg");
+    background-size: cover;
+    height: 100vh;
+}
+
+#banner3 {
+    background-image: linear-gradient(rgba(104, 146, 223, 0.241), rgba(8, 8, 8, 0.864)), url("../assets/img/bannerrosa3.jpeg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.img-model {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.modelo {}
+
+.texto {
+    display: grid;
+    place-content: center;
+    color: white;
+    place-items: center;
+    text-align: justify;
+    padding: 50px;
+
+}
+
+.prueba {
+    background-image: url("../assets/img/muertos2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
-
-.titles{
-    display: grid;
-}
-.terminos{
-    display: grid;
-
-}
-/*estilos para computadoras o pantallas mas grandes*/
-@media (min-width: 769px){
-
-}
-
-/*estilos para tabletas*/
-@media (min-width: 481px) and (max-width: 768px){
-
-}
-
-@media (min-width: 769px){
-
-}
-
-
-
-@media (min-width: 481px) and (max-width: 768px) and (orientation:portrait){
-
-}
-
-/*estilos para celular de forma vertical*/
-@media (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
-    .bg-img-1{
-        background-image: url("..//assets/img/movil_1.png");
-        max-height:90%;
+@media only screen and (min-width: 280px) and (max-width: 766px) {
+    .row.align-items-center {
+      flex-direction: column; 
+      
     }
-    .bg-img-2{
-        background-image: url("..//assets/img/movil_2.png");
-        max-height:90%;
+    .col-text {
+      order: 1; 
+
     }
-    .bg-img-3{
-        background-image: url("..//assets/img/movil_3.png");
-        max-height:90%;
+    .prueba {
+      order: 2; 
+      background-size: cover;
+      width: 100vh; 
+      background-image: none;         
     }
-    .carrousel-img {
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+    .texto{
+        padding: 0px;
+        margin: 10px;
+        text-align: center;
+      -moz-text-decoration-line: line-through;
     }
+    .modelo{
+     margin-bottom:30vh;
+    }
+}
+
+@media(min-width: 975px){
+    .modelo{
+        display: none;
+       }
 }
