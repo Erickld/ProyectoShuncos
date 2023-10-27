@@ -6,8 +6,8 @@
 }
 
 body {
-    background-image: url(../assets/img/portada1.jpeg);
-    /*background-color: #f2f2f2;*/
+  
+   background-image: url(../assets/img/loginmage.jpeg);
     background-size: cover;
     margin: 0;
 }
@@ -18,28 +18,31 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f2f2f2;
+    /*background-color: #FFFF;*/
 }
 
 .container {
-    display: flex;
-    border: solid thin #040c21;
-    border-radius: 20px;
-    box-shadow: 0 5px 7px #0a7360;
+    /*display: flex;*/
+    border: 2px dashed  #2173B4;
+    border-radius: 15px;
+    box-shadow: 0 0 0 4px #0a7360 4px 2px 4px 2px;
     transition: 1s;
     max-width: 900px;
     margin-top: 20px; 
-     background-color: #f2f2f2;
+    background-color: #FFFF;
+
 }
 
 #bienvenido {
 align-items: center;
 width: 40%;
-display: flex;
+/*display: flex;*/
 text-align: center;
-background-color: white;
+background-color: #DD8833;
 border-bottom-left-radius: 20px;
 border-top-left-radius: 20px ;
+font-family: 'Montserrat', sans-serif;
+font-size: 1rem;
 }
 
 .infochilds {
@@ -57,24 +60,25 @@ border-top-left-radius: 20px ;
 
 .infochilds input{
     margin: 30px;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 0.3em;
+    border: 1px dashed #FFFF;
+    border-radius: 30px;
     outline: none;
-    border: solid 2px #F2A718;
-    box-shadow: 0 5px 7px #040c21;
+    box-shadow: 0 5px 7px #FFFF;
     cursor: pointer;
     transition: background-color .3s ease;
 }
-
+/*
 .infochilds input:hover{
-    background-color: #A62447;
+    font-family: 'Montserrat', sans-serif;
     border: none;
 
-}
+} */
 
 .infochilds img{
-    height: 100px;
-    width: 100px;
+    padding: 10px;
+    height: 130px;
+    width: 130px;
     
     
 }
@@ -98,9 +102,11 @@ border-top-left-radius: 20px ;
 
 .form-information-child h2{
     font-size: 1.5rem;
-    padding: 70px;
+    padding: 30px;
     align-content: center;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .form-information-child p {
@@ -108,19 +114,20 @@ border-top-left-radius: 20px ;
     align-content: center;
     padding: 10px;
     text-align: center;
-
+    font-family: 'Montserrat', sans-serif;
 }
+
 
 .form {
     margin: 30px 0 0 0;
 
 }
 .form label{
-    border: solid thin #040c21;
+    border: solid thin #FFFF;
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 0px 10px;
     box-shadow: 0 2px 5px #0a7360 (0, 0, 0, .1);
     
@@ -131,7 +138,7 @@ border-top-left-radius: 20px ;
     padding: 10px;
     background-color: #f2f2f2;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     outline: none;
     align-items: center;
     align-content: center;
@@ -141,22 +148,21 @@ border-top-left-radius: 20px ;
 .form label i {
     color: #a7a7a7;
 }
-
+/*
 .form input[value="Registrarme"] {
     margin: 30px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    outline: none;
+    padding: 1em;
+    border-radius: 15px;
     border: solid 2px #A62447;
     box-shadow: 0 5px 7px #040c21;
     cursor: pointer;
     transition: background-color .3s ease;
     align-content: center;
 
-}
+}*/
 
 .form input[value="Registrarme"]:hover {
-    background-color: #F2A718;
+    
     border: none;
 }
 
@@ -168,7 +174,7 @@ border-top-left-radius: 20px ;
         }
 
         body {
-            background-image: url(../assets/img/portada1.jpeg);
+           
             /* background-color: #f2f2f2;*/
              background-size: cover;
              margin: 0;
@@ -179,12 +185,13 @@ border-top-left-radius: 20px ;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url(../assets/img/portada1.jpeg);
+           
+        
         }
 
         .container-formregister {
             display: flex;
-            border: solid thin #040c21;
+            border: solid dashed #2173B4;
             border-radius: 20px;
             box-shadow: 0 5px 7px #0a7360;
             transition: 1s;
@@ -213,30 +220,29 @@ border-top-left-radius: 20px ;
 
 
         .infochilds input {
-            margin: 10px auto; 
+            margin: 20px auto; 
+            background-color: #2173B4;
             display: block; 
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 0.5em;
+            border-radius: 30px;
             outline: none;
-            border: solid 2px #F2A718;
-            box-shadow: 0 5px 7px #040c21;
+            border: dashed 2px #FFFF;
+            box-shadow:  0.5px 0.5px  0.5px 0.5px #2173B4;
             cursor: pointer;
-            transition: background-color .3s ease;
+            transition: background-color .4s ease-in-out opacity,.1s ease-in-out active;
         }
 
-        .infochilds input:hover {
-            background-color: #A62447;
-            border: none;
-        }
+       
 
         .infochilds img {
             height: 100px;
             width: 100px;
+            
         }
 
         .col-lg-6-information {
-            border: #040c21;
-            background-color: #f2f2f2;
+            border: #2173B4;
+            background-color: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -250,8 +256,8 @@ border-top-left-radius: 20px ;
         }
 
         .form-information-child h2 {
-            font-size: 1rem;
-            padding: 10px;
+            font-size: 1.3rem;
+            padding: 30px;
             align-content: center;
             text-align: center;
         }
@@ -275,7 +281,7 @@ border-top-left-radius: 20px ;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 0px 10px;
             box-shadow: 0 2px 5px #0a7360 (0, 0, 0, .1);
         }
@@ -283,9 +289,9 @@ border-top-left-radius: 20px ;
         .form label input {
             width: 100%;
             padding: 10px;
-            background-color: #f2f2f2;
+            background-color: #FFFF;
             border: none;
-            border-radius: 20px;
+            border-radius: 5px;
             outline: none;
             align-items: center;
             align-content: center;
@@ -294,25 +300,25 @@ border-top-left-radius: 20px ;
         .form label i {
             color: #a7a7a7;
         }
-
+        /*
         .form input[value="Registrarme"] {
             margin: 30px;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 1em;
+            border-radius:15px;
             outline: none;
-            border: solid 2px #A62447;
-            box-shadow: 0 5px 7px #040c21;
+            border: dashed 2px #2173B4;
+            box-shadow: 0 5px 7px #2173B4;
             cursor: pointer;
             transition: background-color .3s ease;
             align-content: center;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
+        } */
 
         .form input[value="Registrarme"]:hover {
-            background-color: #F2A718;
-            border: none;
+            
+            border: dashed 2px #FFFF;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -321,14 +327,15 @@ border-top-left-radius: 20px ;
         .form input[value="Registrarme"] {
             margin: 30px auto; 
             display: block; 
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 0.6em;
+            border-radius: 25px;
             outline: none;
-            border: solid 2px #A62447;
-            box-shadow: 0 5px 7px #040c21;
+            border: dashed 2px #FFFF;
+            box-shadow: 0 5px 7px #2173B4;
             cursor: pointer;
             transition: background-color .3s ease;
             align-content: center;
+            background-color: #2173B4;
         }
         #login-container {
             position: fixed;
@@ -338,19 +345,27 @@ border-top-left-radius: 20px ;
             display: none;
             z-index: 1;
             max-width: 900px;
-            padding: 30px;
-            background-color: #f2f2f2;
-            border: solid thin #040c21;
+            padding: 50px;
+            background-color: #FFFF;
+            border: dashed 2px #2173B4;
             border-radius: 20px;
-            box-shadow: 0 5px 7px #0a7360;
+            box-shadow: 0 5px 5px #2173B4;
         }
         
         
         
         #login-container h2 {
-            font-size: 1rem;
+            font-size: 1.3rem;
             text-align: center;
-            padding: 10px;
+            padding: 5px; 
+            font-family: 'Montserrat', sans-serif;
+            
+        }
+        #login-container p{
+            padding: 5px; 
+            font-family: 'Montserrat', sans-serif;
+            
+            
         }
         
         #login-form {
@@ -358,21 +373,20 @@ border-top-left-radius: 20px ;
         }
         
         #login-form label {
-            border: solid thin #040c21;
+            
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
             border-radius: 20px;
-            padding: 0px 10px;
-            box-shadow: 0 2px 5px #0a7360 (0, 0, 0, .1);
+            padding: 5px 20px;
+            box-shadow: 0 2px 5px #2173B4 (0, 0, 0, .1);
         }
         
         #login-form input {
             width: 100%;
-            padding: 10px;
-            background-color: #f2f2f2;
-            border: none;
+            padding:10px;
+            border: solid thin #040c21;
             border-radius: 20px;
             outline: none;
             align-items: center;
@@ -380,16 +394,19 @@ border-top-left-radius: 20px ;
         }
         
         #login-form input[type="submit"] {
-            margin: 10px auto;
+            margin: 30px auto;
             display: block;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 0.5em;
+            border-radius: 30px;
             outline: none;
-            border: solid 2px #A62447;
-            box-shadow: 0 5px 7px #040c21;
+            border: dashed 2px #FFFF;
+            background-color: #2173B4 ;
+            box-shadow: 0 5px 7px #2173B4;
             cursor: pointer;
             transition: background-color .3s ease;
-            align-content: center;
+            align-content: center; 
+
+    
         }
         
         #login-success-popup {
