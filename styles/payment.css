@@ -1,46 +1,34 @@
-#main-container{
-    background-color: white;
+.container-payment {
+    min-height: 95vh;
 }
 
-.content-box {
+.content-box-1 {
+    width: 90%;
+    margin: 0px auto;
+    padding: 20px;
+}
+
+.left-side {
+    background-color:var(--blanco-shuncos);
+    border: 1px solid var(--azul-shuncos);
+}
+
+.content-box-2 {
     width: 80%;
     margin: 40px auto;
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid lightgray;
+    border: 1px solid var(--azul-shuncos);
     background-color: var(--blanco-shuncos);
 }
 
-
-h1{
-    /* font-family: 'Nunito', sans-serif; */
-    color:black ;
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 1rem;
-}
-
-/* Estilos para los botones con clase "shunco-button" */
-/* .shunco-button {
-    color: white;
-    padding: 4px 8px;
-    cursor: pointer;
-    text-align: center;
-    line-height: 24px;
-} */
-
-/* .shunco-verde-btn {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-} */
-
-.contenedor-informacion-envio {
-    margin-left: 2rem;
-    margin-right: 2rem;
+.right-side {
+    background-image:linear-gradient(rgba(8, 8, 8, 0.263), rgba(8, 8, 8, 0.758)), url("../assets/img/pattern.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .detalles-envio {
-    /* font-family: 'Nunito', sans-serif; */
     color:black ;
     margin-top: 2rem;
     font-size: 1.5rem;
@@ -51,35 +39,9 @@ h1{
     margin-bottom: 1rem;
 }
 
-.formulario {
-    margin-top: 1rem;
-}
-
-.col-md-12 {
-    margin-top: 1rem;
-}
-
-.col-md-6 {
-    margin-top: 1rem;
-}
 
 #exampleFormControlTextarea1 {
     margin-bottom: 1rem;
-}
-
-
-.code-input-div {
-    display: flex;
-    justify-content: start;
-    padding: 0px;
-
-}
-
-.code-btn-div {
-    display: flex;
-    justify-content: end;
-    padding: 0px;
-
 }
 
 
@@ -108,7 +70,6 @@ h1{
     display: flex;
     justify-content: center;
 }
-
 
 #cupon-input {
     border: 1px solid var(--rosa-shuncos);
@@ -142,3 +103,41 @@ h1{
         display: initial;
     }
  }
+
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(33, 115, 180, 0.25);
+}
+
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(33, 115, 180, 0.25);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(33, 115, 180, 0.25);
+}
+
+.form-check-input:checked {
+    border-color: var(--verde-shuncos);
+    background-color: var(--verde-shuncos);
+}
+
+.form-control {
+    border-radius: 20px;
+}
+
+.form-select {
+    border-radius: 20px;
+}
+
+.left-symbol {
+    border-radius: 20px 0 0 20px;
+}
+
+.right-symbol {
+    border-radius: 0 20px 20px 0!important;
+}
+
+
+
+

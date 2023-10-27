@@ -40,20 +40,19 @@
         <!-- Inicio de contenido-->
         <div class="row gx-3 container-payment">
             <div class="left-side col-md-6 monse-font">
-                <!-- <div class="cupon-container">
-                    <input type="text" id="cupon-input" class="cupon-input" placeholder="Código Promocional">
-                    <button type="button" class="shunco-button shunco-rosa-btn" onclick="aplicarCupon()" data-bs-dismiss="modal">Aplicar Cupón</button>
-                </div> -->
-                <div class="contenedor-informacion-envio">
-                    <div class="detalles-envio">Detalles de envío</div> 
-                    <div class="ingrese-datos">Ingrese sus datos en el siguiente formulario para procesar su pedido</div>
 
-                    <div class="col-md-12">
-                        <label for="name" class="form-label">Nombre(s)</label>
-                        <input type="text" class="form-control" id="name-user" placeholder="Nombre(s) y Apellidos">
+                <div class="content-box-1">
+                    <div class="detalles-envio">Detalles de envío</div>
+                    <div class="ingrese-datos">
+                        Ingrese sus datos en el siguiente formulario para procesar su pedido
                     </div>
 
-                    <div class="row">
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="name" class="form-label">Nombre(s)</label>
+                            <input type="text" class="form-control" id="name-user" placeholder="Nombre(s) y Apellidos">
+                        </div>
+
                         <div class="col-md-6">
                             <label for="name-modelo-e" class="form-label">País/región</label>
                             <select class="form-select" aria-label="Default select example" disabled>
@@ -100,57 +99,59 @@
                                 <option value="32">Zacatecas</option>
                             </select>
                         </div>
-                    </div>
 
-                    <div class="col-md-12">
-                        <label for="city-user" class="form-label">Localidad / Ciudad </label>
-                        <input type="text" class="form-control" id="city-user">
-                    </div>
-                
-                    <div class="col-md-12">
-                        <label for="address-user" class="form-label">Colonia</label>
-                        <input type="text" class="form-control" id="address-user-colonia" placeholder="Colonia / Fraccionamiento">
-                    </div>
-                    
-
-                    <div class="col-md-12">
-                        <label for="address" class="form-label">Dirección de la calle</label>
-                        <input type="text" class="form-control" id="address-user-home" placeholder="Número de casa y nombre de la calle">
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
+                            <label for="city-user" class="form-label">Localidad / Ciudad </label>
+                            <input type="text" class="form-control" id="city-user">
+                        </div>
+    
+                        <div class="col-md-12">
+                            <label for="address-user" class="form-label">Colonia</label>
+                            <input type="text" class="form-control" id="address-user-colonia"
+                                placeholder="Colonia / Fraccionamiento">
+                        </div>
+    
+                        <div class="col-md-12">
+                            <label for="address" class="form-label">Dirección de la calle</label>
+                            <input type="text" class="form-control" id="address-user-home"
+                                placeholder="Número de casa y nombre de la calle">
+                        </div>
+    
+    
+                        <div class="col-md-6 ">
                             <label for="cp-user" class="form-label">Código Postal</label>
                             <input type="text" class="form-control" id="cp-user">
                         </div>
-                    
+    
                         <div class="col-md-6">
                             <label for="phone-user" class="form-label">Teléfono</label>
                             <input type="text" class="form-control" id="phone-user">
                         </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <!-- <div class="info-adicional">INFORMACIÓN ADICIONAL</div> -->
-                        <label for="exampleFormControlTextarea1" class="form-label">Indicaciones del pedido (opcional)</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    
+                        <div class="col-md-12">
+                            <!-- <div class="info-adicional">INFORMACIÓN ADICIONAL</div> -->
+                            <label for="exampleFormControlTextarea1" class="form-label">Indicaciones del pedido
+                                (opcional)</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="right-side col-md-6 monse-font">
-                <div>
-                    <div class="content-box">
+                    <div class="content-box-2">
                         <h5>Resumen de la orden</h5>
 
                         <div class="row">
                             <div class="col-md-12 cupon-container">
                                 <div class="input-group">
-                                    <input  type="text" id="cupon-input" class="form-control" placeholder="Código Promocional" aria-label="Código Promocional">
-                                    <button class="cupon-buttons" type="button" id="cupon-btn-1" onclick="aplicarCupon()">
+                                    <input type="text" id="cupon-input" class="form-control"
+                                        placeholder="Código Promocional" aria-label="Código Promocional">
+                                    <button class="cupon-buttons" type="button" id="cupon-btn-1"
+                                        onclick="aplicarCupon()">
                                         Aplicar Cupón
                                     </button>
-                                    <button class="cupon-buttons" type="button" id="cupon-btn-2" onclick="aplicarCupon()">
+                                    <button class="cupon-buttons" type="button" id="cupon-btn-2"
+                                        onclick="aplicarCupon()">
                                         Aplicar
                                     </button>
                                 </div>
@@ -170,9 +171,7 @@
                             <span>$250.00</span>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="row g-3 content-box">
+                    <div class="row g-3 content-box-2">
                         <div class="col-md-12">
                             <label for="name-modelo" class="form-label">Nombre de modelo</label>
                             <input type="text" class="form-control" id="name-modelo">
@@ -215,18 +214,19 @@
                                 Ingresa el nombre del modelo
                             </div>
                         </div>
-            
+
                         <div class="col-md-12">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="adulto-t34">
-                                <label class="form-check-label" for="adulto-t34">Aceptar nuestros <span>Términos y Condiciones</span></label>
+                                <label class="form-check-label" for="adulto-t34">Aceptar nuestros <span>Términos y
+                                        Condiciones</span></label>
                             </div>
                         </div>
 
                     </div>
-                </div>
                 <div class="send-btn-div mb-5">
-                    <button id="send-button" type="button" class="shunco-button shunco-verde-btn" onclick="validarFormulario()" form="form-create">Enviar Formulario</button>
+                    <button id="send-button" type="button" class="shunco-button shunco-verde-btn"
+                        onclick="validarFormulario()" form="form-create">Enviar Formulario</button>
                 </div>
             </div>
         </div>
@@ -246,7 +246,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    
+
     <!--JS-->
     <script src="../javascripts/payment.js"></script>
 
