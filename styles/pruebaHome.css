@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
-
 body{
     background-color: var(--blanco-shuncos);
     margin: 0;
@@ -38,29 +36,5 @@ body{
     padding: 50px;
     position: relative;
     z-index: 1;
-}
-
-.titles{
-    /* display: grid; */
-}
-.terminos{
-    /* display: grid; */
-
-}
-/*estilos para computadoras o pantallas mas grandes*/
-@media (min-width: 769px){
-
-}
-
-/*estilos para tabletas*/
-@media (min-width: 481px) and (max-width: 768px){
-
-}
-
-@media (min-width: 769px){
-
-}
-
-@media (min-width: 481px) and (max-width: 768px) and (orientation:portrait){
-
+    text-shadow: black 0 0 10px;
 }
