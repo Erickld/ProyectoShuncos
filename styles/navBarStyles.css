@@ -166,7 +166,7 @@ header {
     width: 360px;
     height: 100vh;
     padding: 20px;
-    background: white;
+    background: linear-gradient(239deg,  #fdfbfb 0%,#eaedee 100%); 
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
     overflow-x: hidden;
     z-index: 110;
@@ -181,6 +181,7 @@ header {
     text-align: center;
     font-size: 1.5rem;
     font-family: 'Nunito', sans-serif; 
+    text-shadow: 1px 1px 2px rgba(65, 64, 64, 0.5);
     font-weight: 600;
     margin-top: 1.5rem;
 }
@@ -251,8 +252,8 @@ header {
 }
 
 .bi-trash-fill {
-    font-size: 0.9rem;
-    color: black;
+    font-size: 1rem;
+    color: #E4007C;
     cursor: pointer;
 }
 
@@ -268,21 +269,27 @@ header {
     font-size: 0.9rem;
     font-weight: 600;
     font-family: 'Nunito', sans-serif; 
+    margin-top: 1rem;
 }
 
 .subtotal-precio {
     margin-left: 0.5rem;
+    margin-top: 1rem;
     font-size: 0.9rem;
 }
 
 .d-grid {
     display: flex;
     margin-top: 16rem;
+    justify-content: center;
+    align-items: center; 
 }
 
+.shunco-verde-btn {
+    width: 18rem;
+}
 
-
-.link-primary  {
+.link-primary {
     font-size: 0.9rem;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
