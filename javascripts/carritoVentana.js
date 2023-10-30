@@ -10,11 +10,11 @@ function mostrarCarrito() {
         button.addEventListener('click', removerArticuloCarrito);
     }
 //Cambios en la cantidad del carito
-    var cantidadInputs = document.getElementsByClassName('cantidad-carrito')
-    for (var i = 0; i < cantidadInputs.length; i++) {
-        var input = cantidadInputs[i]
-        input.addEventListener("change", cantidadCambiada)
-    }
+    // var cantidadInputs = document.getElementsByClassName('cantidad-carrito')
+    // for (var i = 0; i < cantidadInputs.length; i++) {
+    //     var input = cantidadInputs[i]
+    //     input.addEventListener("change", cantidadCambiada)
+    // }
     updateSubTotal();
 }
 
@@ -32,16 +32,43 @@ function removerArticuloCarrito(event){
 }
 
 //Cambios en la cantidad del carrito
-function cantidadCambiada(event){
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    if (isNaN(input.value) || input.value >20) {
-        input.value = 20
-    }
-    updateSubTotal();
+// function cantidadCambiada(event){
+//     var input = event.target
+//     if (isNaN(input.value) || input.value <= 0) {
+//         input.value = 1
+//     }
+//     if (isNaN(input.value) || input.value >20) {
+//         input.value = 20
+//     }
+//     updateSubTotal();
     
+// }
+
+
+//Incrementar cantidad de prenda
+function incrementarCantidad(idProduct) {
+    let inputPrenda = document.getElementById('input-carrito-cantidad-'+idProduct);
+    let valorActual = parseInt(inputPrenda.value);
+    valorActual++;
+    if (valorActual > 20) {
+        inputPrenda.value = 20;
+    } else {
+        inputPrenda.value = valorActual;
+    }
+    updateSubTotal()
+}
+
+//Disminuir cantidad
+function disminuirCantidad(idProduct) {
+    let inputPrenda = document.getElementById('input-carrito-cantidad-'+idProduct);
+    let valorActual = parseInt(inputPrenda.value);
+    valorActual--;
+    if (valorActual < 1) {
+        inputPrenda.value = 1;
+    } else {
+        inputPrenda.value = valorActual;
+    }
+    updateSubTotal()
 }
 
 //Actualizar el total 

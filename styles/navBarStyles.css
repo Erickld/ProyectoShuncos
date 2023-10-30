@@ -251,6 +251,10 @@ header {
     font-size: 0.9rem;
 }
 
+.minus-quantity, .plus-quantity {
+    cursor: pointer;
+}
+
 .bi-trash-fill {
     font-size: 1rem;
     color: #E4007C;
