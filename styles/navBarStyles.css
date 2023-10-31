@@ -181,7 +181,7 @@ header {
     text-align: center;
     font-size: 1.5rem;
     font-family: 'Nunito', sans-serif; 
-    text-shadow: 1px 1px 2px rgba(65, 64, 64, 0.5);
+    text-shadow: 0.5px 0.5px 0.5px rgba(65, 64, 64, 0.5);
     font-weight: 600;
     margin-top: 1.5rem;
 }
@@ -296,10 +296,11 @@ header {
 .link-primary {
     font-size: 0.9rem;
     display: flex;
+    text-align: center;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     margin-top: 1.5rem;
-    cursor: pointer;
+    cursor: text;
 }
 
 
