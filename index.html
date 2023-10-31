@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -16,6 +16,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Nunito:wght@700&display=swap" rel="stylesheet">
   <!-- Estilos Nav Bar -->
   <link rel="stylesheet" href="./styles/navBarStyles.css">
   <!-- Estilos Main Container -->
@@ -32,36 +35,46 @@
 
   <main id="main-container">
     <!-- elementos y efectos del carrusel -->
-
-    <div id="carouselExampleFade" class="carousel slide carousel-fade container-md-fluid">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade  container-md-fluid" data-bs-ride="carousel">
       <div class="carousel-inner">
-
+        <!-- Primer elemento del carrusel-->
         <div class="carousel-item active" id="banner1">
           <div class="row align-items-center">
             <div class="texto col-6 col-text">
               <h4>Sumérgete en la Riqueza Cultural</h4>
+              <h1>Nuestra Nueva Colección de Guayaberas Captura la Esencia del Día de Muertos </h1>
               <h3> ¡Celebra con Estilo Auténtico!</h3>
             </div>
             <div class="img-model col-6" id="modelo-1">
             </div>
           </div>
         </div>
-
-        <div class="carousel-item" id="banner1">
+        <!-- Segundo elemento del carrusel-->
+        <div class="carousel-item" id="banner2">
           <div class="row align-items-center">
-            <div class="texto col-6 col-text">
-              <h4>Sumérgete en la Riqueza Cultural</h4>
-              <h1>Nuestra Nueva Colección de Guayaberas Captura la Esencia del Día Muertos</h1>
-              <h3> ¡Celebra con Estilo Auténtico!</h3>
+            <div class="texto col-6 col-text" id="texto-2">
+              <h4>Elegancia con un Toque de Tradición</h4>
+              <h1>Descubre Nuestras Guayaberas Especiales del Día de Muertos</h1>
+              <h3> Celebra la Vida con Distinción y Significado.</h3>
             </div>
-            <div class="img-model col-md-6 prueba">
-              <img src="./assets/img/muertos4.png" class="modelo" alt="modelo-1">
+            <div class="img-model col-md-6" id="modelo-2">
             </div>
           </div>
         </div>
-
+        <!-- Tercer elemento del carrusel-->
+        <div class="carousel-item" id="banner3">
+          <div class="row align-items-center">
+            <div class="texto col-6 col-text">
+              <h4>Diseños que Rinden Homenaje</h4>
+              <h1>Nuestra Nueva Colección de Guayaberas Captura la Magia del Día de los Muertos</h1>
+              <h3> ¡Viste con Respeto y Elegancia! </h3>
+            </div>
+            <div class="img-model col-md-6" id="modelo-3">
+            </div>
+          </div>
+        </div>
       </div>
-
+      <!-- Controles del carrusel -->
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
