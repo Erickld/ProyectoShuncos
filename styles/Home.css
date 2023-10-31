@@ -26,8 +26,6 @@
     place-content: center;
 }
 
-.modelo {}
-
 .texto {
     display: grid;
     place-content: center;
@@ -35,11 +33,14 @@
     place-items: center;
     text-align: justify;
     padding: 50px;
-
 }
 
-.prueba {
-    background-image: url("../assets/img/muertos2.png");
+.modelo{
+    max-width: 100%; 
+}
+
+#modelo-1 {
+    background-image: url("../assets/img/muertos3.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -47,32 +48,22 @@
 
 @media only screen and (min-width: 280px) and (max-width: 766px) {
     .row.align-items-center {
-      flex-direction: column; 
-      
+      flex-direction: column;
     }
     .col-text {
       order: 1; 
+      width: 100vh;
+      height: 50vh;
+      padding: 10vh;
+      text-align: center
+    }
+    .img-model {
+        order: 2; 
+        width: 100vh;
+        height: 50vh;
+        background-size: contain;
+      }
 
-    }
-    .prueba {
-      order: 2; 
-      background-size: cover;
-      width: 100vh; 
-      background-image: none;         
-    }
-    .texto{
-        padding: 0px;
-        margin: 10px;
-        text-align: center;
-      -moz-text-decoration-line: line-through;
-    }
-    .modelo{
-     margin-bottom:30vh;
-    }
+   
 }
 
-@media(min-width: 975px){
-    .modelo{
-        display: none;
-       }
-}
