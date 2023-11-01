@@ -50,7 +50,7 @@
     padding: 1rem!important;
     transition: 0.4s;
     background-color: var(--blanco-shuncos);  
-      
+    cursor: pointer;  
 }
 
 .img-producto img {

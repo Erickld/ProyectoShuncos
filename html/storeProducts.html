@@ -46,99 +46,28 @@
 
                 <div  class="hide col-md-3 p-4">
 
-                    <div class="btn product-card product-hover" data-bs-toggle="modal" data-bs-target="#modal-producto">
-                        <div class="img-producto">
+                    <div class="product-card product-hover">
+                        <div class="img-producto" name="div-imgTarjeta">
                             <img src="../assets/img/guayaberas/azul pavo.png" alt="imagen-produto" ">
                         </div> <!--Imagen del producto-->
-                        <div class="info-producto text-center">
+                        <div class="info-producto text-center" name="div-infoTarjeta">
                             <h2 class="product-title">Guayabera Negra</h2>
                             <p class="price">$250</p>
                         </div> <!--Información del producto-->
                     </div><!--Card con la información del producto-->
 
                 </div> <!--Contenedor del Card-->
-
-                <div class="col-md-3 p-4">
-
-                    <div class="btn product-card product-hover ">
-                        <div class="img-producto">
-                            <img src="../assets/img/guayaberas/modelo-06.png" alt="imagen-produto" ">
-                        </div> <!--Imagen del producto-->
-                        <div class="info-producto text-center">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <p class="price">$250</p>
-                        </div> <!--Información del producto-->
-                    </div><!--Card con la información del producto-->
-
-                </div> <!--Contenedor del Card-->
-
-                <div class="col-md-3 p-4">
-
-                    <div class="btn product-card product-hover ">
-                        <div class="img-producto">
-                            <img src="../assets/img/guayaberas/Modelo-08.png" alt="imagen-produto" ">
-                        </div> <!--Imagen del producto-->
-                        <div class="info-producto text-center">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <p class="price">$250</p>
-                        </div> <!--Información del producto-->
-                    </div><!--Card con la información del producto-->
-
-                </div> <!--Contenedor del Card-->
-
-                <div class="col-md-3 p-4">
-
-                    <div class="btn product-card product-hover ">
-                        <div class="img-producto">
-                            <img src="../assets/img/guayaberas/Modelo-26.png" alt="imagen-produto" ">
-                        </div> <!--Imagen del producto-->
-                        <div class="info-producto text-center">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <p class="price">$250</p>
-                        </div> <!--Información del producto-->
-                    </div><!--Card con la información del producto-->
-
-                </div> <!--Contenedor del Card-->
-
-                <div class="col-md-3 p-4">
-
-                    <div class="btn product-card product-hover ">
-                        <div class="img-producto">
-                            <img src="../assets/img/guayaberas/picueta-coral.png" alt="imagen-produto" ">
-                        </div> <!--Imagen del producto-->
-                        <div class="info-producto text-center">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <p class="price">$250</p>
-                        </div> <!--Información del producto-->
-                    </div><!--Card con la información del producto-->
-
-                </div> <!--Contenedor del Card-->
-
-                <div class="col-md-3 p-4">
-
-                    <div class="btn product-card product-hover ">
-                        <div class="img-producto">
-                            <img src="../assets/img/guayaberas/Presicampeche.png" alt="imagen-produto" ">
-                        </div> <!--Imagen del producto-->
-                        <div class="info-producto text-center">
-                            <h2 class="product-title">Guayabera Negra</h2>
-                            <p class="price">$250</p>
-                        </div> <!--Información del producto-->
-                    </div><!--Card con la información del producto-->
-
-                </div> <!--Contenedor del Card-->
-
 
             </div> <!--Contenedor Productos de la tienda-->
 
         </main> <!--Contenedor principal-->
 
-        <section>
+        <div id="contenedor-modal">
             <div id="modal-producto" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2>Detalles del pedido</h2>
+                            <h2 class="text-center d-inline">Detalles del producto</h2>
                             <button data-bs-dismiss="modal" type="button" class="btn btn-close"></button>
                         </div> <!--Modal Header-->
 
@@ -183,7 +112,7 @@
                     </div> <!--Div contenido del modal-->
                 </div> <!--Modal Dialog-->
             </div> <!--Modal para el producto-->
-        </section> <!--Seccion Ventana Modal-->
+        </div> <!--Seccion Ventana Modal-->
 
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 10;">
             <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
