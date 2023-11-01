@@ -251,6 +251,10 @@ header {
     font-size: 0.9rem;
 }
 
+.minus-quantity, .plus-quantity {
+    cursor: pointer;
+}
+
 .bi-trash-fill {
     font-size: 1rem;
     color: #E4007C;
@@ -285,7 +289,7 @@ header {
     align-items: center; 
 }
 
-.shunco-verde-btn {
+#pay-button {
     width: 18rem;
 }
 

@@ -1,45 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
 #banner1 {
-    background-image: linear-gradient(rgba(104, 146, 223, 0.241), rgba(8, 8, 8, 0.864)), url("../assets/img/fondo-muertos-2.jpeg");
+    background-image: linear-gradient(rgba(104, 146, 223, 0.500), rgba(8, 8, 8, 0.900)), url("../assets/img/fondo-muertos-2.jpeg");
     background-size: cover;
     height: 100vh;
-    background-position: center;
-    
+    background-position:center;
 }
-
 #banner2 {
-    background-image: linear-gradient(rgba(222, 121, 228, 0.241), rgba(232, 143, 143, 0.579)), url("../assets/img/bannerrosa1.jpeg");
+    background-image: linear-gradient(rgba(41, 157, 206, 0.500), rgba(4, 4, 4, 0.900)), url("../assets/img/bannerazulmuertos.jpeg");
     background-size: cover;
+    background-position: center;
     height: 100vh;
 }
-
 #banner3 {
-    background-image: linear-gradient(rgba(104, 146, 223, 0.241), rgba(8, 8, 8, 0.864)), url("../assets/img/bannerrosa3.jpeg");
+    background-image: linear-gradient(rgba(104, 146, 223, 0.500), rgba(8, 8, 8, 0.900)), url("../assets/img/banner-muertos-azul-4.jpeg");
     background-size: cover;
     height: 100vh;
+    background-position: bottom;
 }
-
 .img-model {
     margin: 0;
     height: 100vh;
     display: grid;
     place-content: center;
 }
-
-.modelo {}
-
 .texto {
-    display: grid;
+    font-family:'Montserrat', sans-serif;
+    display: grid;  
     place-content: center;
-    color: white;
+    color:blanchedalmond;
     place-items: center;
     text-align: justify;
     padding: 50px;
-
+    text-shadow: 1px 1px 0 black;
 }
 
-.prueba {
-    background-image: url("../assets/img/muertos2.png");
+h1{
+    font-family:"Nunito";
+    padding: 10px;
+    color:blanchedalmond;
+}
+.modelo{
+    max-width: 100%; 
+}
+#modelo-1 {
+    background-image: url("../assets/img/muertos3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#modelo-2 {
+    background-image: url("../assets/img/muertos5.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#modelo-3 {
+    background-image: url("../assets/img/muertos4.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -47,32 +63,20 @@
 
 @media only screen and (min-width: 280px) and (max-width: 766px) {
     .row.align-items-center {
-      flex-direction: column; 
-      
+      flex-direction: column;
     }
     .col-text {
       order: 1; 
-
+      width: 100vh;
+      height: 50vh;
+      padding: 10vh;
+      text-align: center;
+      text-shadow: -2px -2px 0 black;
     }
-    .prueba {
-      order: 2; 
-      background-size: cover;
-      width: 100vh; 
-      background-image: none;         
-    }
-    .texto{
-        padding: 0px;
-        margin: 10px;
-        text-align: center;
-      -moz-text-decoration-line: line-through;
-    }
-    .modelo{
-     margin-bottom:30vh;
-    }
-}
-
-@media(min-width: 975px){
-    .modelo{
-        display: none;
-       }
+    .img-model {
+        order: 2; 
+        width: 100vh;
+        height: 50vh;
+        background-size: contain;
+      }
 }
