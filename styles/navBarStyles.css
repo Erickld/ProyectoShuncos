@@ -181,7 +181,7 @@ header {
     text-align: center;
     font-size: 1.5rem;
     font-family: 'Nunito', sans-serif; 
-    text-shadow: 1px 1px 2px rgba(65, 64, 64, 0.5);
+    text-shadow: 0.5px 0.5px 0.5px rgba(65, 64, 64, 0.5);
     font-weight: 600;
     margin-top: 1.5rem;
 }
@@ -222,7 +222,7 @@ header {
 .carrito-img {
     width: 100px;
     height: 100px;
-    background-color: var(--blanco-shuncos); 
+    background-color: white; 
     object-fit: contain;
     padding: 10px;    
 }
@@ -284,22 +284,31 @@ header {
 
 .d-grid {
     display: flex;
-    margin-top: 16rem;
     justify-content: center;
     align-items: center; 
 }
 
-#pay-button {
+#pay-button, #seguir-comprando-button {
     width: 18rem;
 }
+
+#seguir-comprando-button {
+    margin-top: 16rem;
+}
+
+#pay-button {
+    margin-top: 1.5rem;
+}
+
 
 .link-primary {
     font-size: 0.9rem;
     display: flex;
+    text-align: center;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     margin-top: 1.5rem;
-    cursor: pointer;
+    cursor: text;
 }
 
 
