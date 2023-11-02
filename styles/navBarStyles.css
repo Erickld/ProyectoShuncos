@@ -284,14 +284,22 @@ header {
 
 .d-grid {
     display: flex;
-    margin-top: 16rem;
     justify-content: center;
     align-items: center; 
 }
 
-#pay-button {
+#pay-button, #seguir-comprando-button {
     width: 18rem;
 }
+
+#seguir-comprando-button {
+    margin-top: 16rem;
+}
+
+#pay-button {
+    margin-top: 1.5rem;
+}
+
 
 .link-primary {
     font-size: 0.9rem;
