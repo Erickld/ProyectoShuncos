@@ -27,6 +27,30 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
         });
 
         document.getElementById("username-txt").textContent = currentUser.username;
+        
+        let dropdownsHTML = ``;
+        if (currentUser.isAdmin) {
+            dropdownsHTML = 
+            `
+            <li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
+            <li><hr class="dropdown-divider white-color"></li>
+            <li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Pedidos</a></li>
+            <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
+            `
+        } else {
+            dropdownsHTML = 
+            `
+            <li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
+            <li><hr class="dropdown-divider white-color"></li>
+            <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
+            `
+        }
+
+        let dropdownsNavBar = document.querySelectorAll(".dropdown-nav-bar-menu");
+        dropdownsNavBar.forEach(element => {
+            element.innerHTML = 
+        });
+
 
     } else {
         showInLogin.forEach(element => {
