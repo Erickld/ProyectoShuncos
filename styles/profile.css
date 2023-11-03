@@ -3,6 +3,7 @@
     outline: none;
     color: #ffffff;
     padding: 0.4em;
+    margin: 1rem;
     padding-left: 2em;
     padding-right: 2em;
     border: 2px dashed #ffffff;
@@ -24,7 +25,7 @@
     outline: none;
     color: #ffffff;
     padding: 0.4em;
-    margin-left: 1rem;
+    margin: 1rem;
     padding-left: 2em;
     padding-right: 2em;
     border: 2px dashed #ffffff;
@@ -42,7 +43,7 @@
     outline: none;
     color: #ffffff;
     padding: 0.4em;
-    margin-left: 1rem;
+    margin: 1rem;
     padding-left: 2em;
     padding-right: 2em;
     border: 2px dashed #ffffff;
@@ -58,4 +59,7 @@
   .btn-cerrar:active {
     transform: translateX(0.1em) translateY(0.1em);
     box-shadow: 0 0 0 4px var(--rosa-shuncos), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+  }
+  input{
+    margin: 0.5em;
   }
