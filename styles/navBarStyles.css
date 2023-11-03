@@ -125,7 +125,7 @@ header {
 }
 
 
-@media (max-width: 320px) { 
+@media (max-width: 323px) { 
     .nav-icons {
         display: none;
     }
@@ -352,4 +352,8 @@ header {
 
 .user-account-icon {
     display: inline-flex!important;
+}
+
+.border-white {
+    border-color: var(--blanco-shuncos);
 }
