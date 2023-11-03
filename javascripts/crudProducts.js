@@ -178,8 +178,8 @@ formularioCreacion.onsubmit = async function(e) {
         //obtenemos la extensión de la imagen
         let extensionImg = img.name.split('.').pop();
         extensionImg = extensionImg.toLowerCase();
-        //validamos que la imagen tenga una extension png, jpg o jpeg
-        if(["png", "jpg", "jpeg"].includes(extensionImg)) {
+        //validamos que la imagen tenga una extension png, jpg, jpeg o webp
+        if(["png", "jpg", "jpeg", "webp"].includes(extensionImg)) {
             inputValid(imagen);
         } else {
             inputInvalid(imagen);
@@ -390,8 +390,8 @@ formularioEdicion.onsubmit = async function(e) {
             //obtenemos la extensión de la imagen
             let extensionImg = img.name.split('.').pop();
             extensionImg = extensionImg.toLowerCase();
-            //validamos que la imagen tenga una extension png, jpg o jpeg
-            if(["png", "jpg", "jpeg"].includes(extensionImg)) {
+            //validamos que la imagen tenga una extension png, jpg, jpeg o webp
+            if(["png", "jpg", "jpeg", "webp"].includes(extensionImg)) {
                 inputValid(imagenEdit);
             } else {
                 inputInvalid(imagenEdit);
