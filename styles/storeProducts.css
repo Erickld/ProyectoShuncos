@@ -77,15 +77,15 @@
     margin-top: 0.5rem;
 }
 
-.modal-header {
+/* .modal-header {
     color: black;
     background-size: cover;
-}
+} */
 
 .titulo-modal {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 1rem;
-    padding: .5rem;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border-radius: 1rem; */
+    /* padding: .5rem; */
 
 }
 
@@ -127,3 +127,31 @@
         width: fit-content;
     }
 }
+
+
+.modal-title {
+    text-transform: uppercase;
+    color: var(--blanco-shuncos);
+    font-weight: 700;
+}
+
+.modal-header {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-footer {
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+
+
