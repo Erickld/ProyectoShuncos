@@ -1,4 +1,4 @@
-let formRegister = document.getElementById("form-register-user");
+let formRegister = document.getElementById("form-modify-user");
 let formLogin = document.getElementById("form-login-user");
 
 function inputInvalid(input) {
@@ -132,7 +132,7 @@ formRegister.onsubmit = function(e) {
     alerta("verde", "Registro exitoso. ¡Inicia sesión para continuar!");
 
     setTimeout(() => {
-        location.reload();
+        location.reload();   
     }, 2000);
 }
 

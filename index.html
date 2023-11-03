@@ -2,104 +2,114 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bienvenido</title>
-  <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.png">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Nunito:wght@700&display=swap" rel="stylesheet">
-  <!-- Estilos Nav Bar -->
-  <link rel="stylesheet" href="./styles/navBarStyles.css">
-  <!-- Estilos Main Container -->
-  <link rel="stylesheet" href="./styles/mainContainerStyles.css">
-  <!-- Estilos Footer -->
-  <link rel="stylesheet" href="./styles/footerStyles.css">
-  <link rel="stylesheet" href="./styles/Home.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bienvenido</title>
+	<link rel="icon" href="../assets/img/shuncos_logo_nav_bar.png">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito+Sans:opsz@6..12&family=Nunito:wght@700&display=swap"
+		rel="stylesheet">
+	<!-- Estilos Nav Bar -->
+	<link rel="stylesheet" href="./styles/navBarStyles.css">
+	<!-- Estilos Main Container -->
+	<link rel="stylesheet" href="./styles/mainContainerStyles.css">
+	<!-- Estilos Footer -->
+	<link rel="stylesheet" href="./styles/footerStyles.css">
+	<link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body>
-  <header>
-    <nav id="nav-bar-container"></nav>
-  </header>
+	<header>
+		<nav id="nav-bar-container"></nav>
+	</header>
 
-  <main id="main-container">
-    <!-- elementos y efectos del carrusel -->
-    <div id="carouselExampleFade" class="carousel slide carousel-fade  container-md-fluid" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <!-- Primer elemento del carrusel-->
-        <a href="./html/storeProducts.html"><div class="carousel-item active" id="banner1">
-          <div class="row align-items-center">
-            <div class="texto col-6 col-text">
-              <h4>Sumérgete en la Riqueza Cultural</h4>
-              <h1>Nuestra Nueva Colección de Guayaberas Captura la Esencia del Día de Muertos </h1>
-              <h3> ¡Celebra con Estilo Auténtico!</h3>
-            </div>
-            <div class="img-model col-6" id="modelo-1">
-            </div>
-          </div>
-        </div></a>
-        <!-- Segundo elemento del carrusel-->
-        <a href="./html/storeProducts.html"><div class="carousel-item" id="banner2">
-          <div class="row align-items-center">
-            <div class="texto col-6 col-text" id="texto-2">
-              <h4>Elegancia con un Toque de Tradición</h4>
-              <h1>Descubre Nuestras Guayaberas Especiales del Día de Muertos</h1>
-              <h3> Celebra la Vida con Distinción y Significado.</h3>
-            </div>
-            <div class="img-model col-md-6" id="modelo-2">
-            </div>
-          </div>
-        </div></a>
-        <!-- Tercer elemento del carrusel-->
-        <a href="./html/storeProducts.html"><div class="carousel-item" id="banner3">
-          <div class="row align-items-center">
-            <div class="texto col-6 col-text">
-              <h4>Diseños que Rinden Homenaje</h4>
-              <h1>Nuestra Nueva Colección de Guayaberas Captura la Magia del Día de los Muertos</h1>
-              <h3> ¡Viste con Respeto y Elegancia! </h3>
-            </div>
-            <div class="img-model col-md-6" id="modelo-3">
-            </div>
-          </div>
-        </div></a>
-      </div>
-      <!-- Controles del carrusel -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+	<main id="main-container">
+		<!-- elementos y efectos del carrusel -->
+		<div id="carouselExampleFade" class="carousel slide carousel-fade  container-md-fluid" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<!-- Primer elemento del carrusel-->
+				<a href="./html/storeProducts.html">
+					<div class="carousel-item active" id="banner1">
+						<div class="row align-items-center">
+							<div class="texto col-6 col-text">
+								<h4>Sumérgete en la Riqueza Cultural</h4>
+								<h1>Nuestra Nueva Colección de Guayaberas Captura la Esencia del Día de Muertos </h1>
+								<h3> ¡Celebra con Estilo Auténtico!</h3>
+							</div>
+							<div class="img-model col-6" id="modelo-1">
+							</div>
+						</div>
+					</div>
+				</a>
+				<!-- Segundo elemento del carrusel-->
+				<a href="./html/storeProducts.html">
+					<div class="carousel-item" id="banner2">
+						<div class="row align-items-center">
+							<div class="texto col-6 col-text" id="texto-2">
+								<h4>Elegancia con un Toque de Tradición</h4>
+								<h1>Descubre Nuestras Guayaberas Especiales del Día de Muertos</h1>
+								<h3> Celebra la Vida con Distinción y Significado.</h3>
+							</div>
+							<div class="img-model col-md-6" id="modelo-2">
+							</div>
+						</div>
+					</div>
+				</a>
+				<!-- Tercer elemento del carrusel-->
+				<a href="./html/storeProducts.html">
+					<div class="carousel-item" id="banner3">
+						<div class="row align-items-center">
+							<div class="texto col-6 col-text">
+								<h4>Diseños que Rinden Homenaje</h4>
+								<h1>Nuestra Nueva Colección de Guayaberas Captura la Magia del Día de los Muertos</h1>
+								<h3> ¡Viste con Respeto y Elegancia! </h3>
+							</div>
+							<div class="img-model col-md-6" id="modelo-3">
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<!-- Controles del carrusel -->
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
 
-    <!-- Fin Modificar Contenido -->
-  </main>
+		<!-- Fin Modificar Contenido -->
+	</main>
 
-  <footer id="footer-container" class="p-3"></footer>
+	<footer id="footer-container" class="p-3"></footer>
 
-  <!-- Load Nav Bar -->
-  <script src="./javascripts/loadNavBar.js" fuente="root"></script>
-  <!-- Load Footer -->
-  <script src="./javascripts/loadFooter.js" fuente="root"></script>
-  <!-- Load ventana de carrito -->
-  <script src="./javascripts/carritoVentana.js" fuente="htmlFolder"></script>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+	<!-- Load Nav Bar -->
+	<script src="./javascripts/loadNavBar.js" fuente="root"></script>
+	<!-- Load Footer -->
+	<script src="./javascripts/loadFooter.js" fuente="root"></script>
+	<!-- Load ventana de carrito -->
+	<script src="./javascripts/carritoVentana.js" fuente="htmlFolder"></script>
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

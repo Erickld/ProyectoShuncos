@@ -6,7 +6,19 @@
             Shuncos
         </a>
         <div>
-           <a href="../pruebaNewLogin.html"> <i class="navbar-toggler bi bi-person-fill nav-icons"></i></a>
+           <a href="../login.html" class="hide-in-login"> <i class="navbar-toggler bi bi-person-fill nav-icons"></i></a>
+
+            <li class="nav-item dropdown show-in-login user-account-icon">
+                <a class="nav-link dropdown-toggle font-14" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="navbar-toggler bi bi-person-fill nav-icons"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
+                    <li><hr class="dropdown-divider white-color"></li>
+                    <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
+                </ul>
+            </li>
+
             <i class="navbar-toggler bi bi-cart nav-icons" onclick="mostrarCarrito()"></i>
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,19 +39,46 @@
                 <li class="nav-item me-2 nav-flex subrayar">
                     <a class="nav-link white-color link-contact-us" href="#">Contactanos</a>
                 </li>
-                <li class="nav-item me-2 button-nav">
-                    <a class="nav-link" href="../pruebaNewLogin.html">
+                <li class="nav-item me-2 button-nav hide-in-login">
+                    <a class="nav-link" href="../login.html">
                         <button type="button" class="btn btn-nav font-14" >
                             <i class="bi bi-person-fill"></i>
                             Inicio / Registro
                         </button>
                     </a>
                 </li>
+                <li class="nav-item dropdown button-nav-2 show-in-login">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="btn btn-nav font-14" >
+                            <i class="bi bi-person-fill"></i>
+                            <span id="username-txt"> Username</span>
+                        </button>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item me-2 button-nav">
                     <a class="nav-link">
                         <button type="button" class="btn btn-nav font-14" onclick="mostrarCarrito()">
                             <i class="bi bi-cart"></i>
                             Carrito
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item me-2 button-nav-3 show-in-login">
+                    <a class="nav-link" href="../login.html">
+                        <button type="button" class="btn btn-nav font-14" >
+                            <i class="bi bi-person-circle"></i> Mi cuenta
+                        </button>
+                    </a>
+                </li>
+                <li class="nav-item me-2 button-nav-3 show-in-login">
+                    <a class="nav-link" href="../login.html" onclick="cerrarSesion()">
+                        <button type="button" class="btn btn-nav font-14" >
+                            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                         </button>
                     </a>
                 </li>
@@ -75,6 +114,15 @@
         <div class="subtotal-titulo">Subtotal</div>
         <div class="subtotal-precio">$0</div>
     </div>
+
+    <!--Boton de Seguir comprando-->
+    <div class="d-grid gap-2 mx-auto">
+        <a href="./storeProducts.html">
+        <button id="seguir-comprando-button"type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">
+        <i class="bi bi-bag"></i> Seguir comprando
+        </button>
+    </a>
+    </div>
     
     <!--Boton de Pagar-->
     <div class="d-grid gap-2 mx-auto">
@@ -84,13 +132,6 @@
         </button>
     </a>
     </div>
-    
-    <!--Terminos y Condiciones-->
-    <p>
-        <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-            Términos y condiciones
-        </a>
-    </p>
     
     <i class="bi bi-x-lg" id="carrito-cerrar" onclick="ocultarCarrito()"></i>
 </div>
