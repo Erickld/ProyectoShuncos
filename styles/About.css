@@ -1,108 +1,115 @@
-#img-container{
-    background-image:linear-gradient(rgba(104, 146, 223, 0.241), rgba(8, 8, 8, 0.864)), 
+#img-container {
+  background-image: linear-gradient(
+      rgba(104, 146, 223, 0.241),
+      rgba(8, 8, 8, 0.864)
+    ),
     url("../assets/img/banner-shncs.jpeg");
-    width: 100%;
-    min-height: 20rem;
-    background-size:cover;
-    background-position: 25% 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+  width: 100%;
+  min-height: 20rem;
+  background-size: cover;
+  background-position: 25% 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
-.img-fluid{
-    min-width: 250px;
-    max-height: 250px;
-    max-width: 500px;
-    max-height: 500px;
-    object-fit:cover;
-    border-radius: 10px;
+.img-fluid {
+  min-width: 250px;
+  max-height: 250px;
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
 }
-.col-about{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+.col-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
-.about-us{
-   margin-top: 50px;
-   margin-bottom: 50px;
-   padding: 20px;
+.about-us {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
 }
-h1{
-    font-family: 'Nunito', sans-serif;
-    color: white;
-    text-shadow: 1px 1px 2px black;
-    font-size: 3.5rem;
+h1 {
+  font-family: "Nunito", sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px var(--rosa-shuncos);
+  font-size: 3.5rem;
+  animation: tracking-in-contract 0.7s linear both;
 }
-.text-about{
-    font-family: 'Montserrat', sans-serif;  
+
+@keyframes tracking-in-contract{0%{letter-spacing:.6em;opacity:0}40%{opacity:.6}100%{letter-spacing:normal;opacity:1}}
+.text-about {
+  font-family: "Montserrat", sans-serif;
 }
-.card-img-top{
-    background-color: white;
-    border-radius: 150px;
-    width: 150px;
-    height: 150px;
-    margin: 30px;
-    border: 4px solid #a62447;
+.card-img-top {
+  background-color: white;
+  border-radius: 150px;
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+  border: 4px solid #a62447;
 }
-.social-icon{
-    align-content: center;
-    text-align: center; 
-} 
-.card{
-    background-image: linear-gradient(rgba(10, 4, 5, 0.154), rgba(255, 255, 255, 0.297)),
+.social-icon {
+  align-content: center;
+  text-align: center;
+}
+.card {
+  background-image: linear-gradient(
+      rgba(10, 4, 5, 0.154),
+      rgba(255, 255, 255, 0.297)
+    ),
     url("../assets/img/portada2.jpeg");
-    border-radius: 0px 0px 40px 40px;
-    margin-bottom: 20px;
-    box-shadow: 5px 10px 5px 0px gray;
-    background-size: contain;
-    border-right: #f2f2f2;
-    border-left: #f2f2f2;
-    border-bottom: #f2f2f2;
-    }
-.card-body{
-    background-color: #f2f2f2;
-    border-radius: 0px 0px 40px 40px;
-    text-align: center;
-    padding: 40px;   
-    border-top: 4px outset #F2A71B;
-    width: 100%;
+  border-radius: 0px 0px 40px 40px;
+  margin-bottom: 20px;
+  box-shadow: 5px 10px 5px 0px gray;
+  background-size: contain;
+  border-right: #f2f2f2;
+  border-left: #f2f2f2;
+  border-bottom: #f2f2f2;
 }
-.card-img{
-    display: flex;
-    justify-content:center;    
-    width: 100%;
+.card-body {
+  background-color: #f2f2f2;
+  border-radius: 0px 0px 40px 40px;
+  text-align: center;
+  padding: 40px;
+  border-top: 4px outset #f2a71b;
+  width: 100%;
 }
-.card-text{
-    font-family:"Montserrat";
-    text-align:start;
-    padding: 10px;
-    width: 100%;
-    height: 200px;
-    overflow-y:scroll;
-    Overflow: overlay;
-    margin-bottom: 20px;
-    font-size: 1rem; 
+.card-img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-.card-title { 
-    height: 50px;
-    width: 100%;
-    font-size: 1.1rem;
-    overflow-y: scroll;
-    overflow-y: revert;
-
+.card-text {
+  font-family: "Montserrat";
+  text-align: start;
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+  overflow-y: scroll;
+  overflow: overlay;
+  margin-bottom: 20px;
+  font-size: 1rem;
 }
-.social{
-    margin:20px;
+.card-title {
+  height: 50px;
+  width: 100%;
+  font-size: 1.1rem;
+  overflow-y: scroll;
+  overflow-y: revert;
 }
- h6{
-    font-family: "Montserrat";
-    margin-top: 20px;
-    margin-bottom: 20px;
- }
- p{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
- }
-
+.social {
+  margin: 20px;
+}
+h6 {
+  font-family: "Montserrat";
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+}
