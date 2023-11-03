@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi Cuenta</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <!-- Estilos Nav Bar -->
+        <link rel="stylesheet" href="../styles/navBarStyles.css">
+        <!-- Estilos Main Container -->
+        <link rel="stylesheet" href="../styles/mainContainerStyles.css">
+        <!-- Estilos Footer -->
+        <link rel="stylesheet" href="../styles/footerStyles.css">
+        <link rel="stylesheet" href="../styles/profile.css">
+    </head>
+
+    <body>
+        <header class="nav-bar-header">
+            <nav id="nav-bar-container"></nav>
+        </header>
+
+        <main id="main-container">
+            <!-- Modificar Contenido -->
+            <div class="container text-center">
+                <div class="row">
+                  <div class="col-md-12">
+                    <br> <br>
+                    <h1> Mis Datos </h1>
+                    <table class="table table-borderless"> <!-- Aqui inicia la tabla del usuario-->
+                       
+                    <tbody> <!-- Cuerpo de la tabla-->
+                        <tr>
+                            <th class="table-dark"> Nombre </th>
+                            <td> juan </td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark"> Apellidos </th>
+                            <td> lastname </td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark"> Nombre de usuario </th>
+                            <td> username </td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark col-4"> Correo </th>
+                            <td> correo@dominio.com </td>
+                        </tr>
+                        <tr>
+                            <th class="table-dark"> Contraseña </th>
+                            <td> ***** </td> 
+                        </tr>
+                    </tbody> <!-- fin cuerpo de la tabla-->
+                    </table> <br> <br><!-- Aqui termina la tabla del usuario-->
+                    <button type="button" class="btn-modify" data-bs-toggle="modal" data-bs-target="#exampleModal"> Modificar </button> <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalDelete"> Dar de baja mi cuenta</button>
+                  </div>
+                  <!--Inicio Modal modificar datos-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"> Modificar mis datos </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="form-modify text-center mt-4" id="form-modify-user">
+                <label>
+                    <p class="bi bi-person-fill">Nombre</p>
+                    <input type="text" class="form-control" placeholder="Nombre" id="name" required>
+                </label>
+                <label>
+                    <p class="bi bi-person-fill"> Apellidos </p>
+                    <input type="text" class="form-control" placeholder="Apellido(s)" id="lastName" required>
+                </label>
+                <label>
+                    <p class="bi bi-person-circle">Nombre de usuario</p>
+                    <input type="text" class="form-control" placeholder="Nombre de Usuario" id="newUsername" required>
+                </label>
+                <label>
+                    <p class="bi bi-envelope-fill">Correo</p>
+                    <input type="email" class="form-control" placeholder="Correo Electrónico" id="email" required>
+                </label>
+                <label>
+                    <p class="bi bi-lock-fill">Contraseña</p>
+                    <input type="password" class="form-control" placeholder="Contraseña" id="newPassword" autocomplete="off" required>
+                </label>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-cerrar" data-bs-dismiss="modal">Cerar</button>
+          <button type="button" class="btn-save">Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <!-- Fin del modal para modificar datos-->
+
+  <!--Inicio Modal eliminar cuenta-->
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalDeleteLabel">¿Quieres eliminar tu cuenta?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <p> Si continúas, perderás acceso a tu cuenta y a todas tus compras anteriores </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn-delete">Sí, eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <!-- Fin del modal para eliminar cuenta-->
+                  <div class="col-md-12">
+                    <br> <br>
+                   <h1>Mis pedidos</h1>
+                   <div class="row my-4">
+                </div>
+                <div class="row mb-3">
+                </div>
+                <div class="row">
+                    <div class="table-responsive-lg">
+                        <table class="table table-striped table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"># Pedido</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Estatus</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Forma de pago</th>
+                                    <th scope="col">Subtotal</th>
+                                    <th scope="col">Envío</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-tabla">
+                            </tbody>
+                        </table>
+                     </div>
+                </div>
+                  </div>
+                </div>
+              </div>
+            <!-- Fin Modificar Contenido -->
+        </main>
+
+        <footer id="footer-container" class="p-3"></footer>
+
+        <!-- Load Nav Bar -->
+        <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
+        <!-- Load Footer -->
+        <script src="../javascripts/loadFooter.js" fuente="htmlFolder"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <!-- Store Products -->
+        <script src="../javascripts/carritoVentana.js"></script>
+
+        <!--Script validación-->
+        <script src="../javascripts/modifyUserProfile.js"></script>
+    </body>
+
+</html>
