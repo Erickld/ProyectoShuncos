@@ -1,32 +1,7 @@
-#img-container {
-    background-image: linear-gradient(
-        rgba(104, 146, 223, 0.241),
-        rgba(8, 8, 8, 0.864)
-      ),
-      url("../assets/img/admin-1.webp");
-    width: 100%;
-    min-height: 20rem;
-    background-size: cover;
-    background-position: bottom;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-  #titulo-banner{
-    font-family: "Nunito", sans-serif;
-    color: white;
-    text-shadow: 1px 1px 2px black;
-    font-size: 3.5rem;
-    animation: tracking-in-contract 0.7s linear both;
-  }
-  @keyframes tracking-in-contract{0%{letter-spacing:.6em;opacity:0}40%{opacity:.6}100%{letter-spacing:normal;opacity:1}}
-.text-about {
-  font-family: "Montserrat", sans-serif;
-}
+@import url(mainContainerStyles.css);
 
-  h1,h2,h3 {
-    font-family: "Nunito", sans-serif;
+h1,h2,h3 {
+    font-family: var(--monse-font);
 }
 
 p {
@@ -59,16 +34,14 @@ p {
 
 .tela-formulario,
 .bordado-formulario {
-    background-color: var(--azul-shuncos);
+    background-color: var(--rosa-shuncos);
 }
 
 .tela-redes,
 .bordado-redes {
-    background-color: var(--blanco-shuncos);
+    background-color: var(--beige-shuncos);
 }
-.tela-redes{
-    box-shadow: 5px 10px 5px 0px gray;
-}
+
 .redes {
     display: flex;
     justify-content: center;
@@ -124,3 +97,4 @@ a {
     height: 50px;
     width: 50px;
 }
+
