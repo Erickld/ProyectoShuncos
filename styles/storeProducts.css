@@ -43,20 +43,19 @@
 
 
 .product-card {
-    background-color: var(--blanco-shuncos);
+    width: 100%
 }
 
 .product-hover:hover {
     padding: 1rem!important;
-    transition: 0.4s;
-    background-color: var(--blanco-shuncos);  
+    transition: 0.4s;  
     cursor: pointer;  
 }
 
 .img-producto img {
-    width: 12rem;
-    height: 15rem;
-    margin-bottom: .5rem;
+    width: 100%;
+    height: 20rem;
+    margin-top: 1rem;
 }
 
 .product-img {
@@ -66,13 +65,30 @@
 }
 
 .info-producto {
-
+    border-radius: 2px;
+    border-style: dashed;
+    border-width: 2px;
+    background-color: var(--blanco-shuncos);
 }
 
 .product-title {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.modal-header {
+    color: black;
+    background-image: url(../assets/img/pattern-table.webp);
+    background-size: cover;
+}
+
+.titulo-modal {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    padding: .5rem;
+
 }
 
 .price {

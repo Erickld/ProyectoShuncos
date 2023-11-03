@@ -28,12 +28,12 @@ function crearModal(event) {
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="text-center d-inline">Detalles del producto</h2>
+                    <h2 class="titulo-modal text-center d-inline">Detalles del producto</h2>
                     <button data-bs-dismiss="modal" type="button" class="btn btn-close"></button>
                 </div> <!--Modal Header-->
 
                 <div class="modal-body">
-                    <div class="img-producto">
+                    <div class="img-producto text-center">
                         <img src=${img.src} alt="imagen-produto" ">
                     </div>
                     <h3 class="nombre-producto">${valoresProducto.modelo}</h3>
@@ -63,8 +63,8 @@ function crearModal(event) {
                         </fieldset>
 
                         <div class="d-block d-md-flex justify-content-md-around my-3">
-                            <button id="modal-comprar" class="btn btn-dark"  type="button">Comprar</button>
-                            <button id="agregar-carrito" class="btn btn-dark"  type="button">Agregar al carrito</button>
+                            <button id="modal-comprar" class="shunco-button shunco-verde-btn"  type="button">Comprar</button>
+                            <button id="agregar-carrito" class="shunco-button shunco-azul-btn"  type="button">Agregar al carrito</button>
                         </div>
                         
                     </form> <!--Formulario para el modal-->
@@ -98,7 +98,7 @@ function crearProducto (producto) {
     const productoJSON = JSON.stringify(producto);
     const aparador = document.querySelector('#aparador');
     const contenedor = document.createElement('div');
-    let clases = ['col-md-3', 'p-4'];
+    let clases = ['col-md-3'];
     contenedor.classList.add(...clases);
     const id = producto.id;
     const registroProducto = document.createElement('input');
