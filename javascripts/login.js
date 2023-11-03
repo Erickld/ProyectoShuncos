@@ -132,7 +132,7 @@ formRegister.onsubmit = function(e) {
     alerta("verde", "Registro exitoso. ¡Inicia sesión para continuar!");
 
     setTimeout(() => {
-        location.reload();   
+        location.reload();
     }, 2000);
 }
 

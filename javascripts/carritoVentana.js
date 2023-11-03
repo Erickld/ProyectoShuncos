@@ -86,3 +86,8 @@ function updateSubTotal(){
     }
     document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
 }
+
+function  cerrarSesion(params) {
+    localStorage.removeItem("currentUser")
+    location.reload();
+}
