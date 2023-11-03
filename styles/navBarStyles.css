@@ -95,13 +95,17 @@ header {
     display: none;
 }
 
+.button-nav-3 {
+    display: none!important;
+}
+
 /* (tablets, less than 992px) */
 @media (max-width: 991.98px) {
     #navbarSupportedContent > ul {
         align-items: center;
     }
     .button-nav {
-        display: none;
+        display: none!important;
     }
     .nav-flex {
         margin: 15px;
@@ -112,15 +116,21 @@ header {
     header {
         height: 40px;
     }
+    .button-nav-2 {
+        display: none!important;
+    }
+    .dropdown-toggle::after {
+        display: none!important;
+    }
 }
 
 
-@media (max-width: 320px) { 
+@media (max-width: 323px) { 
     .nav-icons {
         display: none;
     }
     .button-nav {
-        display: initial;
+        display: initial!important;
     }
     .btn-nav {
         letter-spacing: 2px;
@@ -128,6 +138,9 @@ header {
     }
     .btn-nav:hover {
         border: 0px;
+    }
+    .button-nav-3 {
+        display: initial!important;
     }
 }
 
@@ -181,7 +194,7 @@ header {
     text-align: center;
     font-size: 1.5rem;
     font-family: 'Nunito', sans-serif; 
-    text-shadow: 1px 1px 2px rgba(65, 64, 64, 0.5);
+    text-shadow: 0.5px 0.5px 0.5px rgba(65, 64, 64, 0.5);
     font-weight: 600;
     margin-top: 1.5rem;
 }
@@ -222,7 +235,7 @@ header {
 .carrito-img {
     width: 100px;
     height: 100px;
-    background-color: var(--blanco-shuncos); 
+    background-color: white; 
     object-fit: contain;
     padding: 10px;    
 }
@@ -240,7 +253,7 @@ header {
 
 .precio-producto-carrito {
     font-size: 0.9rem;
-    font-family: 'Nunito', sans-serif; 
+    font-family: 'Nunito', sans-serif;
 }
 
 .cantidad-carrito {
@@ -284,22 +297,34 @@ header {
 
 .d-grid {
     display: flex;
-    margin-top: 16rem;
     justify-content: center;
     align-items: center; 
 }
 
-#pay-button {
-    width: 18rem;
+#pay-button, #seguir-comprando-button {
+    width: 16rem;
+    height: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
+
+#seguir-comprando-button {
+    margin-top: 16rem;
+}
+
+#pay-button {
+    margin-top: 1.5rem;
+}
+
 
 .link-primary {
     font-size: 0.9rem;
     display: flex;
+    text-align: center;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     margin-top: 1.5rem;
-    cursor: pointer;
+    cursor: text;
 }
 
 
@@ -307,4 +332,28 @@ header {
     .ventana-carrito {
         width: 100vw;
     }
+}
+
+
+.dropdown-menu {
+    background-color: black;
+    border: 1px solid white;
+}
+
+.dropdown-menu > li > a {
+    color: var(--blanco-shuncos);
+}
+
+.dropdown-menu > li > a:hover {
+    color: var(--amarillo-shuncos)!important;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.user-account-icon {
+    display: inline-flex!important;
+}
+
+.border-white {
+    border-color: var(--blanco-shuncos);
 }

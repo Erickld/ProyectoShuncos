@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generic Page</title>
+    <title>Login / Registro</title>
+    <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -20,168 +22,108 @@
     <link rel="stylesheet" href="./styles/mainContainerStyles.css">
     <!-- Estilos Footer -->
     <link rel="stylesheet" href="./styles/footerStyles.css">
-    <link rel="stylesheet" href="./styles/Loginstyles.css">
-    <link rel="preconnect" href="https" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:wght@100&family=Skranji&display=swap"
-        rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Estilos Pagina -->
+    <link rel="stylesheet" href="./styles/login.css">
 </head>
 
 <body>
-    <div id="header-container">
-        <header id="nav-bar-container"></header>
-    </div>
+    <header class="nav-bar-header">
+        <nav id="nav-bar-container"></nav>
+    </header>
 
-    <div id="content-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 " id="Bienvenido">
-                    <div class="bienvenido">
-                        <div class="infochilds text-center">
-                            <h2> Bienvenido </h2> <br>
-                            <img src="./assets/img/shuncos_logo_nav_bar.png"
-                                alt="Logo de Shuncos">
-                            <input type="button" value="Iniciar Sesión" id="show-login">
+    <main id="main-container">
+        <!-- Contenedor con Formulario-->
+        <div class="row gx-3 container-login">
+            <div class="col-md-6 col-login monse-font">
+
+                <div class="form-div text-center hidden" id="register-user">
+                    <h2> Crear Cuenta</h2>
+                    <img id="logo-login-shuncos" style="max-width: 15%;" class="img-fluid" src="./assets/img/shuncos_logo_nav_bar.webp">
+                    <p> Ingresa tus datos para crear una cuenta </p>
+                    <form class="form-login text-center mt-4" id="form-register-user">
+                        <label>
+                            <i class="bi bi-person-fill"></i>
+                            <input type="text" class="form-control" placeholder="Nombre" id="name">
+                        </label>
+                        <label>
+                            <i class="bi bi-person-fill"></i>
+                            <input type="text" class="form-control" placeholder="Apellido(s)" id="lastName">
+                        </label>
+                        <label>
+                            <i class="bi bi-person-circle"></i>
+                            <input type="text" class="form-control" placeholder="Nombre de Usuario" id="newUsername">
+                        </label>
+                        <label>
+                            <i class="bi bi-envelope-fill"></i>
+                            <input type="email" class="form-control" placeholder="Correo Electrónico" id="email">
+                        </label>
+                        <label>
+                            <i class="bi bi-lock-fill"></i>
+                            <input type="password" class="form-control" placeholder="Contraseña" id="newPassword" autocomplete="off">
+                        </label>
+                        <div class="text-center mt-4">
+                            <button id="register-user-btn" type="submit" class="shunco-button shunco-azul-btn">Registrarme</button>
                         </div>
-                    </div>
+                    </form>
+                    <p class="mt-3">¿Ya tienes una cuenta? <span class="change-view verde" onclick="changeView('login')">Iniciar Sesión</span></p>
                 </div>
-                <div class="col-md-6 ">
-                    <div class="information">
-                        <div class="form-information" id="form-information">
-                            <div class="form-information-child">
-                                <h2> Crear Cuenta</h2>
-                                <p> Ingresa tus datos para crear una cuenta </p>
-                                <form class="form">
-                                    <label>
-                                        <i class="bx bx-user"></i>
-                                        <input type="text" placeholder="Nombre " id="name" required>
-                                    </label>
-                                    <label>
-                                        <i class="bx bx-user"></i>
-                                        <input type="text" placeholder="Apellido(s)" id="lastName" required>
-                                    </label>
-                                    <label>
-                                        <i class="bx bx-user-circle"></i>
-                                        <input type="text" placeholder="Nombre de Usuario" id="newUsername" required>
-                                    </label>
-                                    <label>
-                                        <i class="bx bx-envelope"></i>
-                                        <input type="email" placeholder="Correo Electrónico" id="email" required>
-                                    </label>
-                                    <label>
-                                        <i class="bx bx-lock-alt"></i>
-                                        <input type="password" placeholder="Contraseña" id="newPassword" required>
-                                    </label>
-                                    <input type="button" value="Registrarme" id="registerButton">
-                                </form>
-                            </div>
+
+
+                <div class="form-div text-center" id="login-user">
+                    <h2>Iniciar Sesión</h2>
+                    <img id="logo-login-shuncos" style="max-width: 15%;" class="img-fluid" src="./assets/img/shuncos_logo_nav_bar.webp">
+                    <p> Ingresa tus datos para acceder a tu cuenta </p>
+                    <form class="form-login text-center mt-4" id="form-login-user">
+                        <label>
+                            <i class="bi bi-person-circle"></i>
+                            <input type="text" class="form-control" placeholder="Nombre de Usuario" id="usernameLogin">
+                        </label>
+                        <label>
+                            <i class="bi bi-lock-fill"></i>
+                            <input type="password" class="form-control" placeholder="Contraseña" id="passwordLogin" autocomplete="off">
+                        </label>
+                        <div class="text-center mt-4">
+                            <button id="login-user-btn" type="submit" class="shunco-button shunco-verde-btn">Iniciar Sesión</button>
                         </div>
+                    </form>
+                    <p class="mt-3">¿No tienes una cuenta? <span class="change-view" onclick="changeView('registro')">Registrarme</span></p>
+                </div>
+
+            </div>
+            <!-- Es visible hasta en pantallas medianas -->
+            <div class="col-md-6 col-image d-none d-md-block"></div>
+        </div>
+
+        <!-- HTML para las alertas -->
+        <div class="toast-container position-fixed bottom-0 start-0 p-3">
+            <div id="alerta-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+                <div class="d-flex">
+                    <div class="toast-body" id="alerta-txt">
+                      Hello, world! This is a toast message.
                     </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="login-container" style="display: none;">
-        <h2>Iniciar Sesión</h2>
-        <p> Ingresa tus datos para acceder a tu cuenta </p>
-        <form id="login-form">
-            <label for="username"></label> 
-            <input type="text" placeholder="Usuario" id="username" name="username" required>
-            <label for="password"></label>
-            <input type="password" placeholder="Contraseña" id="password" name="password" required>
-            <input type="submit" value="Iniciar Sesión">
-        </form>
-    </div>
-
-    <div id="login-success-popup" style="display: none;">
-        <p>Inicio de sesión exitoso. ¡Bienvenido!</p>
-    </div>
-
-    <div id="registration-success-popup" style="display: none;">
-        <p>Registro exitoso. ¡Inicia sesión para continuar!</p>
-    </div>
+        <!--Fin del Contenedor con Formulario-->
+    </main>
 
     <footer id="footer-container" class="p-3"></footer>
-        <!-- Load Nav Bar -->
-        <script src="./javascripts/loadNavBar.js" fuente="root"></script>
-        <!-- Load Footer -->
-        <script src="./javascripts/loadFooter.js" fuente="root"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
 
-           
+    <!-- Load Nav Bar -->
+    <script src="./javascripts/loadNavBar.js" fuente="root"></script>
+    <!-- Load Footer -->
+    <script src="./javascripts/loadFooter.js" fuente="root"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- Store Products -->
+    <script src="./javascripts/carritoVentana.js"></script>
 
-    <script>
-        function hidePopups() {
-            document.getElementById('login-success-popup').style.display = 'none';
-            document.getElementById('registration-success-popup').style.display = 'none';
-        }
+    <script src="./javascripts/login.js"></script>
 
-        document.getElementById('show-login').addEventListener('click', function () {
-            document.getElementById('content-container').style.display = 'none';
-            document.getElementById('login-container').style.display = 'block';
-        });
-
-        document.getElementById('login-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const username = document.getElementById('newUsername').value;
-            const password = document.getElementById('newPassword').value;
-
-            const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-            const user = registeredUsers.find(u => u.username === username && u.password === password);
-
-            if (user) {
-                hidePopups();
-                alert("Inicio de sesión exitoso. ¡Bienvenido!");
-            } else {
-                alert("Credenciales incorrectas. Inténtalo de nuevo.");
-            }
-        });
-
-        function isEmailValid(email) {
-            const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-            return emailRegex.test(email);
-        }
-
-        function isPasswordStrong(password) {
-            // La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y tener una longitud mínima de 8 caracteres.
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-            return passwordRegex.test(password);
-        }
-
-        const registerButton = document.getElementById('registerButton');
-        registerButton.addEventListener('click', function () {
-            const name = document.getElementById('name').value;
-            const lastName = document.getElementById('lastName').value;
-            const newUsername = document.getElementById('newUsername').value;
-            const email = document.getElementById('email').value;
-            const newPassword = document.getElementById('newPassword').value;
-
-          
-            if (!isEmailValid(email)) {
-                alert("Por favor, ingresa una dirección de correo electrónico válida.");
-                return; // Evita que se registre el usuario si el correo es inválido.
-            }
-
-            if (!isPasswordStrong(newPassword)) {
-                alert("La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y tener al menos 8 caracteres.");
-                return; // Evita que se registre el usuario si la contraseña es débil.
-            }
-
-            const newUser = { username: newUsername, password: newPassword };
-            const existingUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-
-            existingUsers.push(newUser);
-            localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
-
-            hidePopups();
-            alert("Registro exitoso. ¡Bienvenido!");
-        });
-
-        document.body.addEventListener('click', hidePopups);
-    </script>
 </body>
+
 </html>

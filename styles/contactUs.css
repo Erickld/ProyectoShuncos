@@ -1,5 +1,47 @@
 @import url(mainContainerStyles.css);
 
+h1,h2,h3 {
+    font-family: var(--monse-font);
+}
+
+p {
+    font-family: var(--monse-font);
+}
+
+.container-contact {
+    background-color: white!important;
+}
+
+.tela {
+    border-radius: 15px;
+    padding: 1rem 0;
+}
+
+.tela-formulario {
+    border-radius: 0 15px 15px 0;
+}
+
+.bordado {
+    margin: 0 1rem;
+    border-radius: 15px;
+    border-style: dashed;
+    border-width: 3px;
+}
+
+.bordado-formulario {
+    border-color: white;
+}
+
+.tela-formulario,
+.bordado-formulario {
+    background-color: var(--rosa-shuncos);
+}
+
+.tela-redes,
+.bordado-redes {
+    background-color: var(--beige-shuncos);
+}
+
 .redes {
     display: flex;
     justify-content: center;
@@ -14,6 +56,23 @@
     #submit-contact {
         width: max-content;
     }
+}
+
+.img-soporte {
+    background-color: var(--rosa-shuncos);
+    border-radius: 15px 0 0 15px;
+}
+
+@media (min-width: 768px){
+    .img-soporte img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+#formulario-contacto {
+    color: white;
 }
 
 .contacto {

@@ -61,7 +61,7 @@
 /* Banner del titulo */
 #img-container{
     background-image: linear-gradient(rgba(255, 255, 255, 0.341), rgba(8, 8, 8, 0.758)), 
-    url("../assets/img/background-2.jpeg");
+    url("../assets/img/background-3.webp");
     width: 100%;
     min-height: 20rem;
     display: flex;
@@ -70,8 +70,7 @@
     text-align: center;
     color: white;
     background-size:cover;
-    background-position: center;
-    
+    background-position: bottom;
 }
 
 .table-title {

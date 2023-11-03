@@ -1,20 +1,96 @@
+
 //Abrir carrito
 function mostrarCarrito() {
-    cart = document.querySelector('.ventana-carrito');
+    const cart = document.querySelector('.ventana-carrito');
     cart.classList.add('mostrar');
-//Remover articulo del carrituo
+
+    añadirElementosCarrito();
+    añadirListenersCarrito();
+}
+
+function añadirElementosCarrito () {
+    const divContenidoCarrito = document.querySelector('.contenido-carrito');
+    const carritoJSON = sessionStorage.getItem('carrito');
+    const carritoTitulo = document.querySelector('.carrito-titulo');
+    
+    if(!carritoJSON) {
+        carritoTitulo.innerText = 'Sin productos en el carrito';
+        return;
+    }
+
+    const carrito = JSON.parse(carritoJSON);
+
+    if(carrito.length === 0){
+        carritoTitulo.innerText = 'Sin productos en el carrito';
+        return;
+    } else {  
+        carritoTitulo.innerText = 'Prendas agregadas recientemente';
+        
+        carrito.forEach(producto => {
+            if(divContenidoCarrito.children.length === 0){
+                let elementoCarrito = crearElementoCarrito(producto);
+                divContenidoCarrito.appendChild(elementoCarrito);
+            } else {
+                let productoRepetido = isElementoRepetido(producto, divContenidoCarrito);
+                if(!productoRepetido) {
+                    let elementoCarrito = crearElementoCarrito(producto);
+                    divContenidoCarrito.appendChild(elementoCarrito); 
+                }
+            } 
+        });
+    }
+}
+
+function isElementoRepetido (producto) {
+    let repetido = false;
+    let productosEnCarrito = document.querySelectorAll(`[name = "${producto.id}"]`);
+
+    productosEnCarrito.forEach((productoEnCarrito) => {
+        if(productoEnCarrito) {
+            if(productoEnCarrito.tallaElegida === producto.tallaElegida){
+                repetido = true
+            }
+        }
+    })
+
+    return repetido;
+}
+
+function crearElementoCarrito (producto) {
+    let elemento = document.createElement('div');
+    elemento.tallaElegida = producto.tallaElegida;
+    elemento.classList.add('carrito-box');
+    elemento.setAttribute('name', `${producto.id}`)
+    elemento.name = producto.id;
+    // console.log(elemento);
+    elemento.innerHTML = `
+        <img src=${producto.imagen} alt="imagen carrito" class="carrito-img">
+        <div class="detalles-box">
+            <div class="titulo-producto-carrito">${producto.modelo}</div>
+            <div class="precio-producto-carrito">$${producto.precio}</div>
+            <div class="talla-producto-carrito">talla: ${producto.tallaElegida}</div>
+            <span>
+                <i class="bi bi-dash-square-fill minus-quantity" onclick="disminuirCantidad('${producto.id}')" prenda_id="${producto.id}"></i>
+                <input type="text" value="1" class="cantidad-carrito" min="1" max="20" id="input-carrito-cantidad-${producto.id}" disabled>
+                <i class="bi bi-plus-square-fill plus-quantity" onclick="incrementarCantidad('${producto.id}')" prenda_id="${producto.id}"></i>
+            </span>
+            
+        </div>
+        <!--Remover del carrito-->
+        <i class="bi bi-trash-fill cart-remove"></i>
+        
+    `;
+    return elemento;
+}
+
+function añadirListenersCarrito() {
+    //Remover articulo del carrito
     var removerDelCarritoBoton = document.getElementsByClassName('cart-remove');
-    console.log(removerDelCarritoBoton);
     for (var i = 0; i < removerDelCarritoBoton.length; i++) {
         var button = removerDelCarritoBoton[i]
         button.addEventListener('click', removerArticuloCarrito);
     }
-//Cambios en la cantidad del carito
-    // var cantidadInputs = document.getElementsByClassName('cantidad-carrito')
-    // for (var i = 0; i < cantidadInputs.length; i++) {
-    //     var input = cantidadInputs[i]
-    //     input.addEventListener("change", cantidadCambiada)
-    // }
+
     updateSubTotal();
 }
 
@@ -27,23 +103,24 @@ function ocultarCarrito() {
 //Remover articulos del carrito
 function removerArticuloCarrito(event){
     var buttonClicked = event.target;
+    const idEliminado =  buttonClicked.parentElement.name;
+    let carritoJSON = sessionStorage.getItem('carrito');
+    const carrito = JSON.parse(carritoJSON);
+
+    for(let i = 0; i<carrito.length; i++) {
+        if(carrito[i].id === idEliminado) {
+            carrito.splice(i, 1);
+            break;
+        }
+    }
+
+    carritoJSON = JSON.stringify(carrito);
+    sessionStorage.setItem('carrito', carritoJSON);
+
     buttonClicked.parentElement.remove();
     updateSubTotal();
+    alerta('verde', 'artículo eliminado')
 }
-
-//Cambios en la cantidad del carrito
-// function cantidadCambiada(event){
-//     var input = event.target
-//     if (isNaN(input.value) || input.value <= 0) {
-//         input.value = 1
-//     }
-//     if (isNaN(input.value) || input.value >20) {
-//         input.value = 20
-//     }
-//     updateSubTotal();
-    
-// }
-
 
 //Incrementar cantidad de prenda
 function incrementarCantidad(idProduct) {
@@ -78,11 +155,43 @@ function updateSubTotal(){
     
     for (var i = 0; i < carritoBoxes.length; i++) {
         var carritoBox = carritoBoxes[i];
-        var precioElemento = carritoBox.getElementsByClassName('precio-producto-carrito')[0];
-        var cantidadElemento = carritoBox.getElementsByClassName('cantidad-carrito')[0];
+        var precioElemento = carritoBox.querySelector('.precio-producto-carrito');
+        var cantidadElemento = carritoBox.querySelector('.cantidad-carrito');
         var precio = parseFloat(precioElemento.innerText.replace("$", ""));
         var cantidad = cantidadElemento.value;
         subtotal = subtotal + (precio * cantidad);
     }
-    document.getElementsByClassName('subtotal-precio')[0].innerText = "$" + subtotal;
+    document.querySelector('.subtotal-precio').innerText = "$" + subtotal;
+}
+
+function  cerrarSesion(params) {
+    localStorage.removeItem("currentUser");
+    setTimeout(() => {
+        window.location.href = "../login.html";
+    }, 1000);
+}
+
+function alerta(color, texto) {
+    const toastLiveExample = document.getElementById('alerta-toast');
+    const alertaTxt = document.getElementById('alerta-txt');
+
+    if (color == "verde") {
+        toastLiveExample.style.backgroundColor = "#56A35B"
+        //toastLiveExample.style.boxShadow = "0 0 0 4px #56A35B"
+    }
+
+    if (color == "rosa") {
+        toastLiveExample.style.backgroundColor = "#E4007C"
+        //toastLiveExample.style.boxShadow = "0 0 0 4px #E4007C"
+    }
+
+    if (color == "azul") {
+        toastLiveExample.style.backgroundColor = "#2173b4"
+        //toastLiveExample.style.boxShadow = "0 0 0 4px #2173b4"
+    }
+
+    alertaTxt.textContent = texto;
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+    toastBootstrap.show();
+    
 }

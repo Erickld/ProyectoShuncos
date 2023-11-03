@@ -1,7 +1,7 @@
 const emailInput = document.querySelector('#email');
 const phoneInput = document.querySelector('#phone');
 const messageInput = document.querySelector('#comment');
-const formularioContacto = document.querySelector('#formularioContacto');
+const formularioContacto = document.querySelector('#formulario-contacto');
 
 formularioContacto.onsubmit = (event) => {
     event.preventDefault();
