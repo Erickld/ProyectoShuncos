@@ -48,7 +48,7 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
 
         let dropdownsNavBar = document.querySelectorAll(".dropdown-nav-bar-menu");
         dropdownsNavBar.forEach(element => {
-            element.innerHTML = 
+            element.innerHTML = dropdownsHTML;
         });
 
 
