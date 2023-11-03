@@ -129,11 +129,12 @@ formRegister.onsubmit = function(e) {
     usersList.push(newUser);
     localStorage.setItem('registeredUsers', JSON.stringify(usersList));
 
-    alerta("verde", "Registro exitoso. ¡Inicia sesión para continuar!");
-
+    alerta("verde", "Registro exitoso. ¡Bienvenido!");
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
     setTimeout(() => {
-        location.reload();
+        window.location.href = "../index.html";
     }, 2000);
+
 }
 
 
@@ -169,7 +170,7 @@ formLogin.onsubmit = function(e) {
         alerta("verde", "Inicio de sesión exitoso. ¡Bienvenido!");
         localStorage.setItem('currentUser', JSON.stringify(userFind));
         setTimeout(() => {
-            window.location.href = "../html/storeProducts.html";
+            window.location.href = "../index.html";
         }, 2000);
 
     } else {

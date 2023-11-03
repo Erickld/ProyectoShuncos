@@ -22,28 +22,28 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
         let liElementsHTML = ``
         if (currentUser.isAdmin) {
             dropdownsHTML = 
-            `<li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
-            <li><a class="dropdown-item font-14" href="#"><i class="bi bi-list-task"></i> Productos</a></li>
+            `<li><a class="dropdown-item font-14" href="../html/profileUser.html"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
+            <li><a class="dropdown-item font-14" href="../html/crudProducts.html"><i class="bi bi-list-task"></i> Gestión</a></li>
             <li><hr class="dropdown-divider border-white"></li>
-            <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
+            <li><a class="dropdown-item font-14" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
 
             liElementsHTML = 
             `<li class="nav-item me-2 button-nav-3 show-in-login">
-                <a class="nav-link" href="../login.html">
+                <a class="nav-link" href="../html/profileUser.html">
                     <button type="button" class="btn btn-nav font-14" >
                         <i class="bi bi-person-circle"></i> Mi cuenta
                     </button>
                 </a>
             </li>
             <li class="nav-item me-2 button-nav-3 show-in-login">
-                <a class="nav-link" href="../login.html">
+                <a class="nav-link" href="../html/crudProducts.html">
                     <button type="button" class="btn btn-nav font-14" >
-                        <i class="bi bi-list-task"></i> Productos
+                        <i class="bi bi-list-task"></i> Gestión
                     </button>
                 </a>
             </li>
             <li class="nav-item me-2 button-nav-3 show-in-login">
-                <a class="nav-link" href="../login.html" onclick="cerrarSesion()">
+                <a class="nav-link" onclick="cerrarSesion()">
                     <button type="button" class="btn btn-nav font-14" >
                         <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                     </button>
@@ -52,20 +52,20 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
         
         } else {
             dropdownsHTML = 
-            `<li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
+            `<li><a class="dropdown-item font-14" href="../html/profileUser.html"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
             <li><hr class="dropdown-divider white-color"></li>
-            <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
+            <li><a class="dropdown-item font-14" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
 
             liElementsHTML = 
             `<li class="nav-item me-2 button-nav-3 show-in-login">
-                <a class="nav-link" href="../login.html">
+                <a class="nav-link" href="../html/profileUser.html">
                     <button type="button" class="btn btn-nav font-14" >
                         <i class="bi bi-person-circle"></i> Mi cuenta
                     </button>
                 </a>
             </li>
             <li class="nav-item me-2 button-nav-3 show-in-login">
-                <a class="nav-link" href="../login.html" onclick="cerrarSesion()">
+                <a class="nav-link" onclick="cerrarSesion()">
                     <button type="button" class="btn btn-nav font-14" >
                         <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                     </button>
