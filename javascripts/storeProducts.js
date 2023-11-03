@@ -28,8 +28,8 @@ function crearModal(event) {
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="titulo-modal text-center d-inline">Detalles del producto</h2>
-                    <button data-bs-dismiss="modal" type="button" class="btn btn-close"></button>
+                    <h1 class="modal-title  fs-5">Detalles del producto</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div> <!--Modal Header-->
 
                 <div class="modal-body">
@@ -48,7 +48,7 @@ function crearModal(event) {
                             <li>
                                 Tipo de manga: ${valoresProducto.tipo_manga}
                             </li>
-                        <u/>
+                        <ul/>
                     </div>
                     <form class="formularioProductoModal" action="">
                         <legend>Talla</legend>
@@ -61,14 +61,16 @@ function crearModal(event) {
                             </div>
 
                         </fieldset>
-
-                        <div class="d-block d-md-flex justify-content-md-around my-3">
-                            <button id="modal-comprar" class="shunco-button shunco-verde-btn"  type="button">Comprar</button>
-                            <button id="agregar-carrito" class="shunco-button shunco-azul-btn"  type="button">Agregar al carrito</button>
-                        </div>
                         
                     </form> <!--Formulario para el modal-->
                 </div> <!--Modal-body-->
+
+
+                <div class="modal-footer">
+                    <button id="modal-comprar" class="shunco-button shunco-verde-btn no-underline"  type="button">Comprar</button>
+                    <button id="agregar-carrito" class="shunco-button shunco-azul-btn no-underline"  type="button">Agregar al carrito</button>
+                </div>
+
             </div> <!--Div contenido del modal-->
         </div> <!--Modal Dialog-->
     </div> <!--Modal para el producto-->
