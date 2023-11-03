@@ -50,11 +50,12 @@
     padding: 1rem!important;
     transition: 0.4s;
     background-color: var(--blanco-shuncos);  
-      
+    cursor: pointer;  
 }
 
 .img-producto img {
-    width: 100%;
+    width: 12rem;
+    height: 15rem;
     margin-bottom: .5rem;
 }
 

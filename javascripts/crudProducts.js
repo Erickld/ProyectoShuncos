@@ -495,3 +495,4 @@ function alerta(color, texto) {
     
 }
 
+modal
