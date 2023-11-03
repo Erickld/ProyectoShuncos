@@ -494,5 +494,3 @@ function alerta(color, texto) {
     toastBootstrap.show();
     
 }
-
-modal
