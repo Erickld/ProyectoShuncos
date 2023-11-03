@@ -88,6 +88,14 @@
 	color: var(--verde-shuncos);
 }
 
+
+#alerta-toast {
+    border: 2px solid var(--blanco-shuncos);
+    color: var(--blanco-shuncos);
+    font-size: medium;
+}
+
+
 @media (max-width: 1199.98px) { 
 	.form-div {
 		width: 95%;
