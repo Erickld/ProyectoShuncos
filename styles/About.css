@@ -3,7 +3,7 @@
       rgba(104, 146, 223, 0.241),
       rgba(8, 8, 8, 0.864)
     ),
-    url("../assets/img/banner-shncs.jpeg");
+    url("../assets/img/banner-shncs.webp");
   width: 100%;
   min-height: 20rem;
   background-size: cover;
@@ -61,7 +61,7 @@ h1 {
       rgba(10, 4, 5, 0.154),
       rgba(255, 255, 255, 0.297)
     ),
-    url("../assets/img/portada2.jpeg");
+    url("../assets/img/portada2.webp");
   border-radius: 0px 0px 40px 40px;
   margin-bottom: 20px;
   box-shadow: 5px 10px 5px 0px gray;

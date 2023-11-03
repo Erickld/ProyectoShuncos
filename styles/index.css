@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
 #banner1 {
-    background-image: linear-gradient(rgba(104, 146, 223, 0.500), rgba(8, 8, 8, 0.900)), url("../assets/img/fondo-muertos-2.jpeg");
+    background-image: linear-gradient(rgba(104, 146, 223, 0.500), rgba(8, 8, 8, 0.900)), url("../assets/img/fondo-muertos-2.webp");
     background-size: cover;
     height: 100vh;
     background-position:center;
 }
 #banner2 {
-    background-image: linear-gradient(rgba(41, 157, 206, 0.500), rgba(4, 4, 4, 0.900)), url("../assets/img/bannerazulmuertos.jpeg");
+    background-image: linear-gradient(rgba(41, 157, 206, 0.500), rgba(4, 4, 4, 0.900)), url("../assets/img/bannerazulmuertos.webp");
     background-size: cover;
     background-position: center;
     height: 100vh;
 }
 #banner3 {
-    background-image: linear-gradient(rgba(104, 146, 223, 0.500), rgba(8, 8, 8, 0.900)), url("../assets/img/banner-muertos-azul-4.jpeg");
+    background-image: linear-gradient(rgba(104, 146, 223, 0.500), rgba(8, 8, 8, 0.900)), url("../assets/img/bannerazulmuertos3.webp");
     background-size: cover;
     height: 100vh;
     background-position: bottom;
@@ -45,19 +45,19 @@ h1{
     max-width: 100%; 
 }
 #modelo-1 {
-    background-image: url("../assets/img/muertos3.png");
+    background-image: url("../assets/img/muertos3.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 #modelo-2 {
-    background-image: url("../assets/img/muertos5.png");
+    background-image: url("../assets/img/muertos5.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 #modelo-3 {
-    background-image: url("../assets/img/muertos4.png");
+    background-image: url("../assets/img/muertos4.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
