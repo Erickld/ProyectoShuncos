@@ -35,7 +35,7 @@
 h1 {
   font-family: "Nunito", sans-serif;
   color: white;
-  text-shadow: 1px 1px 2px var(--rosa-shuncos);
+  text-shadow: 1px 1px 2px black;
   font-size: 3.5rem;
   animation: tracking-in-contract 0.7s linear both;
 }
@@ -105,7 +105,7 @@ h1 {
   margin: 20px;
 }
 h6 {
-  font-family: "Montserrat";
+  font-family: "Nunito" sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
 }
