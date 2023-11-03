@@ -149,6 +149,7 @@ function poblarEstructura (estructura, producto) {
     estructura.imagen.alt = 'imagen producto';
     estructura.imagen.src = producto.imagen_url;
     estructura.modelo.innerText = producto.modelo;
+    estructura.imagen.classList.add("miniatura-img");
     estructura.precio.innerText = `$${producto.precio}`; 
     return estructura;
 }
