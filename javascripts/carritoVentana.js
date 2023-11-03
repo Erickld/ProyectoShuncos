@@ -164,6 +164,13 @@ function updateSubTotal(){
     document.querySelector('.subtotal-precio').innerText = "$" + subtotal;
 }
 
+function  cerrarSesion(params) {
+    localStorage.removeItem("currentUser");
+    setTimeout(() => {
+        window.location.href = "../login.html";
+    }, 1000);
+}
+
 function alerta(color, texto) {
     const toastLiveExample = document.getElementById('alerta-toast');
     const alertaTxt = document.getElementById('alerta-txt');

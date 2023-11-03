@@ -12,10 +12,7 @@
                 <a class="nav-link dropdown-toggle font-14" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="navbar-toggler bi bi-person-fill nav-icons"></i>
                 </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
-                    <li><hr class="dropdown-divider white-color"></li>
-                    <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
+                <ul class="dropdown-menu dropdown-nav-bar-menu">
                 </ul>
             </li>
 
@@ -26,7 +23,7 @@
             </button>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 font-14">
+            <ul class="navbar-nav mb-2 mb-lg-0 font-14" id="navbar-unordered-list">
                 <li class="nav-item me-2 nav-flex subrayar">
                     <a class="nav-link white-color  link-home" aria-current="page" href="#">Inicio</a>
                 </li>
@@ -54,10 +51,7 @@
                             <span id="username-txt"> Username</span>
                         </button>
                     </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item font-14" href="#"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>
+                    <ul class="dropdown-menu dropdown-nav-bar-menu">
                     </ul>
                 </li>
                 <li class="nav-item me-2 button-nav">
@@ -65,20 +59,6 @@
                         <button type="button" class="btn btn-nav font-14" onclick="mostrarCarrito()">
                             <i class="bi bi-cart"></i>
                             Carrito
-                        </button>
-                    </a>
-                </li>
-                <li class="nav-item me-2 button-nav-3 show-in-login">
-                    <a class="nav-link" href="../login.html">
-                        <button type="button" class="btn btn-nav font-14" >
-                            <i class="bi bi-person-circle"></i> Mi cuenta
-                        </button>
-                    </a>
-                </li>
-                <li class="nav-item me-2 button-nav-3 show-in-login">
-                    <a class="nav-link" href="../login.html" onclick="cerrarSesion()">
-                        <button type="button" class="btn btn-nav font-14" >
-                            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                         </button>
                     </a>
                 </li>
@@ -126,7 +106,7 @@
     
     <!--Boton de Pagar-->
     <div class="d-grid gap-2 mx-auto">
-        <a href="./Payment.html">
+        <a href="../login.html" id="go-to-payment">
         <button id="pay-button" type="button" class="shunco-button shunco-verde-btn" form="form-create">
             <i class="bi bi-cart-check"></i> Pagar
         </button>

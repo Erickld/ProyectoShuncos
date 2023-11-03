@@ -29,7 +29,7 @@
 }
 
 .right-side {
-    background-image:linear-gradient(rgba(8, 8, 8, 0.263), rgba(8, 8, 8, 0.758)), url("../assets/img/pattern.png");
+    background-image:linear-gradient(rgba(8, 8, 8, 0.263), rgba(8, 8, 8, 0.758)), url("../assets/img/background-1.webp");
     background-size: cover;
     background-position: center;
 }
