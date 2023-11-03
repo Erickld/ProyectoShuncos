@@ -14,7 +14,11 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
     document.querySelector(".link-about-us").href = (fuenteNavBar == "root") ? ('./html/About.html') : ('./About.html');
     document.querySelector(".link-contact-us").href = (fuenteNavBar == "root") ? ('./html/ContactUs.html') : ('./ContactUs.html');
     
+    let paymentBtn = document.getElementById("go-to-payment")
+    
     if (currentUser) {
+        paymentBtn.href = "./Payment.html"
+
         currentUser = JSON.parse(currentUser);
         document.getElementById("username-txt").textContent = currentUser.username;
         
@@ -25,7 +29,7 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
             `<li><a class="dropdown-item font-14" href="../html/profileUser.html"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
             <li><a class="dropdown-item font-14" href="../html/crudProducts.html"><i class="bi bi-list-task"></i> Gestión</a></li>
             <li><hr class="dropdown-divider border-white"></li>
-            <li><a class="dropdown-item font-14" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
+            <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
 
             liElementsHTML = 
             `<li class="nav-item me-2 button-nav-3 show-in-login">
@@ -43,7 +47,7 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
                 </a>
             </li>
             <li class="nav-item me-2 button-nav-3 show-in-login">
-                <a class="nav-link" onclick="cerrarSesion()">
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
                     <button type="button" class="btn btn-nav font-14" >
                         <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                     </button>
@@ -54,7 +58,7 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
             dropdownsHTML = 
             `<li><a class="dropdown-item font-14" href="../html/profileUser.html"><i class="bi bi-person-circle"></i> Mi cuenta</a></li>
             <li><hr class="dropdown-divider white-color"></li>
-            <li><a class="dropdown-item font-14" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
+            <li><a class="dropdown-item font-14" href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a></li>`;
 
             liElementsHTML = 
             `<li class="nav-item me-2 button-nav-3 show-in-login">
@@ -65,7 +69,7 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
                 </a>
             </li>
             <li class="nav-item me-2 button-nav-3 show-in-login">
-                <a class="nav-link" onclick="cerrarSesion()">
+                <a class="nav-link" href="#" onclick="cerrarSesion()">
                     <button type="button" class="btn btn-nav font-14" >
                         <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
                     </button>
@@ -92,7 +96,7 @@ fetch(urlNavBar).then(res => res.text()).then(data => {
 
 
     } else {
-
+        paymentBtn.href = "../login.html"
         let showInLogin = document.querySelectorAll(".show-in-login");
         let hideInLogin = document.querySelectorAll(".hide-in-login");
         showInLogin.forEach(element => {

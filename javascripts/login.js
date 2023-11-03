@@ -118,6 +118,7 @@ formRegister.onsubmit = function(e) {
     const ID = (Math.random() + 1).toString(36).substring(5);
 
     const newUser = {
+        id: ID,
         name: name.value,
         lastName: lastName.value,
         username: newUsername.value,

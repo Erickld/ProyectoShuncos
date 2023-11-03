@@ -1,65 +1,109 @@
-/*Estilos para el botón de "Modificar"*/
-.btn-modify, .btn-cancel {
-    outline: none;
-    color: #ffffff;
-    padding: 0.4em;
-    margin: 1rem;
-    padding-left: 2em;
-    padding-right: 2em;
-    border: 2px dashed #ffffff;
-    border-radius: 15px;
-    background-color: var(--azul-shuncos);
-    box-shadow: 0 0 0 4px var(--azul-shuncos), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
-    transition: .1s ease-in-out, .4s color;
-  }
-  .btn-modify:active {
-    transform: translateX(0.1em) translateY(0.1em);
-    box-shadow: 0 0 0 4px var(--azul-shuncos), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
-  }
-  .btn-cancel:active{
-    transform: translateX(0.1em) translateY(0.1em);
-    box-shadow: 0 0 0 4px var(--azul-shuncos), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
-  }
-   /*Estilos del boton "Guardar Cambios" dentro del modal 'Modificar'*/
-  .btn-save{
-    outline: none;
-    color: #ffffff;
-    padding: 0.4em;
-    margin: 1rem;
-    padding-left: 2em;
-    padding-right: 2em;
-    border: 2px dashed #ffffff;
-    border-radius: 15px;
-    background-color: var(--verde-shuncos);
-    box-shadow: 0 0 0 4px var(--verde-shuncos), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
-    transition: .1s ease-in-out, .4s color;
-  }
-  .btn-save:active {
-    transform: translateX(0.1em) translateY(0.1em);
-    box-shadow: 0 0 0 4px var(--verde-shuncos), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
-  }
-/*Estilos para el botón "Dar de baja mi cuenta" y "cerrar" dentro del modal */
-  .btn-delete, .btn-cerrar{
-    outline: none;
-    color: #ffffff;
-    padding: 0.4em;
-    margin: 1rem;
-    padding-left: 2em;
-    padding-right: 2em;
-    border: 2px dashed #ffffff;
-    border-radius: 15px;
-    background-color: var(--rosa-shuncos);
-    box-shadow: 0 0 0 4px var(--rosa-shuncos), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
-    transition: .1s ease-in-out, .4s color;
-  }
-  .btn-delete:active {
-    transform: translateX(0.1em) translateY(0.1em);
-    box-shadow: 0 0 0 4px var(--rosa-shuncos), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
-  }
-  .btn-cerrar:active {
-    transform: translateX(0.1em) translateY(0.1em);
-    box-shadow: 0 0 0 4px var(--rosa-shuncos), 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
-  }
-  input{
-    margin: 0.5em;
-  }
+#img-container {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.341), rgba(8, 8, 8, 0.758)),
+        url("../assets/img/pattern-table.webp");
+    width: 100%;
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-title {
+    font-family: 'Nunito', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 3.5rem;
+}
+
+#info-account {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.dark-div {
+    background-color: #212529;
+    color: var(--blanco-shuncos);
+    padding: 6px;
+}
+
+.light-div {
+    background-color: #fff;
+    color: #212529;
+    padding: 6px;
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Estilos de ventanas modal */
+
+.modal-title {
+    text-transform: uppercase;
+    color: var(--blanco-shuncos);
+    font-weight: 700;
+}
+
+.modal-header {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-footer {
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-login label {
+	border: solid thin var(--azul-shuncos);
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	border-radius: 20px;
+	padding: 0px 10px;
+	background-color: #ffffff;
+}
+
+.form-login label input {
+	/* width: 100%; */
+	padding: 10px;
+	background-color: #FFFF;
+	border: none;
+	outline: none;
+}
+
+.form-login label input:focus {
+	box-shadow: none;
+}
+
+.form-control.is-valid:focus {
+    box-shadow: none;
+}
+
+.form-control.is-invalid:focus {
+    box-shadow: none;
+}
+
+.form-login label i {
+	color: grey;
+}
+
+#alerta-toast {
+    border: 2px solid var(--blanco-shuncos);
+    color: var(--blanco-shuncos);
+    font-size: medium;
+}
+
+@media (max-width: 992px) {
+    table {
+        width: 150vw !important;
+    }
+}

@@ -88,7 +88,7 @@ function updateSubTotal(){
 }
 
 function  cerrarSesion(params) {
-    localStorage.removeItem("currentUser")
+    localStorage.removeItem("currentUser");
     setTimeout(() => {
         window.location.href = "../login.html";
     }, 1000);

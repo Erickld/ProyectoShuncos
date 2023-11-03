@@ -1,43 +1,44 @@
-let formRegister = document.getElementById("form-modify-user");
-let formLogin = document.getElementById("form-login-user");
+let currentUserx = localStorage.getItem('currentUser');
+currentUserx = JSON.parse(currentUserx);
+formChangeUser = document.getElementById("form-change-user");
 
-function inputInvalid(input) {
-    input.classList.remove('is-valid');
-    input.classList.add('is-invalid');
-}
-
-function inputValid(input) {
-    input.classList.remove('is-invalid');
-    input.classList.add('is-valid');
-}
-
-function changeView(vista) {
-    let loginView = document.getElementById("login-user"); 
-    let registerView = document.getElementById("register-user");
-
-    if (vista == "login") {
-        registerView.classList.add("hidden");
-        loginView.classList.remove("hidden");
+if (currentUserx) {
+    updateInfoUser();
+    if (currentUserx.isAdmin) {
+        //Mostrar una tabla y ocultar otra
+    } else {
+        //Mostrar una tabla y ocultar otra
     }
 
-    if (vista == "registro") {
-        loginView.classList.add("hidden");
-        registerView.classList.remove("hidden");
-    }
+} else {
+    window.location.href = "../login.html";
 }
 
-function isEmailValid(email) {
-    const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-    return emailRegex.test(email);
-}
+document.getElementById("prepare-edit").addEventListener("click", () => {
+    //obteniendo inputs del formulario
+    let name = document.getElementById('name');
+    let lastName = document.getElementById('lastName');
+    let newUsername = document.getElementById('newUsername');
+    let email = document.getElementById('email');
+    let newPassword = document.getElementById('newPassword');
 
-function isPasswordStrong(password) {
-    // La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y tener una longitud mínima de 8 caracteres.
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    return passwordRegex.test(password);
-}
+    //Se limpian validaciones de los input
+    name.classList.remove('is-valid', 'is-invalid');
+    lastName.classList.remove('is-valid', 'is-invalid');
+    newUsername.classList.remove('is-valid', 'is-invalid');
+    email.classList.remove('is-valid', 'is-invalid');
+    newPassword.classList.remove('is-valid', 'is-invalid');
 
-formRegister.onsubmit = function(e) {
+    //Se asignan los valores del usuario a los inputs correspondientes
+    name.value = currentUserx.name;
+    lastName.value = currentUserx.lastName;
+    newUsername.value = currentUserx.username;
+    email.value = currentUserx.email;
+    newPassword.value = currentUserx.password;
+})
+
+
+formChangeUser.onsubmit = function(e) {
     e.preventDefault();
 
     //obteniendo inputs del formulario
@@ -94,11 +95,11 @@ formRegister.onsubmit = function(e) {
     let emailInUse = false;
     let usernameInUse = false;
     usersList.forEach(usr => {
-        if(usr.username == newUsername.value) {
+        if(usr.username == newUsername.value && usr.id !== currentUserx.id) {
             usernameInUse = true;
             return;
         }
-        if(usr.email == email.value) {
+        if(usr.email == email.value && usr.id !== currentUserx.id) {
             emailInUse = true;
             return;
         }
@@ -114,70 +115,92 @@ formRegister.onsubmit = function(e) {
         return alerta("rosa", `El correo "${email.value}" ya se encuentra registrado por otro usuario.`);
     }
 
-    //Se asigna un id random al usuario
-    const ID = (Math.random() + 1).toString(36).substring(5);
+    currentUserx.name = name.value;
+    currentUserx.lastName = lastName.value;
+    currentUserx.username = newUsername.value;
+    currentUserx.email = email.value;
+    currentUserx.password = newPassword.value;
 
-    const newUser = {
-        name: name.value,
-        lastName: lastName.value,
-        username: newUsername.value,
-        email: email.value,
-        password: newPassword.value,
-        isAdmin: false
-    };
+    usersList = usersList.filter(usr => usr.id !== currentUserx.id);
+    usersList.push(currentUserx);
 
-    usersList.push(newUser);
     localStorage.setItem('registeredUsers', JSON.stringify(usersList));
+    localStorage.setItem('currentUser', JSON.stringify(currentUserx));
 
-    alerta("verde", "Registro exitoso. ¡Inicia sesión para continuar!");
+    updateInfoUser();
+    //Cerrar el modal
+    cerrarModal("modalEdit");
+    alerta("verde", "La información de la cuenta se ha actualizado exitosamente.");
 
-    setTimeout(() => {
-        location.reload();   
-    }, 2000);
 }
 
+document.getElementById("delete-account").addEventListener("click", () => {
+    //Eliminar pedidos del usuario en cuestion (pendiente)
 
-formLogin.onsubmit = function(e) {
-    event.preventDefault();
-    let username = document.getElementById('usernameLogin');
-    let password = document.getElementById('passwordLogin');
-
-    //Validando el username
-    if (username.value == "") {
-        inputInvalid(username);
-        return alerta("rosa", "Ingresa el username.");
-    } else {
-        username.classList.remove('is-invalid');
-    }
-
-    //Validando el password
-    if (password.value == "") {
-        inputInvalid(password);
-        return alerta("rosa", "Ingresa el password.");
-    } else {
-        password.classList.remove('is-invalid');
-    }
-
+    //Se obtiene la lista de usuarios registrados
     let usersList = localStorage.getItem('registeredUsers');
     usersList = usersList ? JSON.parse(usersList) : [];
 
-    let userFind = usersList.find(usr => {
-        return (usr.username == username.value && usr.password == password.value);
-    })
+    //Se elimina de la lista al usuario en cuestion
+    usersList = usersList.filter(usr => usr.id !== currentUserx.id);
 
-    if (userFind) {
-        alerta("verde", "Inicio de sesión exitoso. ¡Bienvenido!");
-        localStorage.setItem('currentUser', JSON.stringify(userFind));
-        setTimeout(() => {
-            window.location.href = "../html/storeProducts.html";
-        }, 2000);
+    //Se almacena el resgitro de usuarios actualizado
+    localStorage.setItem('registeredUsers', JSON.stringify(usersList));
+    localStorage.removeItem("currentUser");
 
-    } else {
-        return alerta("rosa", "Credenciales incorrectas. Inténtalo de nuevo.");
-    }
-    
+    cerrarModal("modalDelete");
+    alerta("verde", "Su cuenta ha sido eliminada correctamente.");
+
+    setTimeout(() => {
+        window.location.href = "../login.html";
+    }, 2000);
+
+})
+
+
+function cerrarModal(modalId) {
+    const myModal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+    myModal.hide();
 }
 
+function inputInvalid(input) {
+    input.classList.remove('is-valid');
+    input.classList.add('is-invalid');
+}
+
+function inputValid(input) {
+    input.classList.remove('is-invalid');
+    input.classList.add('is-valid');
+}
+
+function isEmailValid(email) {
+    const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+    return emailRegex.test(email);
+}
+
+function isPasswordStrong(password) {
+    // La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y tener una longitud mínima de 8 caracteres.
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return passwordRegex.test(password);
+}
+
+function updateInfoUser() {
+    let namex = document.getElementById("namex");
+    let lastNamex = document.getElementById("last-namex");
+    let usernamex = document.getElementById("usernamex");
+    let emailx = document.getElementById("emailx");
+    let passwordx = document.getElementById("passwordx");
+
+    namex.textContent = currentUserx.name;
+    lastNamex.textContent = currentUserx.lastName;
+    usernamex.textContent = currentUserx.username;
+    emailx.textContent = currentUserx.email;
+    // passwordx.textContent = currentUserx.password;
+    passwordx.textContent = "";
+    currentUserx.password.split("").forEach(element => {
+        passwordx.textContent += "*";
+    });
+}
 
 function alerta(color, texto) {
     const toastLiveExample = document.getElementById('alerta-toast');
