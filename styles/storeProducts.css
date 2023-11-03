@@ -3,8 +3,8 @@
 .hero {
     background-image: url(../assets/img/background-3.webp);
     height: 15rem;
-    background-size: contain;
-    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: bottom;
     position: relative;
 } 
 
@@ -120,6 +120,7 @@
 #agregar-carrito {
     width: 100%;
 }
+
 
 @media (min-width: 768px){
     #agregar-carrito {
