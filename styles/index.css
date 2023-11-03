@@ -38,7 +38,9 @@ h1{
     font-family:"Nunito";
     padding: 10px;
     color:blanchedalmond;
+    
 }
+
 .modelo{
     max-width: 100%; 
 }
@@ -78,5 +80,8 @@ h1{
         width: 100vh;
         height: 50vh;
         background-size: contain;
+      }
+      .texto{
+        margin-top: 20  px;
       }
 }
