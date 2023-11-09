@@ -1,3 +1,68 @@
+let jsonx = {
+    status: 5,
+    has_coupon: false,
+    subtotal_price: 1200.00.toFixed(2),
+    shipment_price: 150.55.toFixed(2),
+    total_price: 100.88.toFixed(2),
+    country: "Mexico",
+    state: "Guerrero",
+    city: "CDMX",
+    colony: "colonia",
+    street: "street",
+    zip_code: "zip code",
+    phone: "phone",
+    card_number: "1111 1111 1111 1111",
+    owner_name: "nombre de usuario",
+    expiration_date: "02 / 24",
+    pin: "789",
+    user_id: 1,
+    lista_productos: [
+        {
+            id: 2,
+            size: 50,
+            cantidad: 10
+        },
+        {
+            id: 1,
+            size: 80,
+            cantidad: 20
+        }
+    ]
+}
+
+
+const peticion = async () => {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/orders", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+    const content = await rawResponse.json();
+    console.log(content);
+};
+
+peticion();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let arrProductos = localStorage.getItem('productsList');
 
 if (arrProductos) {
