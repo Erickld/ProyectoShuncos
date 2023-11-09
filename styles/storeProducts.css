@@ -117,16 +117,51 @@
     transition: 0.5s;
 }
 
-#agregar-carrito {
+#modal-comprar {
+
     width: 100%;
+
 }
 
+ 
+
+#agregar-carrito {
+
+    width: 100%;
+
+}
+
+ 
+
+ 
 
 @media (min-width: 768px){
+
     #agregar-carrito {
+
         width: fit-content;
+
     }
+
 }
+
+ 
+
+@media (min-width: 768px){
+
+    #modal-comprar {
+
+        width: fit-content;
+
+    }
+
+}
+
+
+
+
+
+
 
 
 .modal-title {
