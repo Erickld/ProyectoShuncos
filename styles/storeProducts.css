@@ -3,8 +3,8 @@
 .hero {
     background-image: url(../assets/img/background-3.webp);
     height: 15rem;
-    background-size: contain;
-    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: bottom;
     position: relative;
 } 
 
@@ -117,15 +117,51 @@
     transition: 0.5s;
 }
 
-#agregar-carrito {
+#modal-comprar {
+
     width: 100%;
+
 }
 
-@media (min-width: 768px){
-    #agregar-carrito {
-        width: fit-content;
-    }
+ 
+
+#agregar-carrito {
+
+    width: 100%;
+
 }
+
+ 
+
+ 
+
+@media (min-width: 768px){
+
+    #agregar-carrito {
+
+        width: fit-content;
+
+    }
+
+}
+
+ 
+
+@media (min-width: 768px){
+
+    #modal-comprar {
+
+        width: fit-content;
+
+    }
+
+}
+
+
+
+
+
+
 
 
 .modal-title {
