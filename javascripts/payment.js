@@ -243,7 +243,8 @@ formularioPayment.onsubmit = async function(e) {
     showLoading();
     setTimeout(() => {
         alerta("verde", "Pedido creado con éxito");
-        return hideLoading();
+        hideLoading();
+        window.location.href = "../html/profileUser.html";
     }, 5000);
     
 }
