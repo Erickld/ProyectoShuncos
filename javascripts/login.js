@@ -195,7 +195,8 @@ async function crearUserDB(jsonx, newUsername, email) {
 
     alerta("verde", "Registro exitoso. ¡Bienvenido!");
     setTimeout(() => {
-        window.location.href = "../index.html";
+        //window.location.href = "../index.html";
+        window.location.href = "https://erickld.github.io/ProyectoShuncos/index.html";
     }, 2000);    
 }
 
@@ -238,7 +239,8 @@ async function loginUserDB(jsonx) {
         localStorage.setItem('currentUser', JSON.stringify(loginUser));
         alerta("verde", "Inicio de sesión exitoso. ¡Bienvenido!");
         setTimeout(() => {
-            window.location.href = "../index.html";
+            //window.location.href = "../index.html";
+            window.location.href = "https://erickld.github.io/ProyectoShuncos/index.html";
         }, 2000);
     } else {
         return alerta("rosa", "Credenciales incorrectas. Inténtalo de nuevo.");

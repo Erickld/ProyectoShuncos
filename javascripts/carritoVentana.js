@@ -167,7 +167,8 @@ function updateSubTotal(){
 function  cerrarSesion(params) {
     localStorage.removeItem("currentUser");
     setTimeout(() => {
-        window.location.href = "../login.html";
+        //window.location.href = "../login.html";
+        window.location.href = "https://erickld.github.io/ProyectoShuncos/login.html";
     }, 1000);
 }
 
