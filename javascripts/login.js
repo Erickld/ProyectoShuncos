@@ -33,7 +33,7 @@ function isEmailValid(email) {
 
 function isPasswordStrong(password) {
     // La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y tener una longitud mínima de 8 caracteres.
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
     return passwordRegex.test(password);
 }
 
@@ -139,6 +139,8 @@ formRegister.onsubmit = function(e) {
 }
 
 
+
+
 formLogin.onsubmit = function(e) {
     event.preventDefault();
     let username = document.getElementById('usernameLogin');
@@ -203,4 +205,31 @@ function alerta(color, texto) {
     alertaTxt.textContent = texto;
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
     toastBootstrap.show();
+}
+
+async function crearUserDB(jsonx) {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/user/", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+    const usr = await rawResponse.json();
+    
+    crearFila(usr)
+    // cerrarModal('modalCreate');
+    alerta("verde", "Usuario agregado correctamente");
+}
+
+
+async function obtenerUserDB() {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/user/", {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
 }
