@@ -275,7 +275,7 @@ formularioPayment.onsubmit = async function(e) {
     
 
     let orderDetails = {
-        status: 2,
+        status: 0,
         has_coupon: cuponAplicado,
         coupon_percentage: cuponActual.porcentaje,
         coupon_text: cuponActual.codigo,
