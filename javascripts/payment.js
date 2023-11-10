@@ -1,11 +1,46 @@
+document.addEventListener('DOMContentLoaded', obtenerProductos);
+
 let formularioPayment = document.getElementById("form-payment");
 let cuponAplicado = false;
 let cuponActual = { codigo: "DESCUENTO10", porcentaje: 10, montoDescontado: 0};
-let subtotalGlobal = 1500;
+let subtotalGlobal = 0;
 let envioGlobal = 150;
-document.getElementById("subtotal").textContent = `$ ${subtotalGlobal.toFixed(2)}`;
-document.getElementById("envio").textContent = `$ ${envioGlobal.toFixed(2)}`;
-let totalGlobal = calcularTotal();
+let compraUnica;
+let producto;
+let productos;
+let totalGlobal;
+
+
+
+function obtenerProductos() {
+
+    producto = sessionStorage.getItem('compraDirecta');
+
+    if(!producto) {
+        compraUnica = false;
+        productos = sessionStorage.getItem('carrito');
+        productos = JSON.parse(productos)
+        subtotal = sessionStorage.getItem('subtotalCarrito')
+        subtotalGlobal = parseFloat(subtotal);
+        productos.forEach(producto => {
+            console.log(producto.tallaElegida)
+        })
+        AsignarTotales();        
+    } else {
+        compraUnica = true;
+        producto = JSON.parse(producto);
+        subtotalGlobal = producto.precio;
+        sessionStorage.removeItem('compraDirecta');
+        AsignarTotales();
+        console.log(generarListaProductos());
+    }
+}
+
+function AsignarTotales() {
+    document.getElementById("subtotal").textContent = `$ ${subtotalGlobal.toFixed(2)}`;
+    document.getElementById("envio").textContent = `$ ${envioGlobal.toFixed(2)}`;
+    totalGlobal = calcularTotal();
+}
 
 function calcularTotal() {
     let result = subtotalGlobal + envioGlobal;
@@ -236,17 +271,90 @@ formularioPayment.onsubmit = async function(e) {
         aceptarTerminos: aceptarTerminos.checked
     }
 
+    const listaProductos = []
+    
+
+    let orderDetails = {
+        status: 2,
+        has_coupon: cuponAplicado,
+        coupon_percentage: cuponActual.porcentaje,
+        coupon_text: cuponActual.codigo,
+        discount_applied: cuponActual.montoDescontado,
+        subtotal_price: subtotalGlobal.toFixed(2),
+        shipment_price: envioGlobal.toFixed(2),
+        total_price: totalGlobal.toFixed(2),
+        country: infoDireccion.pais,
+        state: infoDireccion.estado,
+        city: infoDireccion.ciudad,
+        colony: infoDireccion.colonia,
+        street: infoDireccion.calle,
+        zip_code: infoDireccion.cp,
+        phone: infoDireccion.telefono,
+        card_number: infoPago.numTarjeta,
+        owner_name: infoPago.nameTitular,
+        expiration_date: infoPago.vencimiento,
+        pin: infoPago.cvc,
+        user_id: JSON.parse(localStorage.getItem('currentUser')).id,
+        lista_productos: generarListaProductos()
+    }
+    
+    const peticion = async () => {
+        const rawResponse = await fetch("http://localhost:8080/shuncos/orders", {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(orderDetails)
+        });
+        const content = await rawResponse.json();
+        console.log(content);
+        sessionStorage.removeItem('carrito');
+        setTimeout(() => {
+            alerta("verde", "Pedido creado con éxito");
+            hideLoading();
+            window.location.href = "../html/profileUser.html";
+        }, 3000);
+    };
+    
+    showLoading();
+    peticion();
+
     console.log(infoDireccion);
     console.log(infoPrecios);
     console.log(infoPago);
 
-    showLoading();
-    setTimeout(() => {
-        alerta("verde", "Pedido creado con éxito");
-        hideLoading();
-        window.location.href = "../html/profileUser.html";
-    }, 5000);
     
+
+    
+    
+
+    
+}
+
+function generarListaProductos () {
+    let listaProductos = [];
+
+    if(compraUnica){
+        let productoLista = {
+            id: producto.id,
+            size: producto.tallaElegida,
+            quantity: parseInt(producto.cantidad)
+        }
+
+        listaProductos.push(productoLista);
+    } else {
+        productos.forEach(elemento => {
+            let productoLista = {
+                id: elemento.id,
+                size: elemento.tallaElegida,
+                quantity: parseInt(elemento.cantidad)
+            }
+            listaProductos.push(productoLista)
+        })
+    }
+
+    return listaProductos;
 }
 
 
