@@ -92,6 +92,16 @@ function añadirListenersCarrito() {
     }
 
     updateSubTotal();
+
+
+    // Añadir funcionalidad al boton de payment
+    const boton = document.querySelector('#go-to-payment');
+    boton.addEventListener('click', AñadirSubtotal);
+}
+
+function AñadirSubtotal() {
+    const subtotal = document.querySelector('.subtotal-precio').innerText.replace("$", "");
+    sessionStorage.setItem('subtotalCarrito', subtotal);
 }
 
 //Cerrar carrito

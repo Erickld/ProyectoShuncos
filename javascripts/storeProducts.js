@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', iniciarTienda);
 
 function iniciarTienda () {
-    obtenerProductos();
+    obtenerProductsDB();
 
 }
 
@@ -88,7 +88,11 @@ function crearModal(event) {
 
 
 function obtenerProductos () {
-    obtenerProductsDB()
+    let arregloProductos = localStorage.getItem('productsList');
+    arregloProductos = JSON.parse(arregloProductos);
+    arregloProductos.forEach(producto => {
+        crearProducto(producto);
+    })
 }
 
 function crearProducto (producto) {
@@ -214,20 +218,35 @@ function añadirListenersModal (modal, producto) {
     const btnCarrito = document.querySelector('#agregar-carrito');
 
     btnComprar.addEventListener('click', (event) => {
-        realizarCompra(modal)
+        compraDirecta(modal, producto)
     });
     btnCarrito.addEventListener('click', (event) => {
         agregarAlCarrito(modal, producto)
     });
 }
 
-function realizarCompra (modal) {
+function compraDirecta (modal, producto) {
     let talla = obtenerTalla();
 
     if(!talla) {
         alerta('rosa', 'por favor elija una talla');
         return;
     }
+
+    let productToOrder = {
+        id: producto.id,
+        id: producto.id,
+        imagen: producto.imagen_url,
+        modelo: producto.modelo,
+        tallaElegida: talla,
+        color: producto.color,
+        precio: producto.precio,
+        cantidad: 1,
+    }
+
+    productToOrder = JSON.stringify(productToOrder);
+    sessionStorage.setItem('compraDirecta', productToOrder); 
+
 
     modal.hide();
     window.open('./Payment.html', '_blank');
