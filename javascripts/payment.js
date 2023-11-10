@@ -295,7 +295,7 @@ formularioPayment.onsubmit = async function(e) {
         expiration_date: infoPago.vencimiento,
         pin: infoPago.cvc,
         user_id: JSON.parse(localStorage.getItem('currentUser')).id,
-        products_list: generarListaProductos()
+        lista_productos: generarListaProductos()
     }
     
     const peticion = async () => {
@@ -309,20 +309,26 @@ formularioPayment.onsubmit = async function(e) {
         });
         const content = await rawResponse.json();
         console.log(content);
+        sessionStorage.removeItem('carrito');
+        setTimeout(() => {
+            alerta("verde", "Pedido creado con éxito");
+            hideLoading();
+            window.location.href = "../html/profileUser.html";
+        }, 3000);
     };
     
+    showLoading();
     peticion();
 
     console.log(infoDireccion);
     console.log(infoPrecios);
     console.log(infoPago);
 
-    showLoading();
-    setTimeout(() => {
-        alerta("verde", "Pedido creado con éxito");
-        hideLoading();
-        window.location.href = "../html/profileUser.html";
-    }, 5000);
+    
+
+    
+    
+
     
 }
 
@@ -333,7 +339,7 @@ function generarListaProductos () {
         let productoLista = {
             id: producto.id,
             size: producto.tallaElegida,
-            quantity: producto.cantidad
+            quantity: parseInt(producto.cantidad)
         }
 
         listaProductos.push(productoLista);
@@ -342,7 +348,7 @@ function generarListaProductos () {
             let productoLista = {
                 id: elemento.id,
                 size: elemento.tallaElegida,
-                quantity: elemento.cantidad
+                quantity: parseInt(elemento.cantidad)
             }
             listaProductos.push(productoLista)
         })
