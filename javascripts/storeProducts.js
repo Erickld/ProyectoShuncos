@@ -254,7 +254,8 @@ function agregarAlCarrito (modal, producto) {
         modelo: producto.modelo,
         tallaElegida: talla,
         color: producto.color,
-        precio: producto.precio
+        precio: producto.precio,
+        cantidad: 1
     }
     
 

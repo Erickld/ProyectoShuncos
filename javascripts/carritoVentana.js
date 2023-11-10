@@ -71,7 +71,7 @@ function crearElementoCarrito (producto) {
             <div class="talla-producto-carrito">talla: ${producto.tallaElegida}</div>
             <span>
                 <i class="bi bi-dash-square-fill minus-quantity" onclick="disminuirCantidad('${producto.id}')" prenda_id="${producto.id}"></i>
-                <input type="text" value="1" class="cantidad-carrito" min="1" max="20" id="input-carrito-cantidad-${producto.id}" disabled>
+                <input type="text" value="${producto.cantidad}" class="cantidad-carrito" min="1" max="20" id="input-carrito-cantidad-${producto.id}" disabled>
                 <i class="bi bi-plus-square-fill plus-quantity" onclick="incrementarCantidad('${producto.id}')" prenda_id="${producto.id}"></i>
             </span>
             
@@ -125,6 +125,7 @@ function removerArticuloCarrito(event){
 //Incrementar cantidad de prenda
 function incrementarCantidad(idProduct) {
     let inputPrenda = document.getElementById('input-carrito-cantidad-'+idProduct);
+    
     let valorActual = parseInt(inputPrenda.value);
     valorActual++;
     if (valorActual > 20) {
@@ -132,7 +133,24 @@ function incrementarCantidad(idProduct) {
     } else {
         inputPrenda.value = valorActual;
     }
+    asignarCantidadProductoCarrito(idProduct, valorActual);
     updateSubTotal()
+}
+
+// Asignar Cantidad en el Carrito
+function asignarCantidadProductoCarrito (idProducto, cantidad) {
+    console.log("Carritocantidad");
+    let carritoJSON = sessionStorage.getItem('carrito');
+    const carrito = JSON.parse(carritoJSON);
+
+    carrito.forEach(productoCarrito => {
+        if(productoCarrito.id === idProducto){
+            productoCarrito.cantidad = cantidad;
+        }
+    });
+
+    carritoJSON = JSON.stringify(carrito);
+    sessionStorage.setItem('carrito', carritoJSON);
 }
 
 //Disminuir cantidad
@@ -145,6 +163,7 @@ function disminuirCantidad(idProduct) {
     } else {
         inputPrenda.value = valorActual;
     }
+    asignarCantidadProductoCarrito(idProduct, valorActual);
     updateSubTotal()
 }
 
