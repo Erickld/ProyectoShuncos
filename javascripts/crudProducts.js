@@ -65,7 +65,7 @@
 
 
 let arrProductos;
-obtenerProductDB();
+obtenerProductsDB();
 
 // if (arrProductos) {
 //     arrProductos = JSON.parse(arrProductos);
@@ -167,7 +167,7 @@ function setImagen (idProd) {
 function confirmDelete (idProd) {
     currentProductId = idProd;
     const texto = document.getElementById('txt-confirm-delete');
-    texto.textContent = `¿ Deseas elimiar el producto ${idProd} ?`;
+    texto.textContent = `¿ Deseas elimiar el producto ${idProd.toString().padStart(4, "0")} ?`;
 }
 
 function crearFila(prod) {
@@ -176,7 +176,7 @@ function crearFila(prod) {
     newRow.id = prod.product_id;
 
     newRow.innerHTML = `
-        <td>${prod.product_id}</td>
+        <td>${prod.product_id.toString().padStart(4, "0")}</td>
         <td class="text-center">
             <img class="miniatura-img" data-bs-toggle="modal" data-bs-target="#modalImg" onclick="setImagen('${prod.product_id}')" src="${prod.image_url}" class="img-thumbnail" alt="modelo imagen">
         </td>
@@ -325,14 +325,8 @@ formularioCreacion.onsubmit = async function(e) {
 
 //Eliminación de producto
 document.getElementById('delete-product').addEventListener('click', () => {
-    arrProductos = arrProductos.filter(prod => prod.id != currentProductId);
-    localStorage.setItem('productsList', JSON.stringify(arrProductos));
-    let productRow = document.getElementById(currentProductId);
-    productRow.remove();
-    cerrarModal('modalDelete');
-    alerta("rosa", "Producto eliminado correctamente");
+    eliminarProductDB(currentProductId);
 })
-
 
 
 //Buscar producto por nombre del modelo
@@ -346,7 +340,7 @@ document.getElementById('buscar-btn').addEventListener('click', () => {
         });
     } else {
         arrProductos.forEach(prod => {
-            const modeloTxt = prod.modelo.toLowerCase();
+            const modeloTxt = prod.model.toLowerCase();
             const busquedaTxt = search.value.toLowerCase();
             if (modeloTxt.includes(busquedaTxt)) {
                 crearFila(prod);
@@ -376,7 +370,7 @@ function showImgInput () {
 //Establece valores del producto en cuestión
 function setInfoProduct(idProd) {
     currentProductId = idProd;
-    let producto = arrProductos.find(prod => prod.id == idProd);
+    let producto = arrProductos.find(prod => prod.product_id == idProd);
     formularioEdicion.reset();
     document.querySelector('.error-talla-e').style.display = 'none';
     document.querySelector('.edit-imagen').style.display = 'none';
@@ -397,24 +391,24 @@ function setInfoProduct(idProd) {
     let precioEdit = document.getElementById("precio-e");
 
     //Mostrando los valores actuales del producto
-    modeloEdit.value = producto.modelo;
-    mangaEdit.value = producto.tipo_manga;
-    sexoEdit.value = producto.sexo;
-    tallaAdultoEdit.checked = producto.talla_adulto;
+    modeloEdit.value = producto.model;
+    mangaEdit.value = producto.sleeve_type;
+    sexoEdit.value = producto.genre;
+    tallaAdultoEdit.checked = producto.is_adult_size;
     colorEdit.value = producto.color;
-    precioEdit.value = producto.precio;
+    precioEdit.value = producto.price;
 
     let tipoTalla = "";
     
     //Estableciendo el tipo de talla seleccionado
     if (tallaAdultoEdit.checked) {
         tallaNinoEdit.checked = false;
-        arrTallasAdulto = producto.tallas;
+        arrTallasAdulto = producto.size_list;
         tipoTalla = 'adulto';
         
     } else {
         tallaNinoEdit.checked = true;
-        arrTallasNino = producto.tallas;
+        arrTallasNino = producto.size_list;
         tipoTalla = 'nino';
     }
 
@@ -422,7 +416,7 @@ function setInfoProduct(idProd) {
     mostrarTallas(tipoTalla);
 
     //Haciendo check en los inputs de las tallas correspondientes
-    producto.tallas.forEach(talla => {
+    producto.size_list.forEach(talla => {
         tallaInput = document.getElementById(`${tipoTalla}-t${talla}-e`);
         tallaInput.checked = true;
     })
@@ -503,46 +497,49 @@ formularioEdicion.onsubmit = async function(e) {
     }
 
     //Editamos los valores del producto en cuestión
-    arrProductos.forEach(prod => {
-        if (prod.id == currentProductId) {
-            prod.modelo = modeloEdit.value;
-            prod.tipo_manga = mangaEdit.value;
-            prod.sexo = sexoEdit.value,
-            prod.talla_adulto = tallaAdultoEdit.checked,
-            prod.tallas = tallaAdultoEdit.checked ? arrTallasAdulto: arrTallasNino,
-            prod.color = colorEdit.value,
-            prod.precio = parseFloat(precioEdit.value)
-        }
-    });
+    // arrProductos.forEach(prod => {
+    //     if (prod.product_id == currentProductId) {
+    //         prod.model = modeloEdit.value;
+    //         prod.sleeve_type = mangaEdit.value;
+    //         prod.genre = sexoEdit.value;
+    //         prod.is_adult_size = tallaAdultoEdit.checked;
+    //         prod.size_list = tallaAdultoEdit.checked ? arrTallasAdulto: arrTallasNino;
+    //         prod.color = colorEdit.value;
+    //         prod.price = parseFloat(precioEdit.value).toFixed(2);
+    //     }
+    // });
 
+    let currentProd = arrProductos.find(prod => prod.product_id == currentProductId);
+    
+    const editJson = {
+        model: modeloEdit.value,
+        sleeve_type: mangaEdit.value,
+        genre: sexoEdit.value,
+        is_adult_size: tallaAdultoEdit.checked,
+        size_list: tallaAdultoEdit.checked ? arrTallasAdulto: arrTallasNino,
+        color: colorEdit.value,
+        price: parseFloat(precioEdit.value).toFixed(2),
+    }
+
+    editJson.size_list = JSON.stringify(editJson.size_list);
 
     if (cambiarImagen.checked) {
         try {
             //Se convierte el archivo de la imagen a una cadena de texto
             const imgData = await getBase64(img);
             //Editamos la imagen del producto en cuestión
-            arrProductos.forEach(prod => {
-                if (prod.id == currentProductId) {
-                    //Se almacena la informacion de la nueva imagen del producto
-                    prod.imagen_url = imgData;
-                }
-            });            
-            //Se almacena actualizacion en localStorage
-            localStorage.setItem('productsList', JSON.stringify(arrProductos));
-            document.getElementById("buscar-btn").click();
+            editJson.image_url = imgData;
+            editarProductDB(currentProductId, editJson);
 
         } catch (error) {
             return console.log(error)
         }
     
     } else {
-        //Se almacena actualizacion en localStorage
-        localStorage.setItem('productsList', JSON.stringify(arrProductos));
-        document.getElementById("buscar-btn").click();
+        editJson.image_url = currentProd.image_url;
+        editarProductDB(currentProductId, editJson);
     }
 
-    cerrarModal('modalEdit');
-    alerta("azul", "Producto editado correctamente");
 }
 
 
@@ -592,7 +589,7 @@ async function crearProductDB(jsonx) {
 }
 
 
-async function obtenerProductDB() {
+async function obtenerProductsDB() {
     const rawResponse = await fetch("http://localhost:8080/shuncos/products/", {
       method: 'GET',
       headers: {
@@ -603,8 +600,49 @@ async function obtenerProductDB() {
     arrProductos = await rawResponse.json();
     arrProductos.forEach(prod => {
         prod.size_list = JSON.parse(prod.size_list);
-        crearFila(prod);
     });
+    document.getElementById("buscar-btn").click();
 }
 
 
+async function editarProductDB(idx, jsonx) {
+    const rawResponse = await fetch(`http://localhost:8080/shuncos/products/${idx}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+
+    let prod = await rawResponse.json();
+    console.log(prod);
+    //Se almacena actualizacion en localStorage
+    //localStorage.setItem('productsList', JSON.stringify(arrProductos));
+    
+    cerrarModal('modalEdit');
+    alerta("azul", "Producto editado correctamente");
+    obtenerProductsDB();
+}
+
+
+async function eliminarProductDB(idx) {
+    const rawResponse = await fetch(`http://localhost:8080/shuncos/products/${idx}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+
+    //const response = await rawResponse.json();
+    //console.log(response);
+
+    localStorage.setItem('productsList', JSON.stringify(arrProductos));
+    let productRow = document.getElementById(currentProductId);
+    productRow.remove();
+    cerrarModal('modalDelete');
+    alerta("rosa", "Producto eliminado correctamente");
+    obtenerProductsDB();
+
+}
