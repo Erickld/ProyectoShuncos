@@ -33,7 +33,7 @@ function isEmailValid(email) {
 
 function isPasswordStrong(password) {
     // La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y tener una longitud mínima de 8 caracteres.
-    const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;;
     return passwordRegex.test(password);
 }
 
@@ -86,63 +86,23 @@ formRegister.onsubmit = function(e) {
     } else {
         inputValid(newPassword);
     }
-
-    let usersList = localStorage.getItem('registeredUsers');
-    usersList = usersList ? JSON.parse(usersList) : [];
-
-    //Validamos si el correo y username del nuevo usuario ya se encuentra registrado por otro usuario
-    let emailInUse = false;
-    let usernameInUse = false;
-    usersList.forEach(usr => {
-        if(usr.username == newUsername.value) {
-            usernameInUse = true;
-            return;
-        }
-        if(usr.email == email.value) {
-            emailInUse = true;
-            return;
-        }
-    });
     
-    if(usernameInUse) {
-        inputInvalid(newUsername);
-        return alerta("rosa", `El username "${newUsername.value}" ya se encuentra registrado por otro usuario.`);
-    }
-    
-    if(emailInUse) {
-        inputInvalid(email);
-        return alerta("rosa", `El correo "${email.value}" ya se encuentra registrado por otro usuario.`);
-    }
-
-    //Se asigna un id random al usuario
-    const ID = (Math.random() + 1).toString(36).substring(5);
-
-    const newUser = {
-        id: ID,
-        name: name.value,
-        lastName: lastName.value,
+    const jsonx = {
+        first_name: name.value,
+        last_name: lastName.value,
         username: newUsername.value,
         email: email.value,
-        password: newPassword.value,
-        isAdmin: false
-    };
-
-    usersList.push(newUser);
-    localStorage.setItem('registeredUsers', JSON.stringify(usersList));
-
-    alerta("verde", "Registro exitoso. ¡Bienvenido!");
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
-    setTimeout(() => {
-        window.location.href = "../index.html";
-    }, 2000);
+        password: newPassword.value
+    }
+    
+    crearUserDB(jsonx, newUsername, email);
 
 }
 
 
 
-
 formLogin.onsubmit = function(e) {
-    event.preventDefault();
+    e.preventDefault();
     let username = document.getElementById('usernameLogin');
     let password = document.getElementById('passwordLogin');
 
@@ -162,23 +122,12 @@ formLogin.onsubmit = function(e) {
         password.classList.remove('is-invalid');
     }
 
-    let usersList = localStorage.getItem('registeredUsers');
-    usersList = usersList ? JSON.parse(usersList) : [];
-
-    let userFind = usersList.find(usr => {
-        return (usr.username == username.value && usr.password == password.value);
-    })
-
-    if (userFind) {
-        alerta("verde", "Inicio de sesión exitoso. ¡Bienvenido!");
-        localStorage.setItem('currentUser', JSON.stringify(userFind));
-        setTimeout(() => {
-            window.location.href = "../index.html";
-        }, 2000);
-
-    } else {
-        return alerta("rosa", "Credenciales incorrectas. Inténtalo de nuevo.");
+    const jsonx = {
+        username: username.value,
+        password: password.value
     }
+
+    loginUserDB(jsonx);
     
 }
 
@@ -207,7 +156,9 @@ function alerta(color, texto) {
     toastBootstrap.show();
 }
 
-async function crearUserDB(jsonx) {
+
+async function crearUserDB(jsonx, newUsername, email) {
+
     const rawResponse = await fetch("http://localhost:8080/shuncos/user/", {
       method: 'POST',
       headers: {
@@ -216,12 +167,38 @@ async function crearUserDB(jsonx) {
       },
       body: JSON.stringify(jsonx)
     });
-    const usr = await rawResponse.json();
+
+    const response = await rawResponse.json();
+
+    //Validamos si el correo y username del nuevo usuario ya se encuentra registrado por otro usuario
+    if(response.usernameInUse) {
+        inputInvalid(newUsername);
+        return alerta("rosa", `El username "${newUsername.value}" ya se encuentra registrado por otro usuario.`);
+    }
     
-    crearFila(usr)
-    // cerrarModal('modalCreate');
-    alerta("verde", "Usuario agregado correctamente");
+    if(response.emailInUse) {
+        inputInvalid(email);
+        return alerta("rosa", `El correo "${email.value}" ya se encuentra registrado por otro usuario.`);
+    }
+
+    const newUser = {
+        id: response.user.user_id,
+        name: response.user.first_name,
+        lastName: response.user.last_name,
+        username: response.user.username,
+        email: response.user.email,
+        password: response.user.password,
+        isAdmin: response.user.is_admin
+    };
+    
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
+
+    alerta("verde", "Registro exitoso. ¡Bienvenido!");
+    setTimeout(() => {
+        window.location.href = "../index.html";
+    }, 2000);    
 }
+
 
 
 async function obtenerUserDB() {
@@ -232,4 +209,39 @@ async function obtenerUserDB() {
         'Content-Type': 'application/json'
       }
     });
+}
+
+
+async function loginUserDB(jsonx) {
+
+    const rawResponse = await fetch("http://localhost:8080/shuncos/user/login", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+
+    const response = await rawResponse.json();
+
+    if (response.userFinded) {
+        const loginUser = {
+            id: response.user.user_id,
+            name: response.user.first_name,
+            lastName: response.user.last_name,
+            username: response.user.username,
+            email: response.user.email,
+            password: response.user.password,
+            isAdmin: response.user.is_admin
+        };
+        localStorage.setItem('currentUser', JSON.stringify(loginUser));
+        alerta("verde", "Inicio de sesión exitoso. ¡Bienvenido!");
+        setTimeout(() => {
+            window.location.href = "../index.html";
+        }, 2000);
+    } else {
+        return alerta("rosa", "Credenciales incorrectas. Inténtalo de nuevo.");
+    }
+
 }

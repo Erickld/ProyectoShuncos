@@ -5,9 +5,14 @@ formChangeUser = document.getElementById("form-change-user");
 if (currentUserx) {
     updateInfoUser();
     if (currentUserx.isAdmin) {
-        //Mostrar una tabla y ocultar otra
+        //Ocultar tabla
+        let elements = document.querySelectorAll(".tabla-pedidos-user");
+        elements.forEach(elm => elm.style.display = "none");
     } else {
-        //Mostrar una tabla y ocultar otra
+        //Mostrar y crear una tabla
+        let elements = document.querySelectorAll(".tabla-pedidos-user");
+        elements.forEach(elm => elm.style.display = "initial");
+        getOrdersbyUser();
     }
 
 } else {
@@ -88,73 +93,20 @@ formChangeUser.onsubmit = function(e) {
         inputValid(newPassword);
     }
 
-    let usersList = localStorage.getItem('registeredUsers');
-    usersList = usersList ? JSON.parse(usersList) : [];
-
-    //Validamos si el correo y username del nuevo usuario ya se encuentra registrado por otro usuario
-    let emailInUse = false;
-    let usernameInUse = false;
-    usersList.forEach(usr => {
-        if(usr.username == newUsername.value && usr.id !== currentUserx.id) {
-            usernameInUse = true;
-            return;
-        }
-        if(usr.email == email.value && usr.id !== currentUserx.id) {
-            emailInUse = true;
-            return;
-        }
-    });
-    
-    if(usernameInUse) {
-        inputInvalid(newUsername);
-        return alerta("rosa", `El username "${newUsername.value}" ya se encuentra registrado por otro usuario.`);
-    }
-    
-    if(emailInUse) {
-        inputInvalid(email);
-        return alerta("rosa", `El correo "${email.value}" ya se encuentra registrado por otro usuario.`);
+    const jsonx = {
+        first_name: name.value,
+        last_name: lastName.value,
+        username: newUsername.value,
+        email: email.value,
+        password: newPassword.value
     }
 
-    currentUserx.name = name.value;
-    currentUserx.lastName = lastName.value;
-    currentUserx.username = newUsername.value;
-    currentUserx.email = email.value;
-    currentUserx.password = newPassword.value;
-
-    usersList = usersList.filter(usr => usr.id !== currentUserx.id);
-    usersList.push(currentUserx);
-
-    localStorage.setItem('registeredUsers', JSON.stringify(usersList));
-    localStorage.setItem('currentUser', JSON.stringify(currentUserx));
-
-    updateInfoUser();
-    //Cerrar el modal
-    cerrarModal("modalEdit");
-    alerta("verde", "La información de la cuenta se ha actualizado exitosamente.");
-
+    editUserDB(jsonx, newUsername, email);
 }
 
 document.getElementById("delete-account").addEventListener("click", () => {
     //Eliminar pedidos del usuario en cuestion (pendiente)
-
-    //Se obtiene la lista de usuarios registrados
-    let usersList = localStorage.getItem('registeredUsers');
-    usersList = usersList ? JSON.parse(usersList) : [];
-
-    //Se elimina de la lista al usuario en cuestion
-    usersList = usersList.filter(usr => usr.id !== currentUserx.id);
-
-    //Se almacena el resgitro de usuarios actualizado
-    localStorage.setItem('registeredUsers', JSON.stringify(usersList));
-    localStorage.removeItem("currentUser");
-
-    cerrarModal("modalDelete");
-    alerta("verde", "Su cuenta ha sido eliminada correctamente.");
-
-    setTimeout(() => {
-        window.location.href = "../login.html";
-    }, 2000);
-
+    eliminarUserDB();
 })
 
 
@@ -225,3 +177,137 @@ function alerta(color, texto) {
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
     toastBootstrap.show();
 }
+
+
+function statusTxt(valor) {
+    if (valor == 0) {
+        return "Pendiente";
+    } else if (valor == 1) {
+        return "Enviado";
+    } else if (valor == 2) {
+        return "Entregado";
+    } else {
+        return "Not found";
+    }
+}
+
+
+function crearNewFila(ord) {    
+    let tabla = document.getElementById('body-tabla');
+    let newRow = document.createElement('tr');
+    newRow.id = ord.ord_id;
+
+    newRow.innerHTML = `
+        <td>${ord.order_id.toString().padStart(4, "0")}</td>
+        <td>
+            ${ord.create_at}
+        </td>
+        <td>
+            ${statusTxt(ord.status)}
+        </td>
+        <td>
+            ${ord.address.state}, ${ord.address.city}
+        </td>
+        <td>
+            TDC
+        </td>
+        <td>
+            $ ${ord.subtotal_price.toFixed(2)} MXN
+        </td>
+        <td>
+            $ ${ord.shipment_price.toFixed(2)} MXN
+        </td>
+        <td>
+            $ ${ord.total_price.toFixed(2)} MXN
+        </td>
+    `
+    tabla.appendChild(newRow);
+}
+
+
+
+async function editUserDB(jsonx, newUsername, email) {
+
+    const rawResponse = await fetch(`http://localhost:8080/shuncos/user/${currentUserx.id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+
+    const response = await rawResponse.json();
+
+    //Validamos si el correo y username del nuevo usuario ya se encuentra registrado por otro usuario
+    if(response.usernameInUse) {
+        inputInvalid(newUsername);
+        return alerta("rosa", `El username "${newUsername.value}" ya se encuentra registrado por otro usuario.`);
+    }
+    
+    if(response.emailInUse) {
+        inputInvalid(email);
+        return alerta("rosa", `El correo "${email.value}" ya se encuentra registrado por otro usuario.`);
+    }
+
+    currentUserx.name = response.user.first_name;
+    currentUserx.lastName = response.user.last_name;
+    currentUserx.username = response.user.username;
+    currentUserx.email = response.user.email;
+    currentUserx.password = response.user.password;
+
+    localStorage.setItem('currentUser', JSON.stringify(currentUserx));
+
+    updateInfoUser();
+    //Cerrar el modal
+    cerrarModal("modalEdit");
+    alerta("verde", "La información de la cuenta se ha actualizado exitosamente.");
+ 
+}
+
+
+async function eliminarUserDB() {
+
+    const rawResponse = await fetch(`http://localhost:8080/shuncos/user/${currentUserx.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+
+    //const response = await rawResponse.json();
+    localStorage.removeItem("currentUser");
+    cerrarModal("modalDelete");
+    alerta("verde", "Su cuenta ha sido eliminada correctamente.");
+
+    setTimeout(() => {
+        window.location.href = "../login.html";
+    }, 2000);
+
+}
+
+
+async function getOrdersbyUser() {
+
+    const rawResponse = await fetch(`http://localhost:8080/shuncos/orders/user/${currentUserx.id}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const arrOrder = await rawResponse.json();
+    let tabla = document.getElementById('body-tabla');
+    tabla.innerHTML = "";
+    arrOrder.forEach(ord => {
+        crearNewFila(ord);
+    });
+
+}
+
+
+
+
+
