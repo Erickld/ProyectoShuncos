@@ -1,15 +1,82 @@
-let arrProductos = localStorage.getItem('productsList');
+// let jsonx = {
+//     status: 5,
+//     has_coupon: true,
+//     coupon_percentage: 0.5,
+//     coupon_text: "holaMundo",
+//     discount_applied: 255,
+//     subtotal_price: 1200.00.toFixed(2),
+//     shipment_price: 150.55.toFixed(2),
+//     total_price: 100.88.toFixed(2),
+//     country: "Mexico",
+//     state: "Guerrero",
+//     city: "CDMX",
+//     colony: "colonia",
+//     street: "street",
+//     zip_code: "zip code",
+//     phone: "phone",
+//     card_number: "1111 1111 1111 1111",
+//     owner_name: "nombre de usuario",
+//     expiration_date: "02 / 24",
+//     pin: "789",
+//     user_id: 1,
+//     lista_productos: [
+//         {
+//             id: 2,
+//             size: 50,
+//             quantity: 10
+//         },
+//         {
+//             id: 1,
+//             size: 80,
+//             quantity: 20
+//         }
+//     ]
+// }
 
-if (arrProductos) {
-    arrProductos = JSON.parse(arrProductos);
-    arrProductos.forEach(prod => {
-        crearFila(prod);
-    });
+// async function funcionCrearUser() {
+//     const rawResponse = await fetch("http://localhost:8080/shuncos/orders", {
+//       method: 'POST',
+//       headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(jsonx)
+//     });
+//     const content = await rawResponse.json();
+//     console.log(content);
 
-} else {
-    arrProductos = [];
-    localStorage.setItem('productsList', JSON.stringify(arrProductos));
-}
+// }
+
+// funcionCrearUser();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let arrProductos;
+obtenerProductsDB();
+
+// if (arrProductos) {
+//     arrProductos = JSON.parse(arrProductos);
+//     arrProductos.forEach(prod => {
+//         //crearFila(prod);
+//     });
+
+// } else {
+//     arrProductos = [];
+//     localStorage.setItem('productsList', JSON.stringify(arrProductos));
+// }
 
 //Variables globales
 let arrTallasNino = [];
@@ -92,37 +159,37 @@ function getBase64(file) {
 }
 
 function setImagen (idProd) {
-    let product = arrProductos.find(prod => prod.id == idProd);
+    let product = arrProductos.find(prod => prod.product_id == idProd);
     const newImage = document.getElementById('imagen-de-producto');
-    newImage.src = product.imagen_url;
+    newImage.src = product.image_url;
 }
 
 function confirmDelete (idProd) {
     currentProductId = idProd;
     const texto = document.getElementById('txt-confirm-delete');
-    texto.textContent = `¿ Deseas elimiar el producto ${idProd} ?`;
+    texto.textContent = `¿ Deseas elimiar el producto ${idProd.toString().padStart(4, "0")} ?`;
 }
 
 function crearFila(prod) {
     let tabla = document.getElementById('body-tabla');
     let newRow = document.createElement('tr');
-    newRow.id = prod.id;
+    newRow.id = prod.product_id;
 
     newRow.innerHTML = `
-        <td>${prod.id}</td>
+        <td>${prod.product_id.toString().padStart(4, "0")}</td>
         <td class="text-center">
-            <img class="miniatura-img" data-bs-toggle="modal" data-bs-target="#modalImg" onclick="setImagen('${prod.id}')" src="${prod.imagen_url}" class="img-thumbnail" alt="modelo imagen">
+            <img class="miniatura-img" data-bs-toggle="modal" data-bs-target="#modalImg" onclick="setImagen('${prod.product_id}')" src="${prod.image_url}" class="img-thumbnail" alt="modelo imagen">
         </td>
-        <td>${prod.modelo}</td>
-        <td><b>${prod.talla_adulto ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${prod.tallas.join(", ")}</td>
-        <td><b>Sexo:</b> ${prod.sexo}<br><b>Tipo de manga:</b> ${prod.tipo_manga}<br><b>Color:</b> ${prod.color}</td>
-        <td>$ ${prod.precio} MXN</td>
+        <td>${prod.model}</td>
+        <td><b>${prod.is_adult_size ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${prod.size_list.join(", ")}</td>
+        <td><b>Sexo:</b> ${prod.genre}<br><b>Tipo de manga:</b> ${prod.sleeve_type}<br><b>Color:</b> ${prod.color}</td>
+        <td>$ ${prod.price} MXN</td>
         <td>
             <span data-bs-toggle="modal" data-bs-target="#modalEdit">
-                <i onclick="setInfoProduct('${prod.id}')" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Producto"></i>
+                <i onclick="setInfoProduct('${prod.product_id}')" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Producto"></i>
             </span>
             <span data-bs-toggle="modal" data-bs-target="#modalDelete">
-                <i onclick="confirmDelete('${prod.id}')" class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Producto"></i>
+                <i onclick="confirmDelete('${prod.product_id}')" class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Producto"></i>
             </span>
         </td>
     `
@@ -213,50 +280,53 @@ formularioCreacion.onsubmit = async function(e) {
     }
 
     //Creamos un objeto para guardarlo en local storage
-    let producto = {
-        id: "",
-        modelo: modelo.value,
-        imagen_url: "",
-        tipo_manga: manga.value,
-        sexo: sexo.value,
-        talla_adulto: tallaAdulto.checked,
-        tallas: tallaAdulto.checked ? arrTallasAdulto: arrTallasNino,
+    // let producto = {
+    //     modelo: modelo.value,
+    //     imagen_url: "",
+    //     tipo_manga: manga.value,
+    //     sexo: sexo.value,
+    //     talla_adulto: tallaAdulto.checked,
+    //     tallas: tallaAdulto.checked ? arrTallasAdulto: arrTallasNino,
+    //     color: color.value,
+    //     precio: parseFloat(precio.value)
+    // }
+
+    let productoDB = {
+        model: modelo.value,
+        image_url: "",
+        sleeve_type: manga.value,
+        genre: sexo.value,
+        is_adult_size: tallaAdulto.checked,
+        size_list: tallaAdulto.checked ? arrTallasAdulto: arrTallasNino,
         color: color.value,
-        precio: parseFloat(precio.value)
+        price: parseFloat(precio.value).toFixed(2)
     }
 
-    //Se asigna un id random al producto
-    const ID = (Math.random() + 1).toString(36).substring(5);
-    producto.id = ID;
-
+    productoDB.size_list = JSON.stringify(productoDB.size_list);
+    
     try {
         //Se convierte el archivo de la imagen a una cadena de texto
         const imgData = await getBase64(img);
         //Se almacena la informacion de la imagen en producto
-        producto.imagen_url = imgData;
+        //producto.imagen_url = imgData;
+        productoDB.image_url = imgData;
+        
         //Se almacena producto en localStorage
-        arrProductos.push(producto);
-        localStorage.setItem('productsList', JSON.stringify(arrProductos));
+        //arrProductos.push(producto);
+        //localStorage.setItem('productsList', JSON.stringify(arrProductos));
+        crearProductDB(productoDB);
+
     } catch (error) {
         return console.log(error)
     }
     
-    //crear nuevo row en tabla
-    crearFila(producto)
-    cerrarModal('modalCreate');
-    alerta("verde", "Producto agregado correctamente");
+
 }
 
 //Eliminación de producto
 document.getElementById('delete-product').addEventListener('click', () => {
-    arrProductos = arrProductos.filter(prod => prod.id != currentProductId);
-    localStorage.setItem('productsList', JSON.stringify(arrProductos));
-    let productRow = document.getElementById(currentProductId);
-    productRow.remove();
-    cerrarModal('modalDelete');
-    alerta("rosa", "Producto eliminado correctamente");
+    eliminarProductDB(currentProductId);
 })
-
 
 
 //Buscar producto por nombre del modelo
@@ -270,7 +340,7 @@ document.getElementById('buscar-btn').addEventListener('click', () => {
         });
     } else {
         arrProductos.forEach(prod => {
-            const modeloTxt = prod.modelo.toLowerCase();
+            const modeloTxt = prod.model.toLowerCase();
             const busquedaTxt = search.value.toLowerCase();
             if (modeloTxt.includes(busquedaTxt)) {
                 crearFila(prod);
@@ -300,7 +370,7 @@ function showImgInput () {
 //Establece valores del producto en cuestión
 function setInfoProduct(idProd) {
     currentProductId = idProd;
-    let producto = arrProductos.find(prod => prod.id == idProd);
+    let producto = arrProductos.find(prod => prod.product_id == idProd);
     formularioEdicion.reset();
     document.querySelector('.error-talla-e').style.display = 'none';
     document.querySelector('.edit-imagen').style.display = 'none';
@@ -321,24 +391,24 @@ function setInfoProduct(idProd) {
     let precioEdit = document.getElementById("precio-e");
 
     //Mostrando los valores actuales del producto
-    modeloEdit.value = producto.modelo;
-    mangaEdit.value = producto.tipo_manga;
-    sexoEdit.value = producto.sexo;
-    tallaAdultoEdit.checked = producto.talla_adulto;
+    modeloEdit.value = producto.model;
+    mangaEdit.value = producto.sleeve_type;
+    sexoEdit.value = producto.genre;
+    tallaAdultoEdit.checked = producto.is_adult_size;
     colorEdit.value = producto.color;
-    precioEdit.value = producto.precio;
+    precioEdit.value = producto.price;
 
     let tipoTalla = "";
     
     //Estableciendo el tipo de talla seleccionado
     if (tallaAdultoEdit.checked) {
         tallaNinoEdit.checked = false;
-        arrTallasAdulto = producto.tallas;
+        arrTallasAdulto = producto.size_list;
         tipoTalla = 'adulto';
         
     } else {
         tallaNinoEdit.checked = true;
-        arrTallasNino = producto.tallas;
+        arrTallasNino = producto.size_list;
         tipoTalla = 'nino';
     }
 
@@ -346,7 +416,7 @@ function setInfoProduct(idProd) {
     mostrarTallas(tipoTalla);
 
     //Haciendo check en los inputs de las tallas correspondientes
-    producto.tallas.forEach(talla => {
+    producto.size_list.forEach(talla => {
         tallaInput = document.getElementById(`${tipoTalla}-t${talla}-e`);
         tallaInput.checked = true;
     })
@@ -427,46 +497,49 @@ formularioEdicion.onsubmit = async function(e) {
     }
 
     //Editamos los valores del producto en cuestión
-    arrProductos.forEach(prod => {
-        if (prod.id == currentProductId) {
-            prod.modelo = modeloEdit.value;
-            prod.tipo_manga = mangaEdit.value;
-            prod.sexo = sexoEdit.value,
-            prod.talla_adulto = tallaAdultoEdit.checked,
-            prod.tallas = tallaAdultoEdit.checked ? arrTallasAdulto: arrTallasNino,
-            prod.color = colorEdit.value,
-            prod.precio = parseFloat(precioEdit.value)
-        }
-    });
+    // arrProductos.forEach(prod => {
+    //     if (prod.product_id == currentProductId) {
+    //         prod.model = modeloEdit.value;
+    //         prod.sleeve_type = mangaEdit.value;
+    //         prod.genre = sexoEdit.value;
+    //         prod.is_adult_size = tallaAdultoEdit.checked;
+    //         prod.size_list = tallaAdultoEdit.checked ? arrTallasAdulto: arrTallasNino;
+    //         prod.color = colorEdit.value;
+    //         prod.price = parseFloat(precioEdit.value).toFixed(2);
+    //     }
+    // });
 
+    let currentProd = arrProductos.find(prod => prod.product_id == currentProductId);
+    
+    const editJson = {
+        model: modeloEdit.value,
+        sleeve_type: mangaEdit.value,
+        genre: sexoEdit.value,
+        is_adult_size: tallaAdultoEdit.checked,
+        size_list: tallaAdultoEdit.checked ? arrTallasAdulto: arrTallasNino,
+        color: colorEdit.value,
+        price: parseFloat(precioEdit.value).toFixed(2),
+    }
+
+    editJson.size_list = JSON.stringify(editJson.size_list);
 
     if (cambiarImagen.checked) {
         try {
             //Se convierte el archivo de la imagen a una cadena de texto
             const imgData = await getBase64(img);
             //Editamos la imagen del producto en cuestión
-            arrProductos.forEach(prod => {
-                if (prod.id == currentProductId) {
-                    //Se almacena la informacion de la nueva imagen del producto
-                    prod.imagen_url = imgData;
-                }
-            });            
-            //Se almacena actualizacion en localStorage
-            localStorage.setItem('productsList', JSON.stringify(arrProductos));
-            document.getElementById("buscar-btn").click();
+            editJson.image_url = imgData;
+            editarProductDB(currentProductId, editJson);
 
         } catch (error) {
             return console.log(error)
         }
     
     } else {
-        //Se almacena actualizacion en localStorage
-        localStorage.setItem('productsList', JSON.stringify(arrProductos));
-        document.getElementById("buscar-btn").click();
+        editJson.image_url = currentProd.image_url;
+        editarProductDB(currentProductId, editJson);
     }
 
-    cerrarModal('modalEdit');
-    alerta("azul", "Producto editado correctamente");
 }
 
 
@@ -493,4 +566,83 @@ function alerta(color, texto) {
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
     toastBootstrap.show();
     
+}
+
+
+
+async function crearProductDB(jsonx) {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/products", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+    const prod = await rawResponse.json();
+    
+    prod.size_list = JSON.parse(prod.size_list);
+
+    crearFila(prod)
+    cerrarModal('modalCreate');
+    alerta("verde", "Producto agregado correctamente");
+}
+
+
+async function obtenerProductsDB() {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/products/", {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    arrProductos = await rawResponse.json();
+    arrProductos.forEach(prod => {
+        prod.size_list = JSON.parse(prod.size_list);
+    });
+    document.getElementById("buscar-btn").click();
+}
+
+
+async function editarProductDB(idx, jsonx) {
+    const rawResponse = await fetch(`http://localhost:8080/shuncos/products/${idx}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+
+    let prod = await rawResponse.json();
+    console.log(prod);
+    //Se almacena actualizacion en localStorage
+    //localStorage.setItem('productsList', JSON.stringify(arrProductos));
+    
+    cerrarModal('modalEdit');
+    alerta("azul", "Producto editado correctamente");
+    obtenerProductsDB();
+}
+
+
+async function eliminarProductDB(idx) {
+    const rawResponse = await fetch(`http://localhost:8080/shuncos/products/${idx}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+
+    //const response = await rawResponse.json();
+    //console.log(response);
+
+    localStorage.setItem('productsList', JSON.stringify(arrProductos));
+    let productRow = document.getElementById(currentProductId);
+    productRow.remove();
+    cerrarModal('modalDelete');
+    alerta("rosa", "Producto eliminado correctamente");
+    obtenerProductsDB();
+
 }

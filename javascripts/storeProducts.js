@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded', iniciarTienda);
 
 function iniciarTienda () {
     obtenerProductos();
-    agregarFuncionesBotones();
-    añadirBotonesTarjetas();
+
 }
 
 function añadirBotonesTarjetas () {
@@ -89,11 +88,7 @@ function crearModal(event) {
 
 
 function obtenerProductos () {
-    let arregloProductos = localStorage.getItem('productsList');
-    arregloProductos = JSON.parse(arregloProductos);
-    arregloProductos.forEach(producto => {
-        crearProducto(producto);
-    })
+    obtenerProductsDB()
 }
 
 function crearProducto (producto) {
@@ -331,4 +326,42 @@ function alerta(color, texto) {
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
     toastBootstrap.show();
     
+}
+
+
+
+async function obtenerProductsDB() {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/products/", {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    let arrProductosDB = await rawResponse.json();
+    arrProductosDB.forEach(prod => {
+        prod.size_list = JSON.parse(prod.size_list);
+    });
+
+
+    let arregloProductos = arrProductosDB.map(prod => {
+        return {
+            id: prod.product_id,
+            modelo: prod.model,
+            imagen_url: prod.image_url,
+            tipo_manga: prod.sleeve_type,
+            sexo: prod.genre,
+            talla_adulto: prod.is_adult_size,
+            tallas: prod.size_list,
+            color: prod.color,
+            precio: prod.price
+        }
+    });
+
+    arregloProductos.forEach(producto => {
+        crearProducto(producto);
+    })
+
+    agregarFuncionesBotones();
+    añadirBotonesTarjetas();
 }
