@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de Productos</title>
+        <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.webp">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@700&display=swap"
+            rel="stylesheet">
+        <!-- Estilos Nav Bar -->
+        <link rel="stylesheet" href="../styles/navBarStyles.css">
+        <!-- Estilos Main Container -->
+        <link rel="stylesheet" href="../styles/mainContainerStyles.css">
+        <!-- Estilos Footer -->
+        <link rel="stylesheet" href="../styles/footerStyles.css">
+
+        <link rel="stylesheet" href="../styles/crudProducts.css">
+
+    </head>
+
+    <body>
+        <header>
+            <nav id="nav-bar-container"></nav>
+        </header>
+
+        <main id="main-container" class="monse-font">
+            <!-- Contenedor con imagen-->
+            <div class="container-fluid" id="img-container">
+                <div class="col-12">
+                    <h1 class="table-title"> GESTIÓN DE PRODUCTOS </h1>
+                </div>
+            </div>
+
+            <!-- Modificar Contenido -->
+            <section class="admin-products container">
+                <!-- <h2 class="table-title">Gestión de Productos</h2> -->
+
+                <div class="row my-4">
+                    <div class="col-md-12 text-center">
+                        <button id="new-product" type="button" class="shunco-button shunco-verde-btn" data-bs-toggle="modal" data-bs-target="#modalCreate" onclick="resetFormularioCreacion()">
+                            <i class="bi bi-plus-circle"></i>
+                            Nuevo Producto
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+
+                    <div class="col-md-12">
+                        <div class="input-group">
+
+                            <input  type="text" class="form-control" placeholder="Buscar por modelo..." aria-label="Buscar producto por modelo..." id="buscar-input">
+                            <button type="button" id="buscar-btn">
+                                <i class="bi bi-search"></i>
+                                Buscar
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="table-responsive-lg">
+                        <table class="table table-striped table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Imagen</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Tallas</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-tabla">
+                            </tbody>
+                        </table>
+                     </div>
+
+                </div>
+            </section>
+            <!-- Fin Modificar Contenido -->
+
+            <!-- Modal de Creación -->
+            <div class="modal fade" id="modalCreate" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="myModalLabel">Nuevo Producto</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="row g-3" id="form-create">
+
+                            <div class="col-md-12">
+                                <label for="name-modelo" class="form-label">Nombre de modelo</label>
+                                <input type="text" class="form-control" id="name-modelo">
+                                <!-- class = is-valid -->
+                                <!-- class = is-invalid -->
+                                <div class="valid-feedback">
+                                    Nombre correcto
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingresa el nombre del modelo
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="img-prod" class="form-label">Imagen del producto</label>
+                                <input type="file" class="form-control" id="img-prod" accept="image/*">
+                                <div class="valid-feedback">
+                                    Imagen ingresada correctamente
+                                </div>
+                                <div class="invalid-feedback">
+                                    Selecciona un archivo de imagen: png, jpg, jpeg o webp
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="tipo-manga" class="form-label">Tipo de Manga</label>
+                                <select class="form-select" id="tipo-manga">
+                                <option selected value="corta">Manga corta</option>
+                                <option value="larga">Manga larga</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="sexo" class="form-label">Sexo</label>
+                                <select class="form-select" id="sexo">
+                                <option selected value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="adulto" type="radio" name="talla" id="talla-adulto" onclick="mostrarTallas('adulto')" checked>
+                                    <label class="form-check-label" for="talla-adulto">
+                                        Tallas para adulto
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="nino" type="radio" name="talla" id="talla-nino" onclick="mostrarTallas('nino')">
+                                    <label class="form-check-label" for="talla-nino">
+                                        Tallas para niño
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 error-talla">
+                                <p class="text-alert m-0">Selecciona por lo menos una talla</p>
+                            </div>
+                            
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t34" onclick="addTalla('adulto', '34')">
+                                    <label class="form-check-label" for="adulto-t34">Talla 34</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t36" onclick="addTalla('adulto', '36')">
+                                    <label class="form-check-label" for="adulto-t36">Talla 36</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t38" onclick="addTalla('adulto', '38')">
+                                    <label class="form-check-label" for="adulto-t38">Talla 38</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t40" onclick="addTalla('adulto', '40')">
+                                    <label class="form-check-label" for="adulto-t40">Talla 40</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t42" onclick="addTalla('adulto', '42')">
+                                    <label class="form-check-label" for="adulto-t42">Talla 42</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t44" onclick="addTalla('adulto', '44')">
+                                    <label class="form-check-label" for="adulto-t44">Talla 44</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t2" onclick="addTalla('nino', '2')">
+                                    <label class="form-check-label" for="nino-t2">Talla 2</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t4" onclick="addTalla('nino', '4')">
+                                    <label class="form-check-label" for="nino-t4">Talla 4</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t6" onclick="addTalla('nino', '6')">
+                                    <label class="form-check-label" for="nino-t6">Talla 6</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t8" onclick="addTalla('nino', '8')">
+                                    <label class="form-check-label" for="nino-t8">Talla 8</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t10" onclick="addTalla('nino', '10')">
+                                    <label class="form-check-label" for="nino-t10">Talla 10</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t12" onclick="addTalla('nino', '12')">
+                                    <label class="form-check-label" for="nino-t12">Talla 12</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t14" onclick="addTalla('nino', '14')">
+                                    <label class="form-check-label" for="nino-t14">Talla 14</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t16" onclick="addTalla('nino', '16')">
+                                    <label class="form-check-label" for="nino-t16">Talla 16</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t18" onclick="addTalla('nino', '18')">
+                                    <label class="form-check-label" for="nino-t18">Talla 18</label>
+                                </div>
+                            </div> 
+                            <div class="col-md-6 nino">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="color" class="form-label">Color de producto</label>
+                                <select class="form-select" id="color">
+                                <option selected value="negro">Negro</option>
+                                <option value="blanco">Blanco</option>
+                                <option value="hueso">Hueso</option>
+                                <option value="azul-cielo">Azul Cielo</option>
+                                <option value="azul-marino">Azul Marino</option>
+                                <option value="rojo">Rojo</option>
+                                <option value="turquesa">Turquesa</option>
+                                <option value="coral">Coral</option>
+                                <option value="rosa">Rosa</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="precio" class="form-label">Precio</label>
+                                <div class="input-group">
+                                    <span class="input-group-text left-symbol">$</span>
+                                    <input type="number" class="form-control" id="precio" min="1" placeholder="00.00" step="any">
+                                    <span class="input-group-text right-symbol">MXN</span>
+                                    <div class="valid-feedback">
+                                        Precio válido
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Precio inválido
+                                    </div>
+                                </div>
+                            </div>
+                        </form>                          
+
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="add-new-product" type="submit" class="shunco-button shunco-verde-btn" form="form-create">Aceptar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+            <!-- Modal de Imagen -->
+            <div class="modal fade" id="modalImg" tabindex="-1" aria-labelledby="modalImgLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalImgLabel">Imagen del Producto</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img id="imagen-de-producto" class="d-block img-fluid w-100" src="" alt="imagen del producto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Modal de Eliminación -->
+            <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalDeleteLabel">Eliminar producto</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h3 id="txt-confirm-delete">¿ Deseas eliminar el producto en cuestión ?</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="delete-product" type="button" class="shunco-button shunco-verde-btn">Eliminar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Modal de Edición -->
+            <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="modalEditLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalEditLabel">Editar Producto</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="row g-3" id="form-edit">
+
+                            <div class="col-md-12">
+                                <label for="name-modelo-e" class="form-label">Nombre de modelo</label>
+                                <input type="text" class="form-control" id="name-modelo-e">
+                                <div class="valid-feedback">
+                                    Nombre correcto
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingresa el nombre del modelo
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="change-img" onclick="showImgInput()">
+                                    <label class="form-check-label" for="change-img">Cambiar imagen del producto</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 edit-imagen">
+                                <label for="img-prod-e" class="form-label">Nueva imagen del producto</label>
+                                <input type="file" class="form-control" id="img-prod-e" accept="image/*">
+                                <div class="valid-feedback">
+                                    Imagen ingresada correctamente
+                                </div>
+                                <div class="invalid-feedback">
+                                    Selecciona un archivo de imagen: png, jpg, jpeg o webp
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                <label for="tipo-manga-e" class="form-label">Tipo de Manga</label>
+                                <select class="form-select" id="tipo-manga-e">
+                                <option selected value="corta">Manga corta</option>
+                                <option value="larga">Manga larga</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="sexo-e" class="form-label">Sexo</label>
+                                <select class="form-select" id="sexo-e">
+                                <option selected value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="adulto" type="radio" name="talla" id="talla-adulto-e" onclick="mostrarTallas('adulto')" checked>
+                                    <label class="form-check-label" for="talla-adulto-e">
+                                        Tallas para adulto
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" value="nino" type="radio" name="talla" id="talla-nino-e" onclick="mostrarTallas('nino')">
+                                    <label class="form-check-label" for="talla-nino-e">
+                                        Tallas para niño
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 error-talla-e">
+                                <p class="text-alert m-0">Selecciona por lo menos una talla</p>
+                            </div>
+                            
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t34-e" onclick="addTalla('adulto', '34')">
+                                    <label class="form-check-label" for="adulto-t34-e">Talla 34</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t36-e" onclick="addTalla('adulto', '36')">
+                                    <label class="form-check-label" for="adulto-t36-e">Talla 36</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t38-e" onclick="addTalla('adulto', '38')">
+                                    <label class="form-check-label" for="adulto-t38-e">Talla 38</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t40-e" onclick="addTalla('adulto', '40')">
+                                    <label class="form-check-label" for="adulto-t40-e">Talla 40</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t42-e" onclick="addTalla('adulto', '42')">
+                                    <label class="form-check-label" for="adulto-t42-e">Talla 42</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 adulto">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="adulto-t44-e" onclick="addTalla('adulto', '44')">
+                                    <label class="form-check-label" for="adulto-t44-e">Talla 44</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t2-e" onclick="addTalla('nino', '2')">
+                                    <label class="form-check-label" for="nino-t2-e">Talla 2</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t4-e" onclick="addTalla('nino', '4')">
+                                    <label class="form-check-label" for="nino-t4-e">Talla 4</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t6-e" onclick="addTalla('nino', '6')">
+                                    <label class="form-check-label" for="nino-t6-e">Talla 6</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t8-e" onclick="addTalla('nino', '8')">
+                                    <label class="form-check-label" for="nino-t8-e">Talla 8</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t10-e" onclick="addTalla('nino', '10')">
+                                    <label class="form-check-label" for="nino-t10-e">Talla 10</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t12-e" onclick="addTalla('nino', '12')">
+                                    <label class="form-check-label" for="nino-t12-e">Talla 12</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t14-e" onclick="addTalla('nino', '14')">
+                                    <label class="form-check-label" for="nino-t14-e">Talla 14</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t16-e" onclick="addTalla('nino', '16')">
+                                    <label class="form-check-label" for="nino-t16-e">Talla 16</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 nino">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="nino-t18-e" onclick="addTalla('nino', '18')">
+                                    <label class="form-check-label" for="nino-t18-e">Talla 18</label>
+                                </div>
+                            </div> 
+                            <div class="col-md-6 nino">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="color-e" class="form-label">Color de producto</label>
+                                <select class="form-select" id="color-e">
+                                <option selected value="negro">Negro</option>
+                                <option value="blanco">Blanco</option>
+                                <option value="hueso">Hueso</option>
+                                <option value="azul-cielo">Azul Cielo</option>
+                                <option value="azul-marino">Azul Marino</option>
+                                <option value="rojo">Rojo</option>
+                                <option value="turquesa">Turquesa</option>
+                                <option value="coral">Coral</option>
+                                <option value="rosa">Rosa</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="precio-e" class="form-label">Precio</label>
+                                <div class="input-group">
+                                    <span class="input-group-text left-symbol">$</span>
+                                    <input type="number" class="form-control" id="precio-e" min="1" placeholder="00.00" step="any">
+                                    <span class="input-group-text right-symbol">MXN</span>
+                                    <div class="valid-feedback">
+                                        Precio válido
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Precio inválido
+                                    </div>
+                                </div>
+                            </div>
+                        </form>                          
+
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="edit-product" type="submit" class="shunco-button shunco-verde-btn" form="form-edit">Editar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="alerta-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+                    <div class="d-flex">
+                        <div class="toast-body" id="alerta-txt">
+                          Hello, world! This is a toast message.
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+
+
+        <footer id="footer-container" class="p-3"></footer>
+
+        <!-- Load Nav Bar -->
+        <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
+        <!-- Load Footer -->
+        <script src="../javascripts/loadFooter.js" fuente="htmlFolder"></script>
+        <!-- Load ventana de carrito -->
+        <script src="../javascripts/carritoVentana.js" fuente="htmlFolder"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous">
+        </script>
+        <script src="../javascripts/crudProducts.js"></script>
+    </body>
+
+</html>

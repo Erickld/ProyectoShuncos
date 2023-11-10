@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de compra</title>
+    <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.webp">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Estilos Nav Bar -->
+    <link rel="stylesheet" href="../styles/navBarStyles.css">
+    <!-- Estilos Main Container -->
+    <link rel="stylesheet" href="../styles/mainContainerStyles.css">
+    <!-- Estilos Footer -->
+    <link rel="stylesheet" href="../styles/footerStyles.css">
+    <!--Styles CSS-->
+    <link rel="stylesheet" href="../styles/payment.css">
+</head>
+
+<body>
+    <header>
+        <nav id="nav-bar-container"></nav>
+    </header>
+    <main id="main-container">
+        <!-- Inicio de contenido-->
+        <form class="row gx-3 container-payment" id="form-payment">
+            <div class="left-side col-md-6 monse-font">
+
+                <div class="content-box-1">
+                    <div class="detalles-envio">Detalles de envío</div>
+                    <div class="ingrese-datos">
+                        Ingrese sus datos en el siguiente formulario para procesar su pedido
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="nombre-apellido" class="form-label">Nombre(s) <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="nombre-apellido" placeholder="Nombre(s) y Apellidos">
+                            <div class="valid-feedback">
+                                Nombre correcto
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingresa tú nombre completo
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="pais" class="form-label">País / región <span class="obligatorio">*</span></label>
+                            <select class="form-select" aria-label="Default select example" id="pais" disabled>
+                                <option>País/región</option>
+                                <option selected value="1">México</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="estado" class="form-label">Estado <span class="obligatorio">*</span></label>
+                            <select class="form-select" aria-label="Default select example" id="estado">
+                                <option value="1">Aguascalientes</option>
+                                <option value="2">Baja California</option>
+                                <option value="3">Baja California Sur</option>
+                                <option value="4">Campeche</option>
+                                <option value="5">Chiapas</option>
+                                <option value="6">Chihuahua</option>
+                                <option selected value="7">Ciudad de México</option>
+                                <option value="8">Coahuila de Zaragoza</option>
+                                <option value="9">Colima</option>
+                                <option value="10">Durango</option>
+                                <option value="11">Estado de Guerrero</option>
+                                <option value="12">Estado de Hidalgo</option>
+                                <option value="13">Estado de México</option>
+                                <option value="14">Guanajuato</option>
+                                <option value="15">Jalisco</option>
+                                <option value="16">Michoacán</option>
+                                <option value="17">Morelos</option>
+                                <option value="18">Nayarit</option>
+                                <option value="19">Nuevo León</option>
+                                <option value="20">Oaxaca</option>
+                                <option value="21">Puebla</option>
+                                <option value="22">Querétaro</option>
+                                <option value="23">Quintana Roo</option>
+                                <option value="24">San Luis Potosí</option>
+                                <option value="25">Sinaloa</option>
+                                <option value="26">Sonora</option>
+                                <option value="27">Tabasco</option>
+                                <option value="28">Tamaulipas</option>
+                                <option value="29">Tlaxcala</option>
+                                <option value="30">Veracruz</option>
+                                <option value="31">Yucatán</option>
+                                <option value="32">Zacatecas</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="ciudad" class="form-label">Localidad / Ciudad <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="ciudad">
+                            <div class="valid-feedback">
+                                Ciudad correcta
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingresa el nombre de tú ciudad
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <label for="colonia" class="form-label">Colonia <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="colonia" placeholder="Colonia / Fraccionamiento">
+                            <div class="valid-feedback">
+                                Colonia correcta
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingresa el nombre de tú colonia
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <label for="calle" class="form-label">Dirección de la calle <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="calle" placeholder="Número de casa y nombre de la calle">
+                            <div class="valid-feedback">
+                                Calle correcta
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingresa el nombre de tú calle
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-md-6 ">
+                            <label for="cp" class="form-label">Código Postal <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="cp" placeholder="00000">
+                            <div class="valid-feedback">
+                                Código postal válido
+                            </div>
+                            <div class="invalid-feedback">
+                                Código Postal: 5 digitos
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label for="telefono" class="form-label">Teléfono <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="telefono">
+                            <div class="valid-feedback">
+                                Teléfono correcto
+                            </div>
+                            <div class="invalid-feedback">
+                                Teléfono: 10 digitos
+                            </div>
+                        </div>
+    
+                        <div class="col-md-12">
+                            <!-- <div class="info-adicional">INFORMACIÓN ADICIONAL</div> -->
+                            <label for="indicaciones-extra" class="form-label">Indicaciones del pedido
+                                (opcional)</label>
+                            <textarea class="form-control" id="indicaciones-extra" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side col-md-6 monse-font">
+                    <div class="content-box-2">
+                        <h5>Resumen de la orden</h5>
+
+                        <div class="row">
+                            <div class="col-md-12 cupon-container">
+                                <div class="input-group">
+                                    <input type="text" id="cupon-input" class="form-control"
+                                        placeholder="Código Promocional" aria-label="Código Promocional">
+                                    <button class="cupon-buttons" type="button" id="cupon-btn-1"
+                                        onclick="aplicarCupon()">
+                                        Aplicar Cupón
+                                    </button>
+                                    <button class="cupon-buttons" type="button" id="cupon-btn-2"
+                                        onclick="aplicarCupon()">
+                                        Aplicar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-2 price-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$ 00.00</span>
+                        </div>
+
+                        <div class="mt-2 price-row cupon-price-div">
+                            <span id="cupon-txt">CUPON</span>
+                            <span id="cupon-descuento">$ 00.00</span>
+                        </div>
+
+                        <div class="mt-2 price-row">
+                            <span>Envío</span>
+                            <span id="envio">$ 00.00</span>
+                        </div>
+
+                        <div class="mt-4 price-row total-div">
+                            <span>Total</span>
+                            <span id="total">$ 00.00</span>
+                        </div>
+                    </div>
+                    <div class="row g-3 content-box-2">
+                        <h5>Información del pago</h5>
+                        <div class="col-md-12">
+                            <label for="num-tarjeta" class="form-label">Número de tarjeta <span class="obligatorio">*</span></label>
+                            <input id="num-tarjeta" type="text" class="form-control" id="name-modelo" placeholder="0000 0000 0000 0000">
+                            <div class="valid-feedback">
+                                Número de tarjeta correcto
+                            </div>
+                            <div class="invalid-feedback">
+                                Número de tarjeta: xxxx xxxx xxxx xxxx
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="name-titular" class="form-label">Nombre del titular <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="name-titular">
+                            <div class="valid-feedback">
+                                Nombre del titular correcto
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingresa el nombre del titular
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="vencimiento" class="form-label">Vencimiento <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="vencimiento" placeholder="mm / aa">
+                            <div class="valid-feedback">
+                                Fecha válida
+                            </div>
+                            <div class="invalid-feedback">
+                                Fecha: mm / aa
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="cvc" class="form-label">CVC <span class="obligatorio">*</span></label>
+                            <input type="text" class="form-control" id="cvc" placeholder="000">
+                            <div class="valid-feedback">
+                                CVC válido
+                            </div>
+                            <div class="invalid-feedback">
+                                CVC: 3 digitos
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="aceptar-terminos">
+                                <label class="form-check-label" >Aceptar nuestros <span data-bs-toggle="modal" data-bs-target="#modalTerminos" id="terminos-modal-btn">Términos y
+                                        Condiciones</span></label>
+                            </div>
+                        </div>
+
+                    </div>
+                <div class="send-btn-div mb-5">
+                    <button id="send-payment" type="submit" class="shunco-button shunco-verde-btn"
+                         form="form-payment">Confirmar pedido</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- HTML para las alertas -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="alerta-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+                <div class="d-flex">
+                    <div class="toast-body" id="alerta-txt">
+                      Hello, world! This is a toast message.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal de Terminos y Condiciones -->
+        <div class="modal fade" id="modalTerminos" tabindex="-1" aria-labelledby="modalTerminosLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalTerminosLabel">Términos y Condiciones</h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Términos y Condiciones de Compra</h5>
+                    <p>
+                        Bienvenido a Shuncos. Antes de realizar tu compra, te pedimos que leas y comprendas nuestros términos y condiciones de compra. Estos términos rigen tus transacciones en nuestra tienda en línea, y al realizar una compra, aceptas estos términos en su totalidad.
+                    </p>
+                    <h5>1. Proceso de Compra:</h5>
+                    <p>
+                        - Debes ser mayor de 18 años o contar con la autorización de un adulto para comprar en nuestra tienda.
+                        <br>
+                        - Selecciona los productos que deseas comprar y agrégalos al carrito de compras.
+                        <br>
+                        - Revisa y confirma tu pedido antes de realizar el pago.
+                        <br>
+                        - Proporciona información precisa y actualizada para la entrega.
+                    </p>
+                    <h5>2. Pago:</h5>
+                    <p>
+                        - Aceptamos pago a través de tarjeta de crédito o débito, el cual se detalla durante el proceso de compra.
+                        <br>
+                        - Los precios de los productos y los costos de envío se indican en Pesos Mexicanos.
+                        <br>
+                        - Tu compra se considerará completa una vez que hayamos recibido el pago correspondiente.
+                    </p>
+                    <h5>3. Envío:</h5>
+                    <p>
+                        - Procesaremos tu pedido en 2 días hábiles (una vez acreditado el pago), y la entrega se realizará de 2 a 5 días hábiles.
+                        <br>
+                        - Los gastos de envío se detallarán durante el proceso de compra.
+                        <br>
+                        - No nos hacemos responsables de retrasos imprevistos o problemas de entrega fuera de nuestro control.
+                    </p>
+
+                    <h5>4. Devoluciones y Garantía:</h5>
+                    <p>
+                        - Consulta nuestra política de devoluciones para obtener información detallada sobre cómo proceder en caso de devoluciones o problemas con tu pedido.
+                        <br>
+                        - Los productos están respaldados por un período menor de 90 días contados a partir de la entrega contra defectos de fabricación.
+                    </p>
+                    
+                    <h5>5. Privacidad y Seguridad:</h5>
+                    <p>
+                        - Respetamos tu privacidad. Consulta nuestra Política de Privacidad para obtener información sobre cómo manejamos tus datos personales.
+                    </p>
+                    
+                    <h5>6. Contacto:</h5>
+                    <p>
+                       - Si tienes alguna pregunta o inquietud sobre tu compra, contáctanos a través de nuestras redes sociales o en la página de Contáctanos.
+                    </p>
+
+                    <p>
+                        Gracias por elegir Shuncos. Esperamos que disfrutes de tus compras con nosotros.
+                    </p>                    
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="shunco-button shunco-rosa-btn" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Fin Contenido -->
+    </main>
+
+    <div class="loader-section">
+        <h4 class="mb-3 monse-font" id="txt-loading">Cargando...</h4>
+        <span class="loader"></span>
+    </div>
+
+    <footer id="footer-container" class="p-3"></footer>
+
+    <!-- Load Nav Bar -->
+    <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
+    <!-- Load Footer -->
+    <script src="../javascripts/loadFooter.js" fuente="htmlFolder"></script>
+
+    <script src="../javascripts/carritoVentana.js"> </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!--JS-->
+    <script src="../javascripts/payment.js"></script>
+
+
+</body>
+
+</html>

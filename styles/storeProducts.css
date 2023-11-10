@@ -1,0 +1,192 @@
+@import url(../styles/mainContainerStyles.css);
+
+.hero {
+    background-image: url(../assets/img/background-3.webp);
+    height: 15rem;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+} 
+
+@media(min-width: 768px){
+    .hero {
+        height: 25rem ;
+    }
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+}
+
+.hero-title {
+    font-weight: bolder;
+}
+
+.shop {
+    margin-top: 2rem;
+    font-style: var(--monse-font);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.product-box {
+    padding: 20px;
+}
+
+
+.product-card {
+    width: 100%
+}
+
+.product-hover:hover {
+    padding: 1rem!important;
+    transition: 0.4s;  
+    cursor: pointer;  
+}
+
+.img-producto img {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.info-producto {
+    border-radius: 2px;
+    border-style: dashed;
+    border-width: 2px;
+    background-color: var(--blanco-shuncos);
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* .modal-header {
+    color: black;
+    background-size: cover;
+} */
+
+.titulo-modal {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border-radius: 1rem; */
+    /* padding: .5rem; */
+
+}
+
+.miniatura-img{
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.price {
+    font-weight: 500;
+}
+
+.add-carrito {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+.add-carrito:hover {
+    background-color: var(--amarillo-shuncos);
+    color: black;
+    transition: 0.5s;
+}
+
+#modal-comprar {
+
+    width: 100%;
+
+}
+
+ 
+
+#agregar-carrito {
+
+    width: 100%;
+
+}
+
+ 
+
+ 
+
+@media (min-width: 768px){
+
+    #agregar-carrito {
+
+        width: fit-content;
+
+    }
+
+}
+
+ 
+
+@media (min-width: 768px){
+
+    #modal-comprar {
+
+        width: fit-content;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+.modal-title {
+    text-transform: uppercase;
+    color: var(--blanco-shuncos);
+    font-weight: 700;
+}
+
+.modal-header {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-footer {
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+
+

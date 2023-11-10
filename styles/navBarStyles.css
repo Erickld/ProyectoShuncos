@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
+
+header {
+    height: 50.6px;
+}
+
+#nav-bar-container {
+    height: 100%;
+}
+
+#my-navbar {
+    background-color: black!important;
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    width: 100vw;
+    padding: 0px;
+    z-index: 100;
+}
+
+.nav-bar-title {
+    font-family: 'Skranji';
+    letter-spacing: 3px;
+    
+}
+
+.white-color {
+    color: var(--blanco-shuncos);
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.white-color:hover {
+    color: var(--amarillo-shuncos)!important;
+    transition: 0.5s;
+}
+
+.white-color:visited {
+    color: var(--blanco-shuncos);
+}
+
+.nav-flex {
+    display: flex;
+    letter-spacing: 2px;
+}
+
+.nav-flex > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#navbarSupportedContent {
+    flex-direction: row-reverse;
+    letter-spacing: 1px;
+}
+
+.btn-nav {
+    border-radius: 2px;
+    background-color: transparent;
+    color: var(--blanco-shuncos);
+    border: var(--blanco-shuncos) 1px solid;
+}
+
+.btn-nav:hover {
+    background-color: transparent;
+    color: var(--amarillo-shuncos);
+    border: var(--amarillo-shuncos) 1px solid;
+    transition: 0.5s;
+}
+
+.btn-nav:active {
+    background-color: var(--amarillo-shuncos)!important;
+    color: black;
+    border: black 1px solid;
+    transition: 0.5s;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("../assets/svg/burger-menu.svg");
+}
+
+.custom-toggler {
+    border: 0px!important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none!important;
+}
+
+.nav-icons {
+    color: var(--blanco-shuncos);
+    cursor: pointer;
+    display: none;
+}
+
+.button-nav-3 {
+    display: none!important;
+}
+
+/* (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    #navbarSupportedContent > ul {
+        align-items: center;
+    }
+    .button-nav {
+        display: none!important;
+    }
+    .nav-flex {
+        margin: 15px;
+    }
+    .nav-icons {
+        display: initial;
+    }
+    header {
+        height: 40px;
+    }
+    .button-nav-2 {
+        display: none!important;
+    }
+    .dropdown-toggle::after {
+        display: none!important;
+    }
+}
+
+
+@media (max-width: 323px) { 
+    .nav-icons {
+        display: none;
+    }
+    .button-nav {
+        display: initial!important;
+    }
+    .btn-nav {
+        letter-spacing: 2px;
+        border: 0px;
+    }
+    .btn-nav:hover {
+        border: 0px;
+    }
+    .button-nav-3 {
+        display: initial!important;
+    }
+}
+
+
+.subrayar a {
+    position: relative;
+}
+  
+.subrayar a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--rosa-shuncos);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+    bottom: 10px;
+}
+
+.subrayar a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.82, 0.94);
+}
+
+/* ESTILOS VENTANA CARRITO -----------------------> */
+.ventana-carrito {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    height: 100vh;
+    padding: 20px;
+    background: linear-gradient(239deg,  #fdfbfb 0%,#eaedee 100%); 
+    box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
+    overflow-x: hidden;
+    z-index: 110;
+    transition: 1s;
+}
+
+.ventana-carrito.mostrar {
+    right: 0;
+}
+
+.carrito-titulo {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Nunito', sans-serif; 
+    text-shadow: 0.5px 0.5px 0.5px rgba(65, 64, 64, 0.5);
+    font-weight: 600;
+    margin-top: 1.5rem;
+}
+
+#carrito-cerrar {
+    position: absolute;
+    top: 1rem;
+    right: 0.8rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+@media (max-width: 991.98px) { 
+    .ventana-carrito {
+        /* height: calc(100vh - 49.6px); */
+        height: 100vh;
+    }
+}
+
+@media (max-width: 767.98px) { 
+    .ventana-carrito {
+        /* height: calc(100vh - 40px); */
+        height: 100vh;
+    }
+}
+
+
+
+.carrito-box {
+    display: grid;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.carrito-img {
+    width: 100px;
+    height: 100px;
+    background-color: white; 
+    object-fit: contain;
+    padding: 10px;    
+}
+
+.detalles-box {
+    display: grid;
+    row-gap: 0.5rem;
+}
+
+.titulo-producto-carrito {
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif; 
+    text-transform: uppercase;
+}
+
+.precio-producto-carrito {
+    font-size: 0.9rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.cantidad-carrito {
+    border: 1px solid var(--text-color);
+    outline-color: var(--main-color);
+    width: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.minus-quantity, .plus-quantity {
+    cursor: pointer;
+}
+
+.bi-trash-fill {
+    font-size: 1rem;
+    color: #E4007C;
+    cursor: pointer;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline; /* alinea total-titulo y total-precio */
+    margin-top: 1rem;
+    border-top: 0.1rem solid black;
+}
+
+.subtotal-titulo {
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif; 
+    margin-top: 1rem;
+}
+
+.subtotal-precio {
+    margin-left: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.d-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+#pay-button, #seguir-comprando-button {
+    width: 16rem;
+    height: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+#seguir-comprando-button {
+    margin-top: 16rem;
+}
+
+#pay-button {
+    margin-top: 1.5rem;
+}
+
+
+.link-primary {
+    font-size: 0.9rem;
+    display: flex;
+    text-align: center;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-top: 1.5rem;
+    cursor: text;
+}
+
+
+@media (max-width: 576px) { 
+    .ventana-carrito {
+        width: 100vw;
+    }
+}
+
+
+.dropdown-menu {
+    background-color: black;
+    border: 1px solid white;
+}
+
+.dropdown-menu > li > a {
+    color: var(--blanco-shuncos);
+}
+
+.dropdown-menu > li > a:hover {
+    color: var(--amarillo-shuncos)!important;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.user-account-icon {
+    display: inline-flex!important;
+}
+
+.border-white {
+    border-color: var(--blanco-shuncos);
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tienda</title>
+        <link rel="icon" href="../assets/img/shuncos_logo_nav_bar.webp">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <!-- Estilos Nav Bar -->
+        <link rel="stylesheet" href="../styles/navBarStyles.css">
+        <!-- Estilos Main Container -->
+        <link rel="stylesheet" href="../styles/mainContainerStyles.css">
+        <!-- Estilos Footer -->
+        <link rel="stylesheet" href="../styles/footerStyles.css">
+
+        <link rel="stylesheet" href="../styles/storeProducts.css">
+    </head>
+
+    <body>
+        <header>
+            <nav id="nav-bar-container"></nav>
+        </header>
+
+        <div class="hero">
+            <div class="contenido-hero d-flex flex-column justify-content-center text-white text-center ">
+                <h2 class="hero-title display-3 text-center">Nuestros Productos</h2>
+            </div>
+        </div>
+
+        <main class="container-xl py-5 shop">
+
+            <div id="aparador" class="row">
+
+               
+
+            </div> <!--Contenedor Productos de la tienda-->
+
+        </main> <!--Contenedor principal-->
+
+        <div id="contenedor-modal">
+            <div id="modal-producto" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="text-center d-inline">Detalles del producto</h2>
+                            <button data-bs-dismiss="modal" type="button" class="btn btn-close"></button>
+                        </div> <!--Modal Header-->
+
+                        <div class="modal-body">
+                            <div class="img-producto">
+                                <img src="../assets/img/guayaberas/Presicampeche.webp" alt="imagen-produto" ">
+                            </div>
+                            <h3 class="nombre-producto">Guayabera</h3>
+                            <p class="descripcion">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur impedit amet nobis vel iusto similique esse commodi eaque omnis ex.</p>
+                            <form class="formularioProductoModal" action="">
+                                <legend>Talla</legend>
+                                <fieldset>
+                                    <label for="talla">Escoja una talla</label>
+                                    <div class="talla-radio d-flex justify-content-around">
+                                        <div>
+                                            <input type="radio" name="talla" value="adulto" id="talla-adulto">
+                                            <label for="pedido-talla-adulto">Adulto</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="talla" value="nino" id="talla-nino">
+                                            <label for="pedido-talla-nino">Niño</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="tallas">
+
+                                    </div>
+                                </fieldset>
+
+                                <legend>¿Cuántas compra?</legend>
+                                <fieldset class="mb-3">
+                                    <label for="cantidad-producto">Cantidad</label>
+                                    <input type="number" name="" id="cantidad-producto">
+                                </fieldset>
+
+                                <div class="d-block d-md-flex justify-content-md-end my-3">
+                                    <button id="agregar-carrito" class="btn btn-dark" data-bs-dismiss="modal" type="button">Agregar al carrito</button>
+                                </div>
+                                
+                            </form> <!--Formulario para el modal-->
+                        </div> <!--Modal-body-->
+                    </div> <!--Div contenido del modal-->
+                </div> <!--Modal Dialog-->
+            </div> <!--Modal para el producto-->
+        </div> <!--Seccion Ventana Modal-->
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 10;">
+            <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Exito</strong>
+                    <small>Producto agregado</small>
+                    <button type="button" data-bs-dismiss="toast" aria-label="cerrar notificacion" class="btn-close"></button>
+                </div>
+                <div class="toast-body">
+                    <p>Se ha agregado correctamente su elemento al carrito</p>
+                </div>
+            </div> <!--Creando elemento Toast-->
+        </div> <!--Div para posicionar el Toast-->
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="alerta-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+                <div class="d-flex">
+                    <div class="toast-body" id="alerta-txt">
+                      Hello, world! This is a toast message.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        
+
+        <footer id="footer-container" class="p-3"></footer>
+
+        <script src="../javascripts/storeProducts.js"></script>
+        <!-- Load Nav Bar -->
+        <script src="../javascripts/loadNavBar.js" fuente="htmlFolder"></script>
+        <!-- Load Footer -->
+        <script src="../javascripts/loadFooter.js" fuente="htmlFolder"></script>
+        <!-- Load Footer -->
+        <script src="../javascripts/carritoVentana.js" fuente="htmlFolder"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous">
+        </script>
+    </body>
+
+</html>

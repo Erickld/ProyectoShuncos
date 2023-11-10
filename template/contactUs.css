@@ -1,0 +1,100 @@
+@import url(mainContainerStyles.css);
+
+h1,h2,h3 {
+    font-family: var(--monse-font);
+}
+
+p {
+    font-family: var(--monse-font);
+}
+
+.container-contact {
+    background-color: white!important;
+}
+
+.tela {
+    border-radius: 15px;
+    padding: 1rem 0;
+}
+
+.tela-formulario {
+    border-radius: 0 15px 15px 0;
+}
+
+.bordado {
+    margin: 0 1rem;
+    border-radius: 15px;
+    border-style: dashed;
+    border-width: 3px;
+}
+
+.bordado-formulario {
+    border-color: white;
+}
+
+.tela-formulario,
+.bordado-formulario {
+    background-color: var(--rosa-shuncos);
+}
+
+.tela-redes,
+.bordado-redes {
+    background-color: var(--beige-shuncos);
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#submit-contact {
+    width: 100%;
+}
+
+@media (min-width: 768px){
+    #submit-contact {
+        width: max-content;
+    }
+}
+
+.img-soporte {
+    background-color: var(--rosa-shuncos);
+    border-radius: 15px 0 0 15px;
+}
+
+@media (min-width: 768px){
+    .img-soporte img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+#formulario-contacto {
+    color: white;
+}
+
+.contacto {
+    -webkit-box-shadow: 3px 4px 25px 0px rgba(107,107,107,0.75);
+    -moz-box-shadow: 3px 4px 25px 0px rgba(107,107,107,0.75);
+    box-shadow: 3px 4px 25px 0px rgba(107,107,107,0.75);
+
+    border-radius: 10px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.margin-1rem {
+    margin: 1rem
+}
+
+#i-insta, #i-whatsapp, #i-facebook {
+    height: 50px;
+    width: 50px;
+}
+
