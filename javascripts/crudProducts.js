@@ -18,17 +18,17 @@
 //     owner_name: "nombre de usuario",
 //     expiration_date: "02 / 24",
 //     pin: "789",
-//     user_id: 1,
+//     user_id: 2,
 //     lista_productos: [
 //         {
-//             id: 2,
-//             size: 50,
-//             quantity: 10
+//             id: 5,
+//             size: 16,
+//             quantity: 2
 //         },
 //         {
-//             id: 1,
-//             size: 80,
-//             quantity: 20
+//             id: 6,
+//             size: 36,
+//             quantity: 3
 //         }
 //     ]
 // }
@@ -51,32 +51,13 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
+// const currentUrl = window.location.href;
+// console.log(currentUrl);
 
 
 
 let arrProductos;
 obtenerProductsDB();
-
-// if (arrProductos) {
-//     arrProductos = JSON.parse(arrProductos);
-//     arrProductos.forEach(prod => {
-//         //crearFila(prod);
-//     });
-
-// } else {
-//     arrProductos = [];
-//     localStorage.setItem('productsList', JSON.stringify(arrProductos));
-// }
 
 //Variables globales
 let arrTallasNino = [];
@@ -279,18 +260,6 @@ formularioCreacion.onsubmit = async function(e) {
         return
     }
 
-    //Creamos un objeto para guardarlo en local storage
-    // let producto = {
-    //     modelo: modelo.value,
-    //     imagen_url: "",
-    //     tipo_manga: manga.value,
-    //     sexo: sexo.value,
-    //     talla_adulto: tallaAdulto.checked,
-    //     tallas: tallaAdulto.checked ? arrTallasAdulto: arrTallasNino,
-    //     color: color.value,
-    //     precio: parseFloat(precio.value)
-    // }
-
     let productoDB = {
         model: modelo.value,
         image_url: "",
@@ -308,12 +277,7 @@ formularioCreacion.onsubmit = async function(e) {
         //Se convierte el archivo de la imagen a una cadena de texto
         const imgData = await getBase64(img);
         //Se almacena la informacion de la imagen en producto
-        //producto.imagen_url = imgData;
         productoDB.image_url = imgData;
-        
-        //Se almacena producto en localStorage
-        //arrProductos.push(producto);
-        //localStorage.setItem('productsList', JSON.stringify(arrProductos));
         crearProductDB(productoDB);
 
     } catch (error) {
@@ -496,19 +460,6 @@ formularioEdicion.onsubmit = async function(e) {
         return
     }
 
-    //Editamos los valores del producto en cuestión
-    // arrProductos.forEach(prod => {
-    //     if (prod.product_id == currentProductId) {
-    //         prod.model = modeloEdit.value;
-    //         prod.sleeve_type = mangaEdit.value;
-    //         prod.genre = sexoEdit.value;
-    //         prod.is_adult_size = tallaAdultoEdit.checked;
-    //         prod.size_list = tallaAdultoEdit.checked ? arrTallasAdulto: arrTallasNino;
-    //         prod.color = colorEdit.value;
-    //         prod.price = parseFloat(precioEdit.value).toFixed(2);
-    //     }
-    // });
-
     let currentProd = arrProductos.find(prod => prod.product_id == currentProductId);
     
     const editJson = {
@@ -539,7 +490,6 @@ formularioEdicion.onsubmit = async function(e) {
         editJson.image_url = currentProd.image_url;
         editarProductDB(currentProductId, editJson);
     }
-
 }
 
 
