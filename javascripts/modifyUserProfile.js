@@ -16,7 +16,8 @@ if (currentUserx) {
     }
 
 } else {
-    window.location.href = "../login.html";
+    //window.location.href = "../login.html";
+    window.location.href = "https://erickld.github.io/ProyectoShuncos/login.html";
 }
 
 document.getElementById("prepare-edit").addEventListener("click", () => {
@@ -282,7 +283,8 @@ async function eliminarUserDB() {
     alerta("verde", "Su cuenta ha sido eliminada correctamente.");
 
     setTimeout(() => {
-        window.location.href = "../login.html";
+        //window.location.href = "../login.html";
+        window.location.href = "https://erickld.github.io/ProyectoShuncos/login.html";
     }, 2000);
 
 }
