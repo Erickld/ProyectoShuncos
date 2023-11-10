@@ -26,7 +26,7 @@
 }
 
 .shop {
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     font-style: var(--monse-font);
 }
 
@@ -82,12 +82,7 @@
     background-size: cover;
 } */
 
-.titulo-modal {
-    /* background-color: rgba(255, 255, 255, 0.8); */
-    /* border-radius: 1rem; */
-    /* padding: .5rem; */
 
-}
 
 .miniatura-img{
     border: 1px solid #dddddd;
@@ -123,17 +118,11 @@
 
 }
 
- 
-
 #agregar-carrito {
 
     width: 100%;
 
 }
-
- 
-
- 
 
 @media (min-width: 768px){
 
@@ -145,8 +134,6 @@
 
 }
 
- 
-
 @media (min-width: 768px){
 
     #modal-comprar {
@@ -156,13 +143,6 @@
     }
 
 }
-
-
-
-
-
-
-
 
 .modal-title {
     text-transform: uppercase;
@@ -186,6 +166,12 @@
 
 .no-underline {
     text-decoration: none;
+}
+
+#alerta-toast {
+    border: 2px solid var(--blanco-shuncos);
+    color: var(--blanco-shuncos);
+    font-size: medium;
 }
 
 
