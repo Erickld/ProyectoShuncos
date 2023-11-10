@@ -1,56 +1,53 @@
-let jsonx = {
-    status: 5,
-    has_coupon: false,
-    subtotal_price: 1200.00.toFixed(2),
-    shipment_price: 150.55.toFixed(2),
-    total_price: 100.88.toFixed(2),
-    country: "Mexico",
-    state: "Guerrero",
-    city: "CDMX",
-    colony: "colonia",
-    street: "street",
-    zip_code: "zip code",
-    phone: "phone",
-    card_number: "1111 1111 1111 1111",
-    owner_name: "nombre de usuario",
-    expiration_date: "02 / 24",
-    pin: "789",
-    user_id: 1,
-    lista_productos: [
-        {
-            id: 2,
-            size: 50,
-            cantidad: 10
-        },
-        {
-            id: 1,
-            size: 80,
-            cantidad: 20
-        }
-    ]
-}
+// let jsonx = {
+//     status: 5,
+//     has_coupon: true,
+//     coupon_percentage: 0.5,
+//     coupon_text: "holaMundo",
+//     discount_applied: 255,
+//     subtotal_price: 1200.00.toFixed(2),
+//     shipment_price: 150.55.toFixed(2),
+//     total_price: 100.88.toFixed(2),
+//     country: "Mexico",
+//     state: "Guerrero",
+//     city: "CDMX",
+//     colony: "colonia",
+//     street: "street",
+//     zip_code: "zip code",
+//     phone: "phone",
+//     card_number: "1111 1111 1111 1111",
+//     owner_name: "nombre de usuario",
+//     expiration_date: "02 / 24",
+//     pin: "789",
+//     user_id: 1,
+//     lista_productos: [
+//         {
+//             id: 2,
+//             size: 50,
+//             quantity: 10
+//         },
+//         {
+//             id: 1,
+//             size: 80,
+//             quantity: 20
+//         }
+//     ]
+// }
 
+// async function funcionCrearUser() {
+//     const rawResponse = await fetch("http://localhost:8080/shuncos/orders", {
+//       method: 'POST',
+//       headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(jsonx)
+//     });
+//     const content = await rawResponse.json();
+//     console.log(content);
 
-const peticion = async () => {
-    const rawResponse = await fetch("http://localhost:8080/shuncos/orders", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(jsonx)
-    });
-    const content = await rawResponse.json();
-    console.log(content);
-};
+// }
 
-peticion();
-
-
-
-
-
-
+// funcionCrearUser();
 
 
 
@@ -63,18 +60,23 @@ peticion();
 
 
 
-let arrProductos = localStorage.getItem('productsList');
 
-if (arrProductos) {
-    arrProductos = JSON.parse(arrProductos);
-    arrProductos.forEach(prod => {
-        crearFila(prod);
-    });
 
-} else {
-    arrProductos = [];
-    localStorage.setItem('productsList', JSON.stringify(arrProductos));
-}
+
+
+let arrProductos;
+obtenerProductDB();
+
+// if (arrProductos) {
+//     arrProductos = JSON.parse(arrProductos);
+//     arrProductos.forEach(prod => {
+//         //crearFila(prod);
+//     });
+
+// } else {
+//     arrProductos = [];
+//     localStorage.setItem('productsList', JSON.stringify(arrProductos));
+// }
 
 //Variables globales
 let arrTallasNino = [];
@@ -157,9 +159,9 @@ function getBase64(file) {
 }
 
 function setImagen (idProd) {
-    let product = arrProductos.find(prod => prod.id == idProd);
+    let product = arrProductos.find(prod => prod.product_id == idProd);
     const newImage = document.getElementById('imagen-de-producto');
-    newImage.src = product.imagen_url;
+    newImage.src = product.image_url;
 }
 
 function confirmDelete (idProd) {
@@ -171,23 +173,23 @@ function confirmDelete (idProd) {
 function crearFila(prod) {
     let tabla = document.getElementById('body-tabla');
     let newRow = document.createElement('tr');
-    newRow.id = prod.id;
+    newRow.id = prod.product_id;
 
     newRow.innerHTML = `
-        <td>${prod.id}</td>
+        <td>${prod.product_id}</td>
         <td class="text-center">
-            <img class="miniatura-img" data-bs-toggle="modal" data-bs-target="#modalImg" onclick="setImagen('${prod.id}')" src="${prod.imagen_url}" class="img-thumbnail" alt="modelo imagen">
+            <img class="miniatura-img" data-bs-toggle="modal" data-bs-target="#modalImg" onclick="setImagen('${prod.product_id}')" src="${prod.image_url}" class="img-thumbnail" alt="modelo imagen">
         </td>
-        <td>${prod.modelo}</td>
-        <td><b>${prod.talla_adulto ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${prod.tallas.join(", ")}</td>
-        <td><b>Sexo:</b> ${prod.sexo}<br><b>Tipo de manga:</b> ${prod.tipo_manga}<br><b>Color:</b> ${prod.color}</td>
-        <td>$ ${prod.precio} MXN</td>
+        <td>${prod.model}</td>
+        <td><b>${prod.is_adult_size ? 'Tallas de adulto:' : 'Tallas de niño:'}</b><br>${prod.size_list.join(", ")}</td>
+        <td><b>Sexo:</b> ${prod.genre}<br><b>Tipo de manga:</b> ${prod.sleeve_type}<br><b>Color:</b> ${prod.color}</td>
+        <td>$ ${prod.price} MXN</td>
         <td>
             <span data-bs-toggle="modal" data-bs-target="#modalEdit">
-                <i onclick="setInfoProduct('${prod.id}')" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Producto"></i>
+                <i onclick="setInfoProduct('${prod.product_id}')" class="bi bi-pencil-square icon-edit" data-bs-custom-class="custom-tooltip-2" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar Producto"></i>
             </span>
             <span data-bs-toggle="modal" data-bs-target="#modalDelete">
-                <i onclick="confirmDelete('${prod.id}')" class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Producto"></i>
+                <i onclick="confirmDelete('${prod.product_id}')" class="bi bi-trash3-fill icon-delete" data-bs-custom-class="custom-tooltip-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar Producto"></i>
             </span>
         </td>
     `
@@ -278,38 +280,47 @@ formularioCreacion.onsubmit = async function(e) {
     }
 
     //Creamos un objeto para guardarlo en local storage
-    let producto = {
-        id: "",
-        modelo: modelo.value,
-        imagen_url: "",
-        tipo_manga: manga.value,
-        sexo: sexo.value,
-        talla_adulto: tallaAdulto.checked,
-        tallas: tallaAdulto.checked ? arrTallasAdulto: arrTallasNino,
+    // let producto = {
+    //     modelo: modelo.value,
+    //     imagen_url: "",
+    //     tipo_manga: manga.value,
+    //     sexo: sexo.value,
+    //     talla_adulto: tallaAdulto.checked,
+    //     tallas: tallaAdulto.checked ? arrTallasAdulto: arrTallasNino,
+    //     color: color.value,
+    //     precio: parseFloat(precio.value)
+    // }
+
+    let productoDB = {
+        model: modelo.value,
+        image_url: "",
+        sleeve_type: manga.value,
+        genre: sexo.value,
+        is_adult_size: tallaAdulto.checked,
+        size_list: tallaAdulto.checked ? arrTallasAdulto: arrTallasNino,
         color: color.value,
-        precio: parseFloat(precio.value)
+        price: parseFloat(precio.value).toFixed(2)
     }
 
-    //Se asigna un id random al producto
-    const ID = (Math.random() + 1).toString(36).substring(5);
-    producto.id = ID;
-
+    productoDB.size_list = JSON.stringify(productoDB.size_list);
+    
     try {
         //Se convierte el archivo de la imagen a una cadena de texto
         const imgData = await getBase64(img);
         //Se almacena la informacion de la imagen en producto
-        producto.imagen_url = imgData;
+        //producto.imagen_url = imgData;
+        productoDB.image_url = imgData;
+        
         //Se almacena producto en localStorage
-        arrProductos.push(producto);
-        localStorage.setItem('productsList', JSON.stringify(arrProductos));
+        //arrProductos.push(producto);
+        //localStorage.setItem('productsList', JSON.stringify(arrProductos));
+        crearProductDB(productoDB);
+
     } catch (error) {
         return console.log(error)
     }
     
-    //crear nuevo row en tabla
-    crearFila(producto)
-    cerrarModal('modalCreate');
-    alerta("verde", "Producto agregado correctamente");
+
 }
 
 //Eliminación de producto
@@ -559,3 +570,41 @@ function alerta(color, texto) {
     toastBootstrap.show();
     
 }
+
+
+
+async function crearProductDB(jsonx) {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/products", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonx)
+    });
+    const prod = await rawResponse.json();
+    
+    prod.size_list = JSON.parse(prod.size_list);
+
+    crearFila(prod)
+    cerrarModal('modalCreate');
+    alerta("verde", "Producto agregado correctamente");
+}
+
+
+async function obtenerProductDB() {
+    const rawResponse = await fetch("http://localhost:8080/shuncos/products/", {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    arrProductos = await rawResponse.json();
+    arrProductos.forEach(prod => {
+        prod.size_list = JSON.parse(prod.size_list);
+        crearFila(prod);
+    });
+}
+
+
